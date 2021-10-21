@@ -1,0 +1,254 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.8f1 (507919d4fff5) revision 5273881'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19043.1110; Version 2009; 64bit' Language: 'ja' Physical Memory: 65405 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/kodam/Downloads/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/PuppeTuber_WebGL
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+59657
+Successfully changed project path to: C:/Users/kodam/Downloads/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/PuppeTuber_WebGL
+C:/Users/kodam/Downloads/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/PuppeTuber_WebGL
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 19.63 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.8f1 (507919d4fff5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/kodam/Downloads/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/Unity-MediaPipeJs-SendMessage-WebGL-Sample-main/PuppeTuber_WebGL/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Laptop GPU (ID=0x249c)
+    Vendor:   
+    VRAM:     8041 MB
+    Driver:   27.21.14.6275
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56048
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001893 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 20.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.400 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000540 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.644 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1115 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.6 MB.
+System memory in use after: 57.7 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1557.
+Total: 1.332000 ms (FindLiveObjects: 0.111500 ms CreateObjectMapping: 0.029800 ms MarkObjects: 1.118700 ms  DeleteObjects: 0.071100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.006636 seconds
+  Import took 0.008100 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000553 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.604 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1117 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.7 MB.
+System memory in use after: 57.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1565.
+Total: 1.277300 ms (FindLiveObjects: 0.113700 ms CreateObjectMapping: 0.030300 ms MarkObjects: 1.089100 ms  DeleteObjects: 0.043400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 160.083041 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(9497d4d60d3687f4eb845e0566cda56e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(9497d4d60d3687f4eb845e0566cda56e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9de33e6037a4792301b2a3f056ed295') in 0.007164 seconds
+  Import took 0.008682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003416 seconds.
+  path: Assets/Scenes
+  artifactKey: Guid(9497d4d60d3687f4eb845e0566cda56e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(9497d4d60d3687f4eb845e0566cda56e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9de33e6037a4792301b2a3f056ed295') in 0.003633 seconds
+  Import took 0.005932 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.861019 seconds.
+  path: Assets/Scenes/Mediapipe.unity
+  artifactKey: Guid(4356aecc30885b04eb7a5961a7722dea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Mediapipe.unity using Guid(4356aecc30885b04eb7a5961a7722dea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbf367a47dc2877392b73a81402d0af0') in 0.013229 seconds
+  Import took 0.014885 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000480 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.638 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1117 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.7 MB.
+System memory in use after: 57.8 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1568.
+Total: 1.325400 ms (FindLiveObjects: 0.113800 ms CreateObjectMapping: 0.030000 ms MarkObjects: 1.102200 ms  DeleteObjects: 0.078700 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 35.2 MB.
+System memory in use after: 35.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1568.
+Total: 1.376300 ms (FindLiveObjects: 0.108900 ms CreateObjectMapping: 0.029500 ms MarkObjects: 1.198700 ms  DeleteObjects: 0.038700 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.02 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 35.2 MB.
+System memory in use after: 35.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1568.
+Total: 1.278600 ms (FindLiveObjects: 0.110000 ms CreateObjectMapping: 0.031400 ms MarkObjects: 1.103400 ms  DeleteObjects: 0.033300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.511730 seconds.
+  path: Assets/WebGLTemplates/NewTemplate
+  artifactKey: Guid(f0dfa67869f10a044a0c432349b8b0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/NewTemplate using Guid(f0dfa67869f10a044a0c432349b8b0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab8939ef20ee27cfad9c7e78b58923f4') in 0.007838 seconds
+  Import took 0.009503 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001990 seconds.
+  path: Assets/WebGLTemplates/NewTemplate
+  artifactKey: Guid(f0dfa67869f10a044a0c432349b8b0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/NewTemplate using Guid(f0dfa67869f10a044a0c432349b8b0bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab8939ef20ee27cfad9c7e78b58923f4') in 0.003185 seconds
+  Import took 0.005066 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.800991 seconds.
+  path: Assets/WebGLTemplates/Mediapipe
+  artifactKey: Guid(878c6b8eb0508ed4e8aea46919d862d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/Mediapipe using Guid(878c6b8eb0508ed4e8aea46919d862d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e9e1a4c48c6722931c1e6593e8139ee') in 0.005711 seconds
+  Import took 0.007522 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.14 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 35.2 MB.
+System memory in use after: 35.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1568.
+Total: 2.520600 ms (FindLiveObjects: 0.135900 ms CreateObjectMapping: 0.041200 ms MarkObjects: 2.247000 ms  DeleteObjects: 0.094600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 239.421593 seconds.
+  path: Assets/WebGLTemplates/Mediapipe/js
+  artifactKey: Guid(3935221c89c859f44bfa133152fbd845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/Mediapipe/js using Guid(3935221c89c859f44bfa133152fbd845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf758783c16585c25b01c5fdbe9adafa') in 0.005657 seconds
+  Import took 0.007472 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001413 seconds.
+  path: Assets/WebGLTemplates/Mediapipe/js
+  artifactKey: Guid(3935221c89c859f44bfa133152fbd845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/Mediapipe/js using Guid(3935221c89c859f44bfa133152fbd845) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf758783c16585c25b01c5fdbe9adafa') in 0.001755 seconds
+  Import took 0.003475 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.731969 seconds.
+  path: Assets/WebGLTemplates/Mediapipe/js/hands.js
+  artifactKey: Guid(eeef42ca18cb64145963e87c1591b49d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/Mediapipe/js/hands.js using Guid(eeef42ca18cb64145963e87c1591b49d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a05803034bb402fc3c872217dbb439e8') in 0.029993 seconds
+  Import took 0.031559 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.154970 seconds.
+  path: Assets/WebGLTemplates/Mediapipe/index.html
+  artifactKey: Guid(1fb7707e6bad0ea4a90c868ad5b55075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/Mediapipe/index.html using Guid(1fb7707e6bad0ea4a90c868ad5b55075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '798ff2c9f5b5515279619bccb362d481') in 0.009090 seconds
+  Import took 0.010939 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002204 seconds.
+  path: Assets/WebGLTemplates/Mediapipe/index.html
+  artifactKey: Guid(1fb7707e6bad0ea4a90c868ad5b55075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/WebGLTemplates/Mediapipe/index.html using Guid(1fb7707e6bad0ea4a90c868ad5b55075) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '798ff2c9f5b5515279619bccb362d481') in 0.002351 seconds
+  Import took 0.003881 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.05 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 35.2 MB.
+System memory in use after: 35.3 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1568.
+Total: 3.038600 ms (FindLiveObjects: 0.118700 ms CreateObjectMapping: 0.031700 ms MarkObjects: 2.772200 ms  DeleteObjects: 0.113700 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
