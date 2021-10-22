@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
 using System.Globalization;
+using UnityEngine.Networking;
 
 public class HandReader : MonoBehaviour
 {
@@ -17,7 +18,21 @@ public class HandReader : MonoBehaviour
     {
         Handspath = Application.persistentDataPath + "/" + _filename + ".txt";
     }
+    private IEnumerator Start()
+    {
+        UnityWebRequest www = UnityWebRequest.Get("http://localhost/Resources/test.json");
+        yield return www.SendWebRequest();
 
+        if(www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+            yield break;
+        }
+        string dataPath = Application.persistentDataPath + "/test.json";
+        File.WriteAllBytes(dataPath, www.downloadHandler.data);
+        string fileData = File.ReadAllText(dataPath);
+        Debug.Log(fileData);
+    }
     public string HandLoading(string _handspath)
     {
         string content = "";

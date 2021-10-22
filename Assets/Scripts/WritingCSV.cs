@@ -26,7 +26,15 @@ public class WritingCSV : MonoBehaviour
                 {
                     csvWriter.ClearCSV();
                 }
-                
+                if(key == (char)KeyCode.Space)
+                {
+                    PlayerPrefs.SetString("Time", System.DateTime.Now.ToString());
+                    PlayerPrefs.Save();
+                }
+                if(key == (char)KeyCode.Return)
+                {
+                    Debug.Log(PlayerPrefs.GetString("Time", null));
+                }
             }
         }
     }
