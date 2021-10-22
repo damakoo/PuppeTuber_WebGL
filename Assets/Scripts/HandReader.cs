@@ -33,7 +33,7 @@ public class HandReader : MonoBehaviour
                 content += line;
             }
         }
-        return content;
+        return Handspath.ToString() + "n" + content;
     }
     private void Update()
     {
