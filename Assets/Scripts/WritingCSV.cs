@@ -33,6 +33,7 @@ public class WritingCSV : MonoBehaviour
                 }
                 if(key == (char)KeyCode.Return)
                 {
+                    Debug.Log("output");
                     Debug.Log(PlayerPrefs.GetString("Time", null));
                 }
             }
