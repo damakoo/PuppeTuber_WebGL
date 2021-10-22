@@ -30,7 +30,7 @@ public class HandReader : MonoBehaviour
                 {
                     break;
                 }
-                content += line + "\n";
+                content += line;
             }
         }
         return content;

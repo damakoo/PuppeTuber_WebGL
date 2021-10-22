@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Mediapipe.unity
     guid: 4356aecc30885b04eb7a5961a7722dea
   - enabled: 0
-    path: Assets/Scenes/sample scene.unity
+    path: Assets/Scenes/samplescene.unity
     guid: 5a156bdc932edfd4db34db187a6a3c2f
   m_configObjects: {}
