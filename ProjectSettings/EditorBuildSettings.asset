@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mediapipe.unity
     guid: 4356aecc30885b04eb7a5961a7722dea
   - enabled: 0
     path: Assets/Scenes/samplescene.unity
     guid: 5a156bdc932edfd4db34db187a6a3c2f
+  - enabled: 1
+    path: Assets/Scenes/SVM.unity
+    guid: 16c7d30f353f5f9429b720f0e20628de
   m_configObjects: {}
