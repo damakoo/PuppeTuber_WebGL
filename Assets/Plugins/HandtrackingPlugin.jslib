@@ -1,8 +1,9 @@
 mergeInto(LibraryManager.library, {
-    HandTracking: function(){
+  HandTracking: function(){
     showresult();
-    },
- GetLocalStorage: function(key) {
+  },
+
+  GetLocalStorage: function(key) {
     var item_string = localStorage.getItem(Pointer_stringify(key));
  
     if (!item_string) {
@@ -18,9 +19,21 @@ mergeInto(LibraryManager.library, {
   SetLocalStorage: function(key, user_id) {
     localStorage.setItem(Pointer_stringify(key), Pointer_stringify(user_id));
   },
-  SaveData:function(fileName, Data){
-    fileName = Pointer_stringify(fileName);
-    Data = Pointer_stringify(Data);
-    Savedata(fileName,Data);
+
+  train: function(){
+    train();
+  },
+
+  setmodel: function(){
+     setmodel();
+  },
+  
+
+  getmodel: function(){
+    getmodel();
+  },
+    predict: function(){
+    predict();
   }
+
 });
