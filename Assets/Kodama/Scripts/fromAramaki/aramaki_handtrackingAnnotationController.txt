@@ -1,0 +1,67 @@
+
+    //if (handLandmarkLists.Count > 0)
+    //{
+      //NormalizedLandmarkList lm = handLandmarkLists[0];
+      //Vector3 middle = landmarkToVec3(lm.Landmark[9]);
+      //targetController.GetComponent<TargetController>().UpdatePosition(middle);
+      //   Vector3 thumb = landmarkToVec3(lm.Landmark[2]) - landmarkToVec3(lm.Landmark[1]);
+      //   Vector3 thumb2 = landmarkToVec3(lm.Landmark[3]) - landmarkToVec3(lm.Landmark[2]);
+      //   Vector3 middle;
+      //   if (Input.GetKey(KeyCode.Space)) middle = landmarkToVec3(lm.Landmark[10]) - landmarkToVec3(lm.Landmark[9]);
+      //   else middle = landmarkToVec3(lm.Landmark[11]) - landmarkToVec3(lm.Landmark[10]);
+      //   Vector3 middle2;
+      //   if (Input.GetKey(KeyCode.Space)) middle2 = landmarkToVec3(lm.Landmark[12]) - landmarkToVec3(lm.Landmark[10]);
+      //   else middle2 = landmarkToVec3(lm.Landmark[12]) - landmarkToVec3(lm.Landmark[11]);
+      //   Vector3 point = landmarkToVec3(lm.Landmark[7]) - landmarkToVec3(lm.Landmark[6]);
+      //   Vector3 point2 = landmarkToVec3(lm.Landmark[8]) - landmarkToVec3(lm.Landmark[7]);
+      //   // Vector3 pinky = landmarkToVec3(lm.Landmark[18]) - landmarkToVec3(lm.Landmark[17]);
+      //   // Vector3 pinky2 = landmarkToVec3(lm.Landmark[20]) - landmarkToVec3(lm.Landmark[18]);
+      //   currentRotation[0] = Vector3.SmoothDamp(currentRotation[0], thumb, ref eulerVelocity[0], EaseTime); // 親指
+      //   currentRotation[2] = Vector3.SmoothDamp(currentRotation[2], thumb2, ref eulerVelocity[2], EaseTime); // 親指関節
+      //   currentRotation[1] = Vector3.SmoothDamp(currentRotation[1], middle, ref eulerVelocity[1], EaseTime); // 中指
+      //   currentRotation[4] = Vector3.SmoothDamp(currentRotation[4], middle2, ref eulerVelocity[4], EaseTime); // 中指関節
+      //   currentRotation[3] = Vector3.SmoothDamp(currentRotation[3], point, ref eulerVelocity[3], EaseTime); // 人差し指
+      //   currentRotation[5] = Vector3.SmoothDamp(currentRotation[5], point2, ref eulerVelocity[5], EaseTime); // 人差し指関節
+
+      //   Quaternion adj = Quaternion.AngleAxis(-Vector3.Angle(currentRotation[3], currentRotation[5]) * 3.5f, Vector3.right);
+
+      //   Quaternion hoge = Quaternion.LookRotation(currentRotation[0]);
+      //   hoge.x *= -1; hoge.z *= -1;
+      //   hoge = adj * Quaternion.AngleAxis(180, Vector3.right) * hoge;
+      //   from_bones[0].rotation = hoge * rqs[0];
+
+      //   Quaternion hoge2 = Quaternion.LookRotation(currentRotation[1]);
+      //   hoge2.x *= -1; hoge2.z *= -1;
+      //   hoge2 = adj * Quaternion.AngleAxis(180, Vector3.right) * hoge2;
+      //   from_bones[1].rotation = hoge2 * rqs[1];
+
+      //   // Vector3 fuga = new Vector3(0, -1, 0);
+      //   // if (point.x > 0) hoge3 = Quaternion.AngleAxis(Vector3.Angle(currentRotation[3], fuga) / 5, Vector3.forward);
+      //   // else hoge3 = Quaternion.AngleAxis(-Vector3.Angle(currentRotation[3], fuga) / 5, Vector3.forward);
+      //   Quaternion hoge3 = Quaternion.AngleAxis(currentRotation[3].x * 100 * 2, Vector3.forward);
+      //   from_bones[2].rotation = hoge3 * rqs[2];
+
+      //   Quaternion hoge1_2 = Quaternion.LookRotation(-currentRotation[0]);
+      //   hoge1_2.x *= -1; hoge1_2.z *= -1;
+      //   hoge1_2 = adj * Quaternion.AngleAxis(180, Vector3.right) * hoge1_2;
+      //   Quaternion piyo = Quaternion.AngleAxis(Mathf.Max(Vector3.Angle(currentRotation[0], currentRotation[2])*5-15, 0), Vector3.right);
+      //   if (Input.GetKey(KeyCode.C)) from_bones[3].rotation = hoge1_2 * rqs[3];
+      //   else from_bones[3].rotation = hoge1_2 * piyo * rqs[3];
+
+      //   Quaternion hoge2_2 = Quaternion.LookRotation(-currentRotation[1]);
+      //   hoge2_2.x *= -1; hoge2_2.z *= -1;
+      //   hoge2_2 = adj * Quaternion.AngleAxis(180, Vector3.right) * hoge2_2;
+      //   Quaternion piyo2 = Quaternion.AngleAxis(Mathf.Max(Vector3.Angle(currentRotation[1], currentRotation[4]), 0), Vector3.right);
+      //   from_bones[4].rotation = hoge2_2 * piyo2 * rqs[4];
+
+      //   if (Input.GetKey(KeyCode.S)) anim.CrossFade(animations[0].name, 0);
+    //}
+
+      // void SetParameter(CubismParameter parameter, float value)
+  // {
+  //   if (parameter != null)
+  //   {
+  //     parameter.Value = Mathf.Clamp(value, parameter.MinimumValue, parameter.MaximumValue);
+  //     // Debug.Log(Mathf.Clamp(value, parameter.MinimumValue, parameter.MaximumValue));
+  //   }
+  // }

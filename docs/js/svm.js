@@ -47,3 +47,21 @@ function predict() {
     }
     localStorage.setItem("predictLabel", predictedLabel);
 }
+function predict_before() {
+    var animation = {0:0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
+    var input_json = localStorage.getItem("Input");
+    var input = JSON.parse(input_json);
+    input.forEach(element => {
+        var result = svm_before.predictOne(element);
+        animation[String(result)] += 1;
+    });
+    var maxcount = 0;
+    var predictedLabel;
+    for (var key in animation) {
+        if (maxcount < animation[key]) {
+            predictedLabel = key;
+            maxcount = animation[key];
+        }
+    }
+    localStorage.setItem("predictLabel_before", predictedLabel);
+}
