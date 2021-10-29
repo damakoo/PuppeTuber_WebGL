@@ -17,6 +17,7 @@ public class JointAngle
         this.fingerj = _fingerj;
         this.fingerk = _fingerk;
     }
+
     private Vector3 fingeripos =>  handTrackingValue.landmarks[fingeri];
     private Vector3 fingerjpos => handTrackingValue.landmarks[fingerj];
     private Vector3 fingerkpos => handTrackingValue.landmarks[fingerk];
