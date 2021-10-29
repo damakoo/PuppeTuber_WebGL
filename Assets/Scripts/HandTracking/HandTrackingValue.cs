@@ -13,7 +13,6 @@ public class HandTrackingValue : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void SetLocalStorage(string key, string value);
     public Vector3[] landmarks { get; set; } = new Vector3[21];
-    //public Vector3[] landmarks = new Vector3[21];
 
     void Update()
     {

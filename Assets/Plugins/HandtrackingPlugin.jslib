@@ -28,12 +28,13 @@ mergeInto(LibraryManager.library, {
      setmodel();
   },
   
-
   getmodel: function(){
     getmodel();
   },
     predict: function(){
     predict();
+  },
+  predict_before: function(){
+    predict_before();
   }
-
 });
