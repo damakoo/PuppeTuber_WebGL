@@ -17,9 +17,9 @@ public class svm : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void SetLocalStorage(string key,string json);
 
-    List<float[]> features = new List<float[]>{ new float[] { 0, 0 }, new float[] { 0.1f, 0.21f }, new float[] { 1.3f, 1.4f }, new float[] { 1.2f, 1.6f }, new float[] { 2.4f, 2.2f } };
+    List<List<float>> features = new List<List<float>>{ new List<float> { 0, 0 }, new List<float> { 0.1f, 0.21f }, new List<float> { 1.3f, 1.4f }, new List<float> { 1.2f, 1.6f }, new List<float> { 2.4f, 2.2f } };
     int[] labels = new int[] { 0, 0, 1, 1 ,2};
-    List<float[]> input = new List<float[]> { new float[] { 0.7f, 0.8f }, new float[] { 0.8f, 1.3f }, new float[] { 2.1f, 0 }};
+    List<List<float>> input = new List<List<float>> { new List<float> { 0.7f, 0.8f }, new List<float> { 0.8f, 1.3f }, new List<float> { 2.1f, 0 }};
     string features_json;
     string labels_json;
     string input_json;

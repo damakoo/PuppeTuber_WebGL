@@ -19,6 +19,7 @@ public class PopupManager : MonoBehaviour
     }
 
     public void OnClick() {
+        Debug.Log("pressed");
         sceneManager.ClosePopup();
     }
 }

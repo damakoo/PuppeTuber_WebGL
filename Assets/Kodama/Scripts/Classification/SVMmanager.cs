@@ -25,9 +25,9 @@ public class SVMmanager : MonoBehaviour
         reproducthand.SetActive(false);
         writeJointAngle.enabled = false;
         _targetController_Aramaki.enabled = false;
-        _handsrecorder.enabled = false;
         _vrIK.enabled = false;
         userStudyAnimator.EnableUI();
+        userStudyAnimator_before.enabled = false;
         _currentstep = Step.InputInstruction;
         _stepText.text = "Wait for Input";
     }
@@ -145,13 +145,13 @@ public class SVMmanager : MonoBehaviour
     }
     private void StartOutput()
     {
-        _handsrecorder.enabled = true;
         _stepText.text = "Output Now";
         Debug.Log("Output Start");
         SwitchStep(Step.Output);
     }
     public void StartReproducInstruction()
     {
+        userStudyAnimator_before.enabled = true;
         userStudyAnimator_before.EnableUI();
         unitychan_before.SetActive(true);
         _stepText.text = "Wait for Reproduction";

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class JointAngleTable
 {
-  public static List<int[]> JointAngleConstantTable = new List<int[]>()
+    public static List<int[]> JointAngleConstantTable = new List<int[]>()
     {
         new int[3]{0,1,2 },
 new int[3]{1,2,3 },

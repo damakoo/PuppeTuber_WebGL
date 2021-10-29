@@ -17,10 +17,15 @@ public class WriteJointAngle : MonoBehaviour
     [SerializeField] UserStudyAnimator _UserStudyAnimator;
     [SerializeField] AddJointAngle _addJointAngle;
     List<JointAngle> JointAngleList => _addJointAngle.JointAngleList;
-    private List<List<List<float>>> TrainingList = new List<List<List<float>>>(Enum.GetNames(typeof(handState)).Length);
+    private List<List<List<float>>> TrainingList = new List<List<List<float>>>();
     private List<List<float>> TrainingSet = new List<List<float>>();
     private List<int> LabelList = new List<int>();
+    List<List<float>> features = new List<List<float>> { new List<float> { 0, 0 }, new List<float> { 0.1f, 0.21f }, new List<float> { 1.3f, 1.4f }, new List<float> { 1.2f, 1.6f }, new List<float> { 2.4f, 2.2f } };
 
+    private void Start()
+    {
+        for (int i = 0; i < Enum.GetNames(typeof(handState)).Length; i++) TrainingList.Add(features);
+    }
     public void AddTraingdata(int animation)
     {
         TrainingList[animation].Add(makenodes());

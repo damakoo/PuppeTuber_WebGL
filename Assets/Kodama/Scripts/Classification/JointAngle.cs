@@ -17,9 +17,9 @@ public class JointAngle
         this.fingerj = _fingerj;
         this.fingerk = _fingerk;
     }
-    private Vector3 fingeripos =>  new Vector3(this.handTrackingValue.landmarks[fingeri].x, this.handTrackingValue.landmarks[fingeri].y, this.handTrackingValue.landmarks[fingeri].z);
-    private Vector3 fingerjpos => new Vector3(this.handTrackingValue.landmarks[fingerj].x, this.handTrackingValue.landmarks[fingerj].y, this.handTrackingValue.landmarks[fingerj].z);
-    private Vector3 fingerkpos => new Vector3(this.handTrackingValue.landmarks[fingerk].x, this.handTrackingValue.landmarks[fingerk].y, this.handTrackingValue.landmarks[fingerk].z);
+    private Vector3 fingeripos =>  handTrackingValue.landmarks[fingeri];
+    private Vector3 fingerjpos => handTrackingValue.landmarks[fingerj];
+    private Vector3 fingerkpos => handTrackingValue.landmarks[fingerk];
 
     public float angle()
     {

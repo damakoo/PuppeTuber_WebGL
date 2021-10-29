@@ -325,12 +325,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083620610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b1a1187403acf5489c07c03cf603c50, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a561fb0628dae7498848b983477c1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _filename: StreamingAssets/Classification/Traindata.txt
-  _testname: StreamingAssets/Classification/Traindata.txt
-  _modelname: StreamingAssets/Classification/model.txt
 --- !u!4 &2083620612
 Transform:
   m_ObjectHideFlags: 0
