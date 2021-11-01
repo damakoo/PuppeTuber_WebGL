@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using NCMB;
+using System.Collections;
 
 public class WriteJointAngle : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class WriteJointAngle : MonoBehaviour
     private List<List<List<float>>> TrainingList = new List<List<List<float>>>();
     private List<List<float>> TrainingSet = new List<List<float>>();
     private List<int> LabelList = new List<int>();
+    [SerializeField] SVMmanager SVMmanager;
     
     private void Start()
     {
@@ -48,7 +50,6 @@ public class WriteJointAngle : MonoBehaviour
         LabelList = new List<int>();
         for (int i = 0; i < TrainingList.Count; i++)
         {
-            Debug.Log("traininglist["+ i.ToString() +"]:"+ TrainingList[i].Count.ToString());
             for (int j = 0; j < TrainingList[i].Count; j++)
             {
                 if(TrainingList[i][j].Count == 18)
@@ -58,18 +59,27 @@ public class WriteJointAngle : MonoBehaviour
                 }
             }
         }
-        Debug.Log("label start");
-        SetLocalStorage("traindata_label", JsonHelper.ToJson(LabelList));
-        Debug.Log("traindata start");
-        SetLocalStorage("traindata_feature",TrainingSetToJson());
-        Debug.Log("train start");
+        IEnumerator calculate = _calculate();
+        StartCoroutine(calculate);       
+    }
+    IEnumerator _calculate()
+    {
+        var LabelList_json = JsonHelper.ToJson(LabelList);
+        SetLocalStorage("traindata_label", LabelList_json);
+        NCMBfunction.OverWrite("traindata_label.txt", LabelList_json);
+        var trainingset_json = TrainingSetToJson();
+        SetLocalStorage("traindata_feature", trainingset_json);
+        NCMBfunction.OverWrite("traindata_feature.txt", trainingset_json);
+        yield return null;
         train();
+        yield return null;
+        SVMmanager.SetCalculatedUI();
+        SVMmanager.StartWaitingforOutput();
     }
     public void Savemodel()
     {
         setmodel();
         NCMBfunction.OverWrite("model.txt",GetLocalStorage("model"));
-        
     }
     private string TrainingSetToJson()
     {

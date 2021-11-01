@@ -1389,19 +1389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelname: model.txt
---- !u!114 &355757411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355757409}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b4bf7a4532bdc249ae9f0fbc4026a63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modelloader: {fileID: 355757410}
 --- !u!1 &368862507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5656,6 +5643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UserStudyAnimator: {fileID: 410721813}
   _addJointAngle: {fileID: 1973620779}
+  SVMmanager: {fileID: 335258380}
 --- !u!4 &2026115262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400074, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}

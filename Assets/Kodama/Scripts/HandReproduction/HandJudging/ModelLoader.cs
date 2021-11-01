@@ -1,91 +1,70 @@
 using UnityEngine;
 using NCMB;
 using System.Collections;
+using System.Runtime.InteropServices;
 
 
 public class ModelLoader : MonoBehaviour
 {
+    [DllImport("__Internal")]
+    private static extern void getmodel();
+    [DllImport("__Internal")]
+    private static extern void SetLocalStorage(string key, string json);
+    [DllImport("__Internal")]
+    private static extern string GetLocalStorage(string key);
     [SerializeField] string modelname = "model.txt";
-    public string model;
-    public bool isLoaded = false;
 
     private void Start()
     {
-        //IEnumerator loadmodel = Loadmodel();
-        //StartCoroutine(loadmodel);
-        Reading(ref model,ref isLoaded);
-        Debug.Log("load model : " + model);
+        IEnumerator modelload = ModelLoad();
+        StartCoroutine(modelload);
+    }
+    IEnumerator ModelLoad()
+    {
+        LabelLoad();
+        Featureload();
+        while(GetLocalStorage("traindata_label") == null || GetLocalStorage("traindata_feature") == null)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        getmodel();
+    }
 
-    }
-    private void Update()
+    private void LabelLoad()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("load model : " + model);
-            Debug.Log("isLoaded : " + isLoaded.ToString());
-        }
-    }
-    IEnumerator Loadmodel()
-    {
-        yield return new WaitForSeconds(3);
-        //NCMBfunction.Read(modelname, out model);
-        while (model == null)
-        {
-            isLoaded = false;
-            Read();
-            while (!isLoaded)
-            {
-                yield return new WaitForSeconds(0.2f);
-            }
-        }
-        Debug.Log(model);
-    }
-    public void Read()
-    {
-        NCMBFile file = new NCMBFile("model.txt");
+        NCMBFile file = new NCMBFile("traindata_label.txt");
         file.FetchAsync((byte[] fileData, NCMBException error) =>
         {
             if (error != null)
             {
                 // é∏îs
-                //Read();
-                isLoaded = false;
+                LabelLoad();
             }
             else
-            { 
+            {
                 // ê¨å˜
-                //model = System.Text.Encoding.UTF8.GetString(fileData);
-                UnityEngine.Debug.Log("Read Success");
-                isLoaded = true;
+                SetLocalStorage("traindata_label", System.Text.Encoding.UTF8.GetString(fileData));
+                Debug.Log("label loaded");
             }
         });
-        UnityEngine.Debug.Log(model.ToString());
     }
-    private void Reading(ref string model,ref bool isLoaded)
+    private void Featureload()
     {
-        string _model = "";
-        var _isLoaded = false;
-        NCMBFile file = new NCMBFile("HandRecord.txt");
-        while (file.FileData == null)
-        {
-            file.FetchAsync((byte[] fileData, NCMBException error) =>
+        NCMBFile file = new NCMBFile("traindata_feature.txt");
+        file.FetchAsync((byte[] fileData, NCMBException error) =>
             {
                 if (error != null)
                 {
                     // é∏îs
-                    Reading(ref _model, ref _isLoaded);
+                    Featureload();
                 }
                 else
                 {
                     // ê¨å˜
-                    Debug.Log(System.Text.Encoding.UTF8.GetString(fileData));
+                    SetLocalStorage("traindata_feature", System.Text.Encoding.UTF8.GetString(fileData));
+                    Debug.Log("feature loaded");
                 }
             });
-        }
-        Debug.Log("_model : " + _model.ToString());
-        Debug.Log("data : " + System.Text.Encoding.UTF8.GetString(file.FileData));
-        model = _model;
-        isLoaded = _isLoaded;
     }
 }
 

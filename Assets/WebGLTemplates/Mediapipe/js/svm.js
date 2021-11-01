@@ -25,7 +25,9 @@ function setmodel() {
     localStorage.setItem("model", JSON.stringify(svm));
 }
 function getmodel() {
-    svm_before = JSON.parse(localStorage.getItem("model"));
+    feature_before = JSON.parse(localStorage.getItem("traindata_feature"));
+    label_before = JSON.parse(localStorage.getItem("traindata_label"))
+    svm_before.train(feature_before,label_before);
 }
 function predict() {
     var animation = {0:0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0 }
@@ -61,6 +63,5 @@ function predict_before() {
             maxcount = animation[key];
         }
     }
-    console.log("predict before finished");
     localStorage.setItem("predictLabel_before", predictedLabel);
 }

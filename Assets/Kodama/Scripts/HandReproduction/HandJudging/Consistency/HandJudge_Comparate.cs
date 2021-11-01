@@ -54,7 +54,7 @@ class HandJudge_Comparate : MonoBehaviour
             judge_json = GetLocalStorage("predictLabel");
             judge = int.Parse(judge_json);
             judge_json2 = GetLocalStorage("predictLabel_before");
-            judge2 = int.Parse(judge_json);
+            judge2 = int.Parse(judge_json2);
             _time = 0;
             input = new List<List<float>>();
             _UserStudyAnimator._handState = (handState)Enum.ToObject(typeof(handState), judge);

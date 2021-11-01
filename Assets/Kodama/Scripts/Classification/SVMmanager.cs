@@ -20,6 +20,7 @@ public class SVMmanager : MonoBehaviour
     [System.NonSerialized] bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
     private int interval = 0;
+    public void SetCalculatedUI() => sceneManager.SetCalculatedUI();
     private void Start()
     {
         unitychan_before.SetActive(false);
@@ -64,9 +65,6 @@ public class SVMmanager : MonoBehaviour
             sceneManager.SetCalculatingUI();
             _handsrecorder.SendRecordingData();
             writeJointAngle.Calculatemodel();
-            writeJointAngle.Savemodel();
-            sceneManager.SetCalculatedUI();
-            StartWaitingforOutput();
         }
         else if (_currentstep == Step.OutputInstruction)
         {
@@ -141,7 +139,7 @@ public class SVMmanager : MonoBehaviour
         Debug.Log("Calculate Start");
         SwitchStep(Step.Calculate);
     }
-    private void StartWaitingforOutput()
+    public void StartWaitingforOutput()
     {
         _targetController_Aramaki.enabled = true;
         _vrIK.enabled = true;

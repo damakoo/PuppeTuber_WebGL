@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Runtime.InteropServices;
 
 public class ModelDecoder : MonoBehaviour
-{
+{/*
     [DllImport("__Internal")]
     private static extern void getmodel();
     [DllImport("__Internal")]
@@ -27,5 +27,5 @@ public class ModelDecoder : MonoBehaviour
         yield return null;
         getmodel();
         Debug.Log(modelloader.model);
-    }
+    }*/
 }
