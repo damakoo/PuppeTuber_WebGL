@@ -23,32 +23,32 @@ public class svm : MonoBehaviour
     string features_json;
     string labels_json;
     string input_json;
-    // Start is called before the firstframe update
-    void Start()
-    {
-        features_json = "[";
-        input_json = "[";
-        for (int i= 0; i < features.Count; i++)
-        {
-            features_json += JsonHelper.ToJson(features[i]) + ",";
-        }
-        for (int i = 0; i < input.Count; i++)
-        {
-            input_json += JsonHelper.ToJson(input[i]) + ",";
-        }
-        features_json = features_json.Remove(features_json.Length - 1);
-        input_json = input_json.Remove(input_json.Length - 1);
-        features_json += "]";
-        input_json += "]";
-        labels_json = JsonHelper.ToJson(labels);;
-        SetLocalStorage("traindata_feature",features_json);
-        SetLocalStorage("traindata_label", labels_json);
-        SetLocalStorage("Input", input_json);
-    }
-
+    [SerializeField] HandReader handreader;
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //features = 
+            features_json = "[";
+            input_json = "[";
+            for (int i = 0; i < features.Count; i++)
+            {
+                features_json += JsonHelper.ToJson(features[i]) + ",";
+            }
+            for (int i = 0; i < input.Count; i++)
+            {
+                input_json += JsonHelper.ToJson(input[i]) + ",";
+            }
+            features_json = features_json.Remove(features_json.Length - 1);
+            input_json = input_json.Remove(input_json.Length - 1);
+            features_json += "]";
+            input_json += "]";
+            labels_json = JsonHelper.ToJson(labels); ;
+            SetLocalStorage("traindata_feature", features_json);
+            SetLocalStorage("traindata_label", labels_json);
+            SetLocalStorage("Input", input_json);
+        }
         if (Input.GetKeyDown(KeyCode.A))
         {
             train();

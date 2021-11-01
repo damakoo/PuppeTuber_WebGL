@@ -27,15 +27,9 @@ class HandJudge : MonoBehaviour
     List<List<float>> input = new List<List<float>>();
     [SerializeField] private float interval = 0.5f;
     private float _time = 0;
-    double[] testResults;
-    private int numberofanimation;
-    AddJointAngle _addJointAngle;
+    [SerializeField]AddJointAngle _addJointAngle;
     List<JointAngle> JointAngleList => _addJointAngle.JointAngleList;
 
-    private void Start()
-    {
-        numberofanimation = Enum.GetNames(typeof(handState)).Length;
-    }
 
     public void JudgingHand()
     {

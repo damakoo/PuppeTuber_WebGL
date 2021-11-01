@@ -19,6 +19,7 @@ public class SVMmanager : MonoBehaviour
     [System.NonSerialized] public Step _currentstep;
     [System.NonSerialized] bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
+    private int interval = 0;
     private void Start()
     {
         unitychan_before.SetActive(false);
@@ -47,18 +48,23 @@ public class SVMmanager : MonoBehaviour
             // userStudyAnimator.changeAnimation();
             if (isLearning)
             {
+                interval += 1;
                 bool motionHasEnded = (userStudyAnimator._handState == handState.defaultstate);
                 if (sceneManager.chosenMotionIndex > 0 && motionHasEnded) PauseLearning();
-                writeJointAngle.AddTraingdata((int)userStudyAnimator._handState);
+                if (interval > 0.3f)
+                {
+                    writeJointAngle.AddTraingdata((int)userStudyAnimator._handState);
+                    interval = 0;
+                }
                 _handsrecorder.Recording((int)userStudyAnimator._handState);
             }
         }
         else if (_currentstep == Step.Calculate)
         {
             sceneManager.SetCalculatingUI();
+            _handsrecorder.SendRecordingData();
             writeJointAngle.Calculatemodel();
             writeJointAngle.Savemodel();
-            _handsrecorder.SendRecordingData();
             sceneManager.SetCalculatedUI();
             StartWaitingforOutput();
         }

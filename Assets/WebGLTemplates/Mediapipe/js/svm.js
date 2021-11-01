@@ -18,8 +18,6 @@ function train() {
     var labels_json = localStorage.getItem("traindata_label");
     var feature = JSON.parse(feature_json);
     var labels = JSON.parse(labels_json);
-    console.log(feature);
-    console.log(labels);
     svm.train(feature, labels);
 }
 
@@ -63,5 +61,6 @@ function predict_before() {
             maxcount = animation[key];
         }
     }
+    console.log("predict before finished");
     localStorage.setItem("predictLabel_before", predictedLabel);
 }

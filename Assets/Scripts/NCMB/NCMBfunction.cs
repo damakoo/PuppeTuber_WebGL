@@ -27,7 +27,7 @@ namespace NCMB
                 if (error != null)
                 {
                     // Ž¸”s
-                    Read(filename);
+                    result = Read(filename);
                 }
                 else
                 {

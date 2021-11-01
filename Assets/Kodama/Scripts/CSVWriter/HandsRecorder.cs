@@ -18,7 +18,6 @@ public class HandsRecorder : MonoBehaviour
         PositionList[animation] += handTrackingValue.landmarks[i].x.ToString() + " " + handTrackingValue.landmarks[i].y.ToString() + " " + handTrackingValue.landmarks[i].z.ToString() + " ";
       }
         PositionList[animation] += "\n";
-        System.Console.WriteLine(animation);
     }
     public void SendRecordingData()
     {

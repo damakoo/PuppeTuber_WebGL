@@ -8,11 +8,20 @@ public class HandReader:MonoBehaviour
     private void Start()
     {
         HandsList = HandLoading();
+        Debug.Log("Hand Loaded");
+        foreach(var key in HandsList)
+        {
+            Debug.Log(key.Count.ToString());
+        }
     }
 
     public static List<List<Vector3>> HandLoading()
     {
         var content = NCMBfunction.Read("HandRecord.txt");
+        while(content == "")
+        {
+            content = NCMBfunction.Read("HandRecord.txt");
+        }
         List<List<Vector3>> _handlist = new List<List<Vector3>>();
 
         string[] line = content.Trim().Split('\n');
