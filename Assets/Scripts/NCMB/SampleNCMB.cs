@@ -5,6 +5,7 @@ using NCMB;
 
 public class SampleNCMB : MonoBehaviour
 {
+    private string model;
 
     // Update is called once per frame
     void Update()
@@ -18,6 +19,11 @@ public class SampleNCMB : MonoBehaviour
         {
             Read();
         }
+    }
+    private void Start()
+    {
+        Read();
+        Debug.Log(model);
     }
     private void Delete()
     {
@@ -37,17 +43,20 @@ public class SampleNCMB : MonoBehaviour
     }
     private void Read()
     {
-        NCMBFile file = new NCMBFile("Hello.txt");
+        NCMBFile file = new NCMBFile("model.txt");
         file.FetchAsync((byte[] fileData, NCMBException error) => {
             if (error != null)
             {
                 // é∏îs
+
                 Read();
             }
             else
             {
                 // ê¨å˜
                 Debug.Log(System.Text.Encoding.UTF8.GetString(fileData));
+
+                model = System.Text.Encoding.UTF8.GetString(fileData);
             }
         });
     }

@@ -2,6 +2,8 @@ namespace NCMB
 {
     public class NCMBfunction
     {
+        public static string model;
+        public static string HandRecord;
         public static void Delete(string filename)
         {
             NCMBFile file = new NCMBFile(filename);
@@ -18,25 +20,26 @@ namespace NCMB
                 }
             });
         }
-        public static string Read(string filename)
+        public static void Read(string filename, out string data)
         {
-            string result = "";
+            var content = "";
             NCMBFile file = new NCMBFile(filename);
             file.FetchAsync((byte[] fileData, NCMBException error) =>
             {
                 if (error != null)
                 {
                     // é∏îs
-                    result = Read(filename);
+                    Read(filename,out content);
                 }
                 else
                 {
                     // ê¨å˜
-                    result = System.Text.Encoding.UTF8.GetString(fileData);
+                    content = System.Text.Encoding.UTF8.GetString(fileData);
                     UnityEngine.Debug.Log("Read Success");
                 }
             });
-            return result;
+            UnityEngine.Debug.Log(content.ToString());
+            data = content;
         }
         public static void Save(string filename, string content)
         {

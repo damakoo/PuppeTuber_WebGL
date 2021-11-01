@@ -12,8 +12,6 @@ class HandJudge : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void train();
     [DllImport("__Internal")]
-    private static extern void setmodel();
-    [DllImport("__Internal")]
     private static extern void getmodel();
     [DllImport("__Internal")]
     private static extern void predict();
