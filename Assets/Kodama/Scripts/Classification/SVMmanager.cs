@@ -20,7 +20,6 @@ public class SVMmanager : MonoBehaviour
     [System.NonSerialized] public Step _currentstep;
     [System.NonSerialized] bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
-    private int interval = 0;
     public void SetCalculatedUI() => sceneManager.SetCalculatedUI();
     private void Start()
     {
@@ -66,6 +65,7 @@ public class SVMmanager : MonoBehaviour
     }
         else if (_currentstep == Step.OutputInstruction)
         {
+
             // if (Input.GetKeyDown(_keyCode))
             // {
             StartOutput();
@@ -82,6 +82,7 @@ public class SVMmanager : MonoBehaviour
         }
         else if (_currentstep == Step.ReproductInstruction)
         {
+
             // if (Input.GetKeyDown(_keyCode))
             // {
             //   StartReproduction();

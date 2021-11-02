@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HandVRManager : MonoBehaviour
 {
+
     [SerializeField] AddJointAngle_HR addJointAngle;
     [SerializeField] HandJudge_Comparate handJudge_Comparate;
     [SerializeField] TargetController_HR targetController_now;

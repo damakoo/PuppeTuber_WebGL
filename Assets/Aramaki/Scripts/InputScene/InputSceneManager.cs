@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
 public class InputSceneManager : MonoBehaviour
 {
-  [SerializeField] GameObject popup;
+    [DllImport("__Internal")]
+    private static extern void appearcanvas();
+    [DllImport("__Internal")]
+    private static extern void fadecanvas();
+    [SerializeField] GameObject popup;
   [SerializeField] Text indexLabel;
   [SerializeField] Text motionNameLabel;
   [SerializeField] SVMmanager svmManager;
@@ -32,6 +37,7 @@ public class InputSceneManager : MonoBehaviour
   void ShowPopup(string text) {
     popup.SetActive(true);
     popup.GetComponentInChildren<Text>().text = text;
+        fadecanvas();
   }
 
   public void IncrementAnimationIndex() {
@@ -82,7 +88,11 @@ public class InputSceneManager : MonoBehaviour
     popup.SetActive(false);
     if (svmManager._currentstep == Step.ReproductInstruction) {
       svmManager.StartReproduction();
-    }
+        }
+        else
+        {
+            appearcanvas();
+        }
   }
 
   public void SegueToFinish() {
