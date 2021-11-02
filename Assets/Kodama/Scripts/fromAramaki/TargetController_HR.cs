@@ -25,6 +25,8 @@ public class TargetController_HR : MonoBehaviour
       bodyCenter.transform.position.y + 30,
       bodyCenter.transform.position.z
       );
+    rightHandTarget.transform.position = SmoothDampRight(firstPosition);
+    leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
   }
 
 

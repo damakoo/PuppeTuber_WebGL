@@ -14,7 +14,8 @@ public class SVMmanager : MonoBehaviour
     [SerializeField] HandsRecorder _handsrecorder;
     [SerializeField] GameObject reproducthand;
     [SerializeField] HandVRManager handVRManager;
-    [SerializeField] GameObject unitychan_before;
+  [SerializeField] GameObject unitychan;
+  [SerializeField] GameObject unitychan_before;
     [SerializeField] Comparator comparator;
     [System.NonSerialized] public Step _currentstep;
     [System.NonSerialized] bool isLearning = false;
@@ -63,9 +64,11 @@ public class SVMmanager : MonoBehaviour
         else if (_currentstep == Step.Calculate)
         {
             sceneManager.SetCalculatingUI();
-            _handsrecorder.SendRecordingData();
-            writeJointAngle.Calculatemodel();
-        }
+            // _handsrecorder.SendRecordingData();
+            // writeJointAngle.Calculatemodel();
+            sceneManager.SetCalculatedUI();
+      StartReproducInstruction();
+    }
         else if (_currentstep == Step.OutputInstruction)
         {
             // if (Input.GetKeyDown(_keyCode))
@@ -91,18 +94,18 @@ public class SVMmanager : MonoBehaviour
         }
         else if (_currentstep == Step.Reproduction)
         {
-            if (handVRManager.Frame < HandReader.HandsList.Count - 1)
-            {
-                handVRManager.Frame += 1;
-                handVRManager.AnimationUpdate();
-                comparator.UpdateParameter();
-            }
-            else
-            {
-                reproducthand.SetActive(false);
-                Finish();
-                sceneManager.SegueToFinish();
-            }
+            // if (handVRManager.Frame < HandReader.HandsList.Count - 1)
+            // {
+            //     handVRManager.Frame += 1;
+            //     handVRManager.AnimationUpdate();
+            //     comparator.UpdateParameter();
+            // }
+            // else
+            // {
+            //     reproducthand.SetActive(false);
+            //     Finish();
+            //     sceneManager.SegueToFinish();
+            // }
         }
     }
 
@@ -158,7 +161,8 @@ public class SVMmanager : MonoBehaviour
         userStudyAnimator_before.enabled = true;
         userStudyAnimator_before.EnableUI();
         unitychan_before.SetActive(true);
-        _stepText.text = "Wait for Reproduction";
+    unitychan.GetComponent<Animator>().enabled = false;
+    _stepText.text = "Wait for Reproduction";
         SwitchStep(Step.ReproductInstruction);
     }
     public void StartReproduction()
