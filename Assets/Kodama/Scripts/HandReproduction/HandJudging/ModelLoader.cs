@@ -32,6 +32,8 @@ public class ModelLoader : MonoBehaviour
 
     IEnumerator ModelLoad()
     {
+        labelLoaded = false;
+        featureLoaded = false;
         LabelLoad();
         Featureload();
         while (!labelLoaded && !featureLoaded)
