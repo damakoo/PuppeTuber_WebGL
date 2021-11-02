@@ -54,5 +54,11 @@ mergeInto(LibraryManager.library, {
   },
   addmodel_label:function(){
     addmodel_label();
+  },
+  appearcanvas:function(){
+    appearcanvas();
+  },
+  fadecanvas:function(){
+    fadecanvas();
   }
 });

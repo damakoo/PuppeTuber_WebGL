@@ -46,3 +46,10 @@ const camera = new Camera(videoElement, {
   height: 720
 });
 camera.start();
+
+function appearcanvas(){
+  canvasElement.style = "display:block";
+}
+function fadecanvas(){
+  canvasElement.style = "display:none";
+}
