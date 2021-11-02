@@ -17,7 +17,7 @@ public class TargetController_HR : MonoBehaviour
   // 現在速度(SmoothDampの計算のために必要)
   private Vector3 _currentVelocityRight = new Vector3(0, 0, 0);
   private Vector3 _currentVelocityLeft = new Vector3(0, 0, 0);
-  private Vector3 firstPosition = new Vector3(6, -2, 0);
+  private Vector3 firstPosition = new Vector3(0, -2, 0);
   void Start()
   {
     pelvisTarget.transform.position = new Vector3(
@@ -67,11 +67,16 @@ public class TargetController_HR : MonoBehaviour
 
   public void UpdatePosition(Vector3 position, int mode)
   {
+    pelvisTarget.transform.position = new Vector3(
+      bodyCenter.transform.position.x,
+      bodyCenter.transform.position.y + 30,
+      bodyCenter.transform.position.z
+    );
     Vector3 clampedPosition;
     switch (mode)
     {
       case 0:
-        rightHandTarget.transform.position = SmoothDampRight(firstPosition);
+        rightHandTarget.transform.position = pelvisTarget.transform.position;//SmoothDampRight(firstPosition);
         leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
         break;
       case 1:

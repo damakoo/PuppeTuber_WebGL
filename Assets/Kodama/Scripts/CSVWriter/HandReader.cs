@@ -21,7 +21,7 @@ public class HandReader:MonoBehaviour
             List<Vector3> nowHand = new List<Vector3>();
             for (int i = 0; i < list.Length / 3; i++)
             {
-                nowHand.Add(new Vector3(float.Parse(list[3 * i]), float.Parse(list[3 * i + 1]), float.Parse(list[3 * i + 2])));
+                nowHand.Add(new Vector3(float.Parse(list[3 * i]), -float.Parse(list[3 * i + 1]), float.Parse(list[3 * i + 2])));
             }
             HandsList.Add(nowHand);
         }
@@ -34,12 +34,12 @@ public class HandReader:MonoBehaviour
         {
             if (error != null)
             {
-                // Ž¸”s
+                // ï¿½ï¿½ï¿½s
                 Read();
             }
             else
             {
-                // ¬Œ÷
+                // ï¿½ï¿½ï¿½ï¿½
                 Decode(System.Text.Encoding.UTF8.GetString(fileData));
                 UnityEngine.Debug.Log("HandRead Success");
             }

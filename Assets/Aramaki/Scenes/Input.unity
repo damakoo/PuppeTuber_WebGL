@@ -1248,7 +1248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userStudyAnimator: {fileID: 410721813}
-  userStudyAnimator_before: {fileID: 204547558}
   handJudge: {fileID: 335258381}
   writeJointAngle: {fileID: 1973620780}
   _stepText: {fileID: 2082695622}
@@ -1257,6 +1256,7 @@ MonoBehaviour:
   _handsrecorder: {fileID: 1038796192}
   reproducthand: {fileID: 402851270}
   handVRManager: {fileID: 1541063374}
+  unitychan: {fileID: 0}
   unitychan_before: {fileID: 511185284}
   comparator: {fileID: 759940780}
   sceneManager: {fileID: 860375084}
@@ -1879,6 +1879,18 @@ PrefabInstance:
       value: HandReproductionManager
       objectReference: {fileID: 0}
     - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
@@ -1992,15 +2004,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.758
+      value: -0.456
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.876
+      value: 0.658
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.131
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalRotation.w
