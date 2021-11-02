@@ -948,7 +948,7 @@ MonoBehaviour:
   _smoothTimeLeft: 0.1
   _maxSpeedRight: Infinity
   _maxSpeedLeft: Infinity
-  handTrackingValue: {fileID: 0}
+  handTrackingValue: {fileID: 669140050}
 --- !u!4 &298260582
 Transform:
   m_ObjectHideFlags: 0
@@ -1389,6 +1389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelname: model.txt
+  Interval: 100
 --- !u!1 &368862507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +5644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UserStudyAnimator: {fileID: 410721813}
   _addJointAngle: {fileID: 1973620779}
+  Interval: 300
   SVMmanager: {fileID: 335258380}
 --- !u!4 &2026115262 stripped
 Transform:
