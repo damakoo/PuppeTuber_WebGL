@@ -49,14 +49,9 @@ public class SVMmanager : MonoBehaviour
             // userStudyAnimator.changeAnimation();
             if (isLearning)
             {
-                interval += 1;
                 bool motionHasEnded = (userStudyAnimator._handState == handState.defaultstate);
                 if (sceneManager.chosenMotionIndex > 0 && motionHasEnded) PauseLearning();
-                if (interval > 0.3f)
-                {
-                    writeJointAngle.AddTraingdata((int)userStudyAnimator._handState);
-                    interval = 0;
-                }
+                writeJointAngle.AddTraingdata((int)userStudyAnimator._handState);
                 _handsrecorder.Recording((int)userStudyAnimator._handState);
             }
         }

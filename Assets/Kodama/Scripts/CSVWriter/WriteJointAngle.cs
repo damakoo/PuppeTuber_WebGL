@@ -3,7 +3,6 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using NCMB;
-using System.Collections;
 
 public class WriteJointAngle : MonoBehaviour
 {
@@ -15,17 +14,26 @@ public class WriteJointAngle : MonoBehaviour
     private static extern string GetLocalStorage(string key);
     [DllImport("__Internal")]
     private static extern void setmodel();
+    [DllImport("__Internal")]
+    private static extern void addmodel_label();
+    [DllImport("__Internal")]
+    private static extern void addmodel_feature();
+    [DllImport("__Internal")]
+    private static extern void ResetJson();
     [SerializeField] UserStudyAnimator _UserStudyAnimator;
     [SerializeField] AddJointAngle _addJointAngle;
+    [SerializeField] int Interval = 300;
     List<JointAngle> JointAngleList => _addJointAngle.JointAngleList;
     private List<List<List<float>>> TrainingList = new List<List<List<float>>>();
     private List<List<float>> TrainingSet = new List<List<float>>();
     private List<int> LabelList = new List<int>();
     [SerializeField] SVMmanager SVMmanager;
+
     
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < Enum.GetNames(typeof(handState)).Length; i++) TrainingList.Add(new List<List<float>>());
+        ResetJson();
     }
     public void AddTraingdata(int animation)
     {
@@ -59,37 +67,53 @@ public class WriteJointAngle : MonoBehaviour
                 }
             }
         }
-        IEnumerator calculate = _calculate();
-        StartCoroutine(calculate);       
+        calculate();       
     }
-    IEnumerator _calculate()
+    private void calculate()
     {
-        var LabelList_json = JsonHelper.ToJson(LabelList);
-        SetLocalStorage("traindata_label", LabelList_json);
-        NCMBfunction.OverWrite("traindata_label.txt", LabelList_json);
-        var trainingset_json = TrainingSetToJson();
-        SetLocalStorage("traindata_feature", trainingset_json);
-        NCMBfunction.OverWrite("traindata_feature.txt", trainingset_json);
-        yield return null;
+        ResetJson();
+        SetLocalStorage("traindata_label", "");
+        SetLocalStorage("traindata_feature", "");
+        var ALLLabelList_json = JsonHelper.ToJson(LabelList);
+        var ALLtrainingset_json = ALLTrainingSetToJson();
+        NCMBfunction.OverWrite("traindata_label.txt", ALLLabelList_json);
+        NCMBfunction.OverWrite("traindata_feature.txt", ALLtrainingset_json);
+        setlabel(ALLLabelList_json);
+        setfeature(ALLtrainingset_json);
         train();
-        yield return null;
+        SetLocalStorage("traindata_label", "");
+        SetLocalStorage("traindata_feature", "");
         SVMmanager.SetCalculatedUI();
         SVMmanager.StartWaitingforOutput();
     }
-    public void Savemodel()
-    {
-        setmodel();
-        NCMBfunction.OverWrite("model.txt",GetLocalStorage("model"));
-    }
-    private string TrainingSetToJson()
+
+    private string ALLTrainingSetToJson()
     {
         string trainingset_json = "[";
-        for (int i = 0; i < TrainingSet.Count; i++)
+        for (int j = 0; j < TrainingSet.Count; j++)
         {
-            trainingset_json += JsonHelper.ToJson(TrainingSet[i]) + ",";
+            trainingset_json += JsonHelper.ToJson(TrainingSet[j]) + ",";
         }
         trainingset_json = trainingset_json.Remove(trainingset_json.Length - 1);
         trainingset_json += "]";
         return trainingset_json;
+    }
+    private void setfeature(string feature_json)
+    {
+        foreach (var child in feature_json.SubstringAtCount(Interval))
+        {
+            SetLocalStorage("traindata_feature", child);
+            addmodel_feature();
+        }
+        Debug.Log("feature saved");
+    }
+    private void setlabel(string label_json)
+    {
+        foreach (var child in label_json.SubstringAtCount(Interval))
+        {
+            SetLocalStorage("traindata_label", child);
+            addmodel_label();
+        }
+        Debug.Log("label saved");
     }
 }
