@@ -1,0 +1,135 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.8f1 (507919d4fff5) revision 5273881'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19043.1110; Version 2009; 64bit' Language: 'ja' Physical Memory: 65405 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/kodam/Documents/PuppeTuber_WebGL
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53158
+Successfully changed project path to: C:/Users/kodam/Documents/PuppeTuber_WebGL
+C:/Users/kodam/Documents/PuppeTuber_WebGL
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 32.71 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.8f1 (507919d4fff5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/kodam/Documents/PuppeTuber_WebGL/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3080 Laptop GPU (ID=0x249c)
+    Vendor:   
+    VRAM:     8041 MB
+    Driver:   27.21.14.6275
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56248
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001682 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 35.02 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.571 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000595 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.649 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1516 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 76.3 MB.
+System memory in use after: 75.6 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 1942.
+Total: 1.881100 ms (FindLiveObjects: 0.134800 ms CreateObjectMapping: 0.044600 ms MarkObjects: 1.115400 ms  DeleteObjects: 0.585700 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Kodama/Scenes/MainScene
+  artifactKey: Guid(498a0e16848712849b582677d2e2d000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Kodama/Scenes/MainScene using Guid(498a0e16848712849b582677d2e2d000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f95876e53a809e7923bfe2b907d3fa8c') in 0.009058 seconds
+  Import took 0.010835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.984840 seconds.
+  path: Assets/Scenes/Main
+  artifactKey: Guid(fd2c73abc9664e14fa0015f759dc23d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main using Guid(fd2c73abc9664e14fa0015f759dc23d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ab591b5fb557c0d7c2a413b3ae5a3bb') in 0.007574 seconds
+  Import took 0.009654 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 61.863537 seconds.
+  path: Assets/Scenes/Main/Agreements.unity
+  artifactKey: Guid(b146558d67a60bd4a8218750503cda0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main/Agreements.unity using Guid(b146558d67a60bd4a8218750503cda0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65c0d1cb35af876006429fd7232ea678') in 0.013343 seconds
+  Import took 0.015397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.520294 seconds.
+  path: Assets/Scenes/Main/Input.unity
+  artifactKey: Guid(7f0fe002bfc46ba45b5d85fe27d7edab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main/Input.unity using Guid(7f0fe002bfc46ba45b5d85fe27d7edab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8bf4ea9c32bab2c404ee58caa22aa18') in 0.007189 seconds
+  Import took 0.009122 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.629137 seconds.
+  path: Assets/Scenes/Main/Compare.unity
+  artifactKey: Guid(8f02a2f514c8a994cadd204ea698566a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main/Compare.unity using Guid(8f02a2f514c8a994cadd204ea698566a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f49ced8b7c21310f54e9f62fdec863f') in 0.006845 seconds
+  Import took 0.008700 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.163386 seconds.
+  path: Assets/Scenes/Main/Result.unity
+  artifactKey: Guid(e6dac646d7bda2e4e8c70e1abb4571c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main/Result.unity using Guid(e6dac646d7bda2e4e8c70e1abb4571c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '397fd7a9fbf67b8843842493b1744a1e') in 0.006955 seconds
+  Import took 0.009173 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.417523 seconds.
+  path: Assets/Scenes/Main/Description.unity
+  artifactKey: Guid(562405479c5705441831beb4f3fc3446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main/Description.unity using Guid(562405479c5705441831beb4f3fc3446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e02959abd321e9f8b3748846943b548d') in 0.006883 seconds
+  Import took 0.009083 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.010892 seconds.
+  path: Assets/Scenes/Main/VideoPlayer.unity
+  artifactKey: Guid(fda87c58eddf6c040967dda9c7824f0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Main/VideoPlayer.unity using Guid(fda87c58eddf6c040967dda9c7824f0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a090064d4ea73871c94b81bd7b093fe') in 0.006767 seconds
+  Import took 0.008995 seconds .
+
