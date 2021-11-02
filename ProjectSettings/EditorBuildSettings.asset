@@ -21,18 +21,18 @@ EditorBuildSettings:
     path: Assets/Scenes/NCMB.unity
     guid: 20a0999b898e2904cbe36c6ff4f91548
   - enabled: 1
-    path: Assets/Aramaki/Scenes/Agreements.unity
-    guid: ced83ccb27c904533866b20e62e81c72
+    path: Assets/Scenes/Main/Agreements.unity
+    guid: b146558d67a60bd4a8218750503cda0b
   - enabled: 1
-    path: Assets/Aramaki/Scenes/Description.unity
-    guid: 82de13e09fffc45ecb5c652f450b901b
+    path: Assets/Scenes/Main/Description.unity
+    guid: 562405479c5705441831beb4f3fc3446
   - enabled: 1
-    path: Assets/Aramaki/Scenes/VideoPlayer.unity
-    guid: 6ee66c6e742d241088d9a17669220328
+    path: Assets/Scenes/Main/VideoPlayer.unity
+    guid: fda87c58eddf6c040967dda9c7824f0b
   - enabled: 1
-    path: Assets/Aramaki/Scenes/Input.unity
-    guid: e9a1088b38f324e18b84f06449c28d0a
+    path: Assets/Scenes/Main/Input.unity
+    guid: 7f0fe002bfc46ba45b5d85fe27d7edab
   - enabled: 1
-    path: Assets/Aramaki/Scenes/Result.unity
-    guid: 076a716fc313c4357b500e10115b22b6
+    path: Assets/Scenes/Main/Result.unity
+    guid: e6dac646d7bda2e4e8c70e1abb4571c7
   m_configObjects: {}

@@ -36,5 +36,23 @@ mergeInto(LibraryManager.library, {
   },
   predict_before: function(){
     predict_before();
+  },
+  addmodel: function(){
+    addmodel();
+  },
+  addmodel_before_feature: function(){
+    addmodel_before_feature();
+  },
+  addmodel_before_label:function(){
+    addmodel_before_label();
+  },
+  ResetJson: function(){
+    ResetJson();
+  },
+    addmodel_feature: function(){
+    addmodel_feature();
+  },
+  addmodel_label:function(){
+    addmodel_label();
   }
 });
