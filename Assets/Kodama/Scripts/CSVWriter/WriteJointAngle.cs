@@ -83,8 +83,6 @@ public class WriteJointAngle : MonoBehaviour
         train();
         SetLocalStorage("traindata_label", "");
         SetLocalStorage("traindata_feature", "");
-        SVMmanager.SetCalculatedUI();
-        SVMmanager.StartWaitingforOutput();
     }
 
     private string ALLTrainingSetToJson()
