@@ -5,7 +5,7 @@ using RootMotion.FinalIK;
 public class SVMmanager : MonoBehaviour
 {
     public UserStudyAnimator userStudyAnimator;
-    [SerializeField] UserStudyAnimator userStudyAnimator_before;
+    // [SerializeField] UserStudyAnimator userStudyAnimator_before;
     [SerializeField] HandJudge handJudge;
     [SerializeField] WriteJointAngle writeJointAngle;
     [SerializeField] Text _stepText;
@@ -30,7 +30,7 @@ public class SVMmanager : MonoBehaviour
         _targetController_Aramaki.enabled = false;
         _vrIK.enabled = false;
         userStudyAnimator.EnableUI();
-        userStudyAnimator_before.enabled = false;
+        // userStudyAnimator_before.enabled = false;
         _currentstep = Step.InputInstruction;
         _stepText.text = "Wait for Input";
     }
@@ -94,18 +94,18 @@ public class SVMmanager : MonoBehaviour
         }
         else if (_currentstep == Step.Reproduction)
         {
-            if (handVRManager.Frame < HandReader.HandsList.Count - 1)
-            {
-                handVRManager.Frame += 1;
+            // if (handVRManager.Frame < HandReader.HandsList.Count - 1)
+            // {
+            //     handVRManager.Frame += 1;
                 handVRManager.AnimationUpdate();
-                comparator.UpdateParameter();
-            }
-            else
-            {
-                reproducthand.SetActive(false);
-                Finish();
-                sceneManager.SegueToFinish();
-            }
+            //     comparator.UpdateParameter();
+            // }
+            // else
+            // {
+            //     reproducthand.SetActive(false);
+            //     Finish();
+            //     sceneManager.SegueToFinish();
+            // }
         }
     }
 
@@ -158,10 +158,9 @@ public class SVMmanager : MonoBehaviour
     }
     public void StartReproducInstruction()
     {
-        userStudyAnimator_before.enabled = true;
-        userStudyAnimator_before.EnableUI();
+        // userStudyAnimator_before.enabled = true;
+        // userStudyAnimator_before.EnableUI();
         unitychan_before.SetActive(true);
-    unitychan.GetComponent<Animator>().enabled = false;
     _stepText.text = "Wait for Reproduction";
         SwitchStep(Step.ReproductInstruction);
     }
