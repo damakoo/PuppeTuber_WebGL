@@ -67,7 +67,7 @@ public class SVMmanager : MonoBehaviour
             // _handsrecorder.SendRecordingData();
             // writeJointAngle.Calculatemodel();
             sceneManager.SetCalculatedUI();
-      StartReproducInstruction();
+      StartWaitingforOutput();
     }
         else if (_currentstep == Step.OutputInstruction)
         {
@@ -94,18 +94,18 @@ public class SVMmanager : MonoBehaviour
         }
         else if (_currentstep == Step.Reproduction)
         {
-            // if (handVRManager.Frame < HandReader.HandsList.Count - 1)
-            // {
-            //     handVRManager.Frame += 1;
-            //     handVRManager.AnimationUpdate();
-            //     comparator.UpdateParameter();
-            // }
-            // else
-            // {
-            //     reproducthand.SetActive(false);
-            //     Finish();
-            //     sceneManager.SegueToFinish();
-            // }
+            if (handVRManager.Frame < HandReader.HandsList.Count - 1)
+            {
+                handVRManager.Frame += 1;
+                handVRManager.AnimationUpdate();
+                comparator.UpdateParameter();
+            }
+            else
+            {
+                reproducthand.SetActive(false);
+                Finish();
+                sceneManager.SegueToFinish();
+            }
         }
     }
 
