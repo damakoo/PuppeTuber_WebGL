@@ -26,8 +26,9 @@ public class TargetController_aramaki: MonoBehaviour
       bodyCenter.transform.position.y + 30,
       bodyCenter.transform.position.z
       );
+    rightHandTarget.transform.position = pelvisTarget.transform.position;
+    leftHandTarget.transform.position = pelvisTarget.transform.position;
   }
-
 
   Vector3 rightHandPosition(Vector3 position)
   {

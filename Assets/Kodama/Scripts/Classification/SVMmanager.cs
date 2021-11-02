@@ -5,7 +5,7 @@ using RootMotion.FinalIK;
 public class SVMmanager : MonoBehaviour
 {
     public UserStudyAnimator userStudyAnimator;
-    [SerializeField] UserStudyAnimator userStudyAnimator_before;
+    // [SerializeField] UserStudyAnimator userStudyAnimator_before;
     [SerializeField] HandJudge handJudge;
     [SerializeField] WriteJointAngle writeJointAngle;
     [SerializeField] Text _stepText;
@@ -14,7 +14,8 @@ public class SVMmanager : MonoBehaviour
     [SerializeField] HandsRecorder _handsrecorder;
     [SerializeField] GameObject reproducthand;
     [SerializeField] HandVRManager handVRManager;
-    [SerializeField] GameObject unitychan_before;
+  [SerializeField] GameObject unitychan;
+  [SerializeField] GameObject unitychan_before;
     [SerializeField] Comparator comparator;
     [System.NonSerialized] public Step _currentstep;
     [System.NonSerialized] bool isLearning = false;
@@ -29,7 +30,7 @@ public class SVMmanager : MonoBehaviour
         _targetController_Aramaki.enabled = false;
         _vrIK.enabled = false;
         userStudyAnimator.EnableUI();
-        userStudyAnimator_before.enabled = false;
+        // userStudyAnimator_before.enabled = false;
         _currentstep = Step.InputInstruction;
         _stepText.text = "Wait for Input";
     }
@@ -60,7 +61,9 @@ public class SVMmanager : MonoBehaviour
             sceneManager.SetCalculatingUI();
             _handsrecorder.SendRecordingData();
             writeJointAngle.Calculatemodel();
-        }
+            sceneManager.SetCalculatedUI();
+      StartWaitingforOutput();
+    }
         else if (_currentstep == Step.OutputInstruction)
         {
             // if (Input.GetKeyDown(_keyCode))
@@ -150,10 +153,10 @@ public class SVMmanager : MonoBehaviour
     }
     public void StartReproducInstruction()
     {
-        userStudyAnimator_before.enabled = true;
-        userStudyAnimator_before.EnableUI();
+        // userStudyAnimator_before.enabled = true;
+        // userStudyAnimator_before.EnableUI();
         unitychan_before.SetActive(true);
-        _stepText.text = "Wait for Reproduction";
+    _stepText.text = "Wait for Reproduction";
         SwitchStep(Step.ReproductInstruction);
     }
     public void StartReproduction()
