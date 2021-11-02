@@ -10,7 +10,7 @@ public class HandVRPosition : MonoBehaviour
 
   private void Update()
   {
-    Caliburation();
+    Calibration();
   }
   public HandVRPosition Initialize(int _handnum,HandVRManager _handVRManager)
   {
@@ -19,8 +19,9 @@ public class HandVRPosition : MonoBehaviour
     handVRManager = _handVRManager;
     return this;
   }
-  private void Caliburation()
+  private void Calibration()
  {
     thistransform.localPosition = HandReader.HandsList[handVRManager.Frame][HandNum];
+    thistransform.localPosition = new Vector3(thistransform.localPosition.x, thistransform.localPosition.y, thistransform.localPosition.z);
   }
 }

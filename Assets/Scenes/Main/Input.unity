@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1248,7 +1248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userStudyAnimator: {fileID: 410721813}
-  userStudyAnimator_before: {fileID: 204547558}
   handJudge: {fileID: 335258381}
   writeJointAngle: {fileID: 1973620780}
   _stepText: {fileID: 2082695622}
@@ -1257,6 +1256,7 @@ MonoBehaviour:
   _handsrecorder: {fileID: 1038796192}
   reproducthand: {fileID: 402851270}
   handVRManager: {fileID: 1541063374}
+  unitychan: {fileID: 0}
   unitychan_before: {fileID: 511185284}
   comparator: {fileID: 759940780}
   sceneManager: {fileID: 860375084}
@@ -1673,7 +1673,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 270310371972361914, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 350198311383749045, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_Parameters.widthMultiplier
@@ -1880,6 +1880,18 @@ PrefabInstance:
       value: HandReproductionManager
       objectReference: {fileID: 0}
     - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359774975011125733, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
@@ -1993,15 +2005,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.452
+      value: -0.456
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.876
+      value: 0.658
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.131
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6824791990480004317, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2464,8 +2476,8 @@ MonoBehaviour:
       bones: []
       headTarget: {fileID: 0}
       pelvisTarget: {fileID: 1797679652}
-      positionWeight: 1
-      rotationWeight: 1
+      positionWeight: 0
+      rotationWeight: 0
       pelvisPositionWeight: 1
       pelvisRotationWeight: 1
       chestGoal: {fileID: 0}
@@ -3255,27 +3267,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.875
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.875
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.875
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.414
+      value: 0.461
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.856
+      value: -0.617
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.861
+      value: 0.812
       objectReference: {fileID: 0}
     - target: {fileID: 400326, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4521,8 +4533,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 651084933
-  m_SortingLayer: 0
+  m_SortingLayerID: -1583648809
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f4c96951a14f0249bf429c330163778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5033,9 +5045,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 968963855
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f4c96951a14f0249bf429c330163778, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5246,13 +5258,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797679651}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -1.8491967, y: -5.0569954, z: -2.1491976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1045721036}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!135 &1797679653
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5506,8 +5518,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 651084933
-  m_SortingLayer: 0
+  m_SortingLayerID: -1583648809
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f4c96951a14f0249bf429c330163778, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.2784314}
@@ -6102,7 +6114,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 968963855
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &2057250020
 RectTransform:
