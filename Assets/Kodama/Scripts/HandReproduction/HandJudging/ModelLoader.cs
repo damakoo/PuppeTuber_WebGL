@@ -1,14 +1,14 @@
 using UnityEngine;
 using NCMB;
 using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System;
 
 public class ModelLoader : MonoBehaviour
 {
     [DllImport("__Internal")]
     private static extern void getmodel();
+    [DllImport("__Internal")]
+    private static extern void ResetJson();
     [DllImport("__Internal")]
     private static extern void addmodel_before_feature();
     [DllImport("__Internal")]
@@ -21,6 +21,9 @@ public class ModelLoader : MonoBehaviour
     [SerializeField] int Interval = 100;
     private bool labelLoaded = false;
     private bool featureLoaded = false;
+    public static bool isvalidlabel = true;
+    public static bool isvalidfeature = true;
+    public static bool isfinished = false;
 
     private void Start()
     {
@@ -32,6 +35,7 @@ public class ModelLoader : MonoBehaviour
 
     IEnumerator ModelLoad()
     {
+        ResetJson();
         labelLoaded = false;
         featureLoaded = false;
         LabelLoad();
@@ -41,42 +45,145 @@ public class ModelLoader : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         getmodel();
+        isfinished = true;
+        while (!isfinished || !HandReader.isLoaded)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        Debug.Log("json content : " + GetLocalStorage("isValidmodel"));
+        Debug.Log("model : " + (GetLocalStorage("isValidmodel") == "valid"));
+        Debug.Log("hands : " + HandReader.isvalidvalue);
+        Debug.Log("feature : " + isvalidfeature);
+        Debug.Log("label : " + isvalidlabel);
+        if (!HandReader.isvalidvalue || !isvalidfeature || !isvalidlabel || GetLocalStorage("isValidmodel") == "invalid")
+        {
+            ResetJson();
+            HandReader.isLoaded = false;
+            HandReader.Read_backup();
+            labelLoaded = false;
+            featureLoaded = false;
+            LabelLoad_backup();
+            Featureload_backup();
+            while (!labelLoaded || !featureLoaded)
+            {
+                yield return new WaitForSeconds(0.2f);
+            }
+            getmodel();
+        }
     }
 
-    private void LabelLoad()
+    private void LabelLoad(int i = 0)
     {
-        NCMBFile file = new NCMBFile("traindata_label.txt");
-        file.FetchAsync((byte[] fileData, NCMBException error) =>
+        if (!labelLoaded)
         {
-            if (error != null)
-            {
-                // Ž¸”s
-                LabelLoad();
-            }
-            else
-            {
-                // ¬Œ÷
-                var label_json = System.Text.Encoding.UTF8.GetString(fileData);
-                foreach (var child in label_json.SubstringAtCount(Interval))
-                {
-                    SetLocalStorage("traindata_label", child);
-                    addmodel_before_label();
-                }
-                Debug.Log("label loaded");
-                labelLoaded = true;
-            }
-        });
-    }
-  
-    private void Featureload()
-    {
-        NCMBFile file = new NCMBFile("traindata_feature.txt");
-        file.FetchAsync((byte[] fileData, NCMBException error) =>
+            NCMBFile file = new NCMBFile("traindata_label.txt");
+            file.FetchAsync((byte[] fileData, NCMBException error) =>
             {
                 if (error != null)
                 {
                     // Ž¸”s
-                    Featureload();
+                    if (i < 5)
+                    {
+                        Debug.Log("label : " + i);
+                        LabelLoad(i + 1);
+                    }
+                    else
+                    {
+                        isvalidlabel = false;
+                        labelLoaded = true;
+                    }
+                }
+                else
+                {
+                    // ¬Œ÷
+                    var label_json = System.Text.Encoding.UTF8.GetString(fileData);
+                    foreach (var child in label_json.SubstringAtCount(Interval))
+                    {
+                        SetLocalStorage("traindata_label", child);
+                        addmodel_before_label();
+                    }
+                    Debug.Log("label loaded");
+                    labelLoaded = true;
+                }
+            });
+        }
+    }
+    private void LabelLoad_backup()
+    {
+        if (!labelLoaded)
+        {
+            NCMBFile file = new NCMBFile("traindata_label_backup.txt");
+            file.FetchAsync((byte[] fileData, NCMBException error) =>
+            {
+                if (error != null)
+                {
+                    // Ž¸”s
+                    LabelLoad_backup();
+                }
+                else
+                {
+                    // ¬Œ÷
+                    var label_json = System.Text.Encoding.UTF8.GetString(fileData);
+                    foreach (var child in label_json.SubstringAtCount(Interval))
+                    {
+                        SetLocalStorage("traindata_label", child);
+                        addmodel_before_label();
+                    }
+                    Debug.Log("label_backup loaded");
+                    labelLoaded = true;
+                }
+            });
+        }
+    }
+
+    private void Featureload(int i = 0)
+    {
+        if (!featureLoaded)
+        {
+            NCMBFile file = new NCMBFile("traindata_feature.txt");
+            file.FetchAsync((byte[] fileData, NCMBException error) =>
+                {
+                    if (error != null)
+                    {
+                        // Ž¸”s
+                        if(i < 5)
+                        {
+                            Debug.Log("feature : " + i);
+                            Featureload(i+1);
+                        }
+                        else
+                        {
+                            isvalidfeature = false;
+                            featureLoaded = true;
+                        }
+                        
+                    }
+                    else
+                    {
+                        // ¬Œ÷
+                        var feature_json = System.Text.Encoding.UTF8.GetString(fileData);
+                        foreach (var child in feature_json.SubstringAtCount(Interval))
+                        {
+                            SetLocalStorage("traindata_feature", child);
+                            addmodel_before_feature();
+                        }
+                        Debug.Log("feature loaded");
+                        featureLoaded = true;
+                    }
+                });
+        }
+    }
+    private void Featureload_backup()
+    {
+        if (!featureLoaded)
+        {
+            NCMBFile file = new NCMBFile("traindata_feature_backup.txt");
+            file.FetchAsync((byte[] fileData, NCMBException error) =>
+            {
+                if (error != null)
+                {
+                    // Ž¸”s
+                    Featureload_backup();
                 }
                 else
                 {
@@ -87,10 +194,11 @@ public class ModelLoader : MonoBehaviour
                         SetLocalStorage("traindata_feature", child);
                         addmodel_before_feature();
                     }
-                    Debug.Log("feature loaded");
+                    Debug.Log("feature_backup loaded");
                     featureLoaded = true;
                 }
             });
+        }
     }
 }
 

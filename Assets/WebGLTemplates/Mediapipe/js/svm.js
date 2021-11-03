@@ -14,12 +14,29 @@ var feature_json_before = "";
 var label_json_before = "";
 var feature_json = "";
 var label_json = "";
+
+function isValidJson(value){
+    try{
+        JSON.parse(value)
+    }catch(e){
+        return false
+    }
+    return true
+}
+
 function train() {
     console.log(label_json);
     console.log(feature_json);
-    features = JSON.parse(feature_json);
-    labels = JSON.parse(label_json);
-    svm.train(features, labels);
+    if (isValidJson(label_json) && isValidJson(feature_json)) {
+        localStorage.setItem("isValidmodel","valid");
+        features = JSON.parse(feature_json);
+        labels = JSON.parse(label_json);
+        svm.train(features, labels);
+    }
+    else
+    {
+        localStorage.setItem("isValidmodel","invalid");
+    }
 }
 function ResetJson() {
     feature_json = "";
@@ -28,12 +45,20 @@ function ResetJson() {
     label_json_before = "";
 }
 function setmodel() {
+    
     localStorage.setItem("model", JSON.stringify(svm));
 }
 function getmodel() {
-    feature_before = JSON.parse(feature_json_before);
-    label_before = JSON.parse(label_json_before);
-    svm_before.train(feature_before,label_before);
+    if (isValidJson(label_json_before) && isValidJson(feature_json_before)) {
+        localStorage.setItem("isValidmodel","valid");
+        feature_before = JSON.parse(feature_json_before);
+        label_before = JSON.parse(label_json_before);
+        svm_before.train(feature_before,label_before);
+    }
+    else
+    {
+        localStorage.setItem("isValidmodel","invalid");
+    }
 }
 function addmodel_before_feature() {
     feature_json_before += localStorage.getItem("traindata_feature");
