@@ -11,6 +11,7 @@ let resize = () => {
     }
 }
 let main = () => {
+    window.addEventListener('load', resize, false);
     window.addEventListener('resize', resize, false);
 }
 main(); 
