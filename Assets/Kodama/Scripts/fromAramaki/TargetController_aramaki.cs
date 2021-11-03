@@ -6,7 +6,6 @@ public class TargetController_aramaki: MonoBehaviour
   [SerializeField] GameObject leftHandTarget;
   [SerializeField] GameObject headTarget;
   [SerializeField] GameObject pelvisTarget;
-  [SerializeField] Transform unitychan;
   [SerializeField] UserStudyAnimator userStudyAnimator;
   [SerializeField] GameObject bodyCenter;
   [SerializeField] float _smoothTimeRight = 0.1f;
@@ -76,43 +75,57 @@ public class TargetController_aramaki: MonoBehaviour
       case 0:
         rightHandTarget.transform.position = SmoothDampRight(firstPosition);
         leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
+        rightHandTarget.transform.rotation = Quaternion.Euler(0, -90, 90);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, -90, 90);
         break;
       case 1:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 6, 21), clamp(position.y, 0, 1, 58, 41), -2);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
         rightHandTarget.transform.rotation = Quaternion.Euler(0, 0, -120 + clampedPosition.x * 5);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, -90, 90);
         break;
       case 2:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 0, 6), clamp(position.y, 0, 1, 38, 36), -7);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(clampedPosition);
+        rightHandTarget.transform.rotation = Quaternion.Euler(0, -120, -20);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, -60, -20);
         break;
       case 3:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 3, 10), clamp(position.y, 0, 1, 42, 32), -7);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(clampedPosition);
+        rightHandTarget.transform.rotation = Quaternion.Euler(0, -90, -30);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, -90, -30);
         break;
       case 5:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 0, 15), clamp(position.y, 0, 1, 50, 41), -5);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
         rightHandTarget.transform.rotation = Quaternion.Euler(0, 0, 160 + clampedPosition.x * 7);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, 0, 0);
         break;
       case 7:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 0, 8), clamp(position.y, 0, 1, 45, 41), -5);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(clampedPosition);
+        rightHandTarget.transform.rotation = Quaternion.Euler(180, 0, 150);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, 0, -30);
         break;
       case 8:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 6, 15), clamp(position.y, 0, 1, 52, 41), -5);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
+        rightHandTarget.transform.rotation = Quaternion.Euler(0, -90, -90);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, 0, 0);
         break;
       case 9:
         clampedPosition = new Vector3(clamp(position.x, 0, 1, 5, 13), clamp(position.y, 0, 1, 47, 44), -5);
         rightHandTarget.transform.position = SmoothDampRight(clampedPosition);
         leftHandTarget.transform.position = SmoothDampLeft(firstPosition);
+        rightHandTarget.transform.rotation = Quaternion.Euler(-90, 0, 180);
+        leftHandTarget.transform.rotation = Quaternion.Euler(0, 0, 0);
         break;
       default:
         break;

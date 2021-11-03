@@ -824,6 +824,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400058, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
   m_PrefabInstance: {fileID: 767345369}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &253612763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100066, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
+  m_PrefabInstance: {fileID: 177114469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &255475330
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,12 +948,12 @@ MonoBehaviour:
   pelvisTarget: {fileID: 508164996}
   unitychan: {fileID: 2027484360}
   userStudyAnimator: {fileID: 410721813}
-  bodyCenter: {fileID: 2027484358}
+  bodyCenter: {fileID: 253612763}
   _smoothTimeRight: 0.1
   _smoothTimeLeft: 0.1
   _maxSpeedRight: Infinity
   _maxSpeedLeft: Infinity
-  handTrackingValue: {fileID: 0}
+  handTrackingValue: {fileID: 669140050}
 --- !u!4 &298260582
 Transform:
   m_ObjectHideFlags: 0
@@ -1389,6 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelname: model.txt
+  Interval: 100
 --- !u!1 &368862507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5655,6 +5661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _UserStudyAnimator: {fileID: 410721813}
   _addJointAngle: {fileID: 1973620779}
+  Interval: 300
   SVMmanager: {fileID: 335258380}
 --- !u!4 &2026115262 stripped
 Transform:
