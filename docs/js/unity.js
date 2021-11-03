@@ -2,7 +2,7 @@ const container_parent = document.getElementById('container');
 const container_child = document.getElementById('unity-container');
 
 let resize = () => {
-    if (container_parent.clientWidth < container_parent.clientHeight * 1.6) {
+    if (container_parent.clientWidth <= container_parent.clientHeight * 1.6) {
         container_child.style.width = container_parent.clientWidth.toString() + 'px';
         container_child.style.height = (container_parent.clientWidth / 1.6).toString() + 'px';
     } else {
