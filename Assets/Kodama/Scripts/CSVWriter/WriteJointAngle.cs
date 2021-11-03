@@ -38,7 +38,6 @@ public class WriteJointAngle : MonoBehaviour
     public void AddTraingdata(int animation)
     {
         TrainingList[animation].Add(makenodes());
-        Debug.Log("animation" + animation.ToString());
     }
     private List<float> makenodes()
     {

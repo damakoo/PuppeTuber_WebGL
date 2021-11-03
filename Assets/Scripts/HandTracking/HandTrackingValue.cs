@@ -12,11 +12,16 @@ public class HandTrackingValue : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void SetLocalStorage(string key, string value);
     public Vector3[] landmarks { get; set; } = new Vector3[21];
+    public static bool islandmarkpresent = false;
 
     void Update()
     {
         HandTracking();
         var jsonstr = GetLocalStorage("handpos");
-        landmarks = JsonHelper.FromJson<Vector3>(jsonstr);
+        if(jsonstr != null)
+        {
+            islandmarkpresent = true;
+            landmarks = JsonHelper.FromJson<Vector3>(jsonstr);
+        }   
     }
 }

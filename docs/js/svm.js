@@ -15,10 +15,6 @@ var label_json_before = "";
 var feature_json = "";
 var label_json = "";
 function train() {
-    // var feature_json = localStorage.getItem("traindata_feature");
-    // var labels_json = localStorage.getItem("traindata_label");
-    // var feature = JSON.parse(feature_json);
-    // var labels = JSON.parse(labels_json);
     console.log(label_json);
     console.log(feature_json);
     features = JSON.parse(feature_json);
@@ -35,8 +31,6 @@ function setmodel() {
     localStorage.setItem("model", JSON.stringify(svm));
 }
 function getmodel() {
-    console.log(feature_json_before);
-    console.log(label_json_before);
     feature_before = JSON.parse(feature_json_before);
     label_before = JSON.parse(label_json_before);
     svm_before.train(feature_before,label_before);
