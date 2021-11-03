@@ -35,6 +35,8 @@ function setmodel() {
     localStorage.setItem("model", JSON.stringify(svm));
 }
 function getmodel() {
+    console.log(feature_json_before);
+    console.log(label_json_before);
     feature_before = JSON.parse(feature_json_before);
     label_before = JSON.parse(label_json_before);
     svm_before.train(feature_before,label_before);
