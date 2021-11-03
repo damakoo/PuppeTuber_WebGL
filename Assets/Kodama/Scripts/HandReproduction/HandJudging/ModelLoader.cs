@@ -36,7 +36,7 @@ public class ModelLoader : MonoBehaviour
         featureLoaded = false;
         LabelLoad();
         Featureload();
-        while (!labelLoaded && !featureLoaded)
+        while (!labelLoaded || !featureLoaded)
         {
             yield return new WaitForSeconds(0.2f);
         }
