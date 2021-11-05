@@ -933,3 +933,48 @@ System memory in use after: 44.7 MB.
 Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2030.
 Total: 3.935400 ms (FindLiveObjects: 0.195300 ms CreateObjectMapping: 0.059600 ms MarkObjects: 2.718500 ms  DeleteObjects: 0.960700 ms)
 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.17 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 26 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 45.4 MB.
+System memory in use after: 44.7 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2030.
+Total: 2.730700 ms (FindLiveObjects: 0.170000 ms CreateObjectMapping: 0.043900 ms MarkObjects: 1.778500 ms  DeleteObjects: 0.737300 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 26 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 45.4 MB.
+System memory in use after: 44.7 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2030.
+Total: 3.544100 ms (FindLiveObjects: 0.281100 ms CreateObjectMapping: 0.090300 ms MarkObjects: 2.194200 ms  DeleteObjects: 0.977800 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 26 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 45.4 MB.
+System memory in use after: 44.7 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2030.
+Total: 2.322000 ms (FindLiveObjects: 0.141900 ms CreateObjectMapping: 0.043900 ms MarkObjects: 1.409600 ms  DeleteObjects: 0.725800 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.81 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 26 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 45.4 MB.
+System memory in use after: 44.7 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2030.
+Total: 2.084200 ms (FindLiveObjects: 0.142200 ms CreateObjectMapping: 0.042100 ms MarkObjects: 1.202100 ms  DeleteObjects: 0.697200 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
