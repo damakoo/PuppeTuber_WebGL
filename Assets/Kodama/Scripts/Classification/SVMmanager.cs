@@ -61,7 +61,6 @@ public class SVMmanager : MonoBehaviour
         else if (_currentstep == Step.Calculate)
         {
             sceneManager.SetCalculatingUI();
-            _handsrecorder.SendRecordingData();
             writeJointAngle.Calculatemodel();
             sceneManager.SetCalculatedUI();
       StartWaitingforOutput();
@@ -112,7 +111,9 @@ public class SVMmanager : MonoBehaviour
     {
         if(_currentstep == Step.Output)
         {
+            _vrIK.enabled = false;
             sceneManager.ReInput();
+            userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
             StartInput();
         }
         else
@@ -122,8 +123,9 @@ public class SVMmanager : MonoBehaviour
     }
     public void StartLearning()
     {
-        userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
         _handsrecorder.ClearPositionList(sceneManager.chosenMotionIndex);
+        writeJointAngle.ClearTraingingdata(sceneManager.chosenMotionIndex);
+        userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
         isLearning = true;
         sceneManager.SetLearnedUI(false);
         if (sceneManager.chosenMotionIndex == 0) Invoke("PauseLearning", 3);
@@ -172,6 +174,8 @@ public class SVMmanager : MonoBehaviour
     {
         // userStudyAnimator_before.enabled = true;
         // userStudyAnimator_before.EnableUI();
+        _handsrecorder.SendRecordingData();
+        writeJointAngle.sendData();
         unitychan_before.SetActive(true);
     _stepText.text = "Wait for Reproduction";
         SwitchStep(Step.ReproductInstruction);

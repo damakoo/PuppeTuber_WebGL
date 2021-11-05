@@ -20,7 +20,8 @@ public class InputSceneManager : MonoBehaviour
     [System.NonSerialized] public int chosenMotionIndex = 0;
     [SerializeField] GameObject inputUISet;
     [SerializeField] GameObject compareUISet;
-    private bool onceLearned { get; set; } = true;//本番ではfalseに設定することで一度目は必ず学習させる
+    public bool isactive_donebutton { get; set; } = false;
+    private bool onceLearned { get; set; } = false;//false:本番用．各アニメーション一度は必ず学習
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +30,9 @@ public class InputSceneManager : MonoBehaviour
         ShowPopup("まずはデフォルトのポーズに対応する手の形を決めましょう。");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void ReInput()
     {
+        indexLabel.gameObject.SetActive(true);
         onceLearned = true;
         chosenMotionIndex = 0;
         ShowPopup("まずはデフォルトのポーズに対応する手の形を決めましょう。");
@@ -66,6 +63,8 @@ public class InputSceneManager : MonoBehaviour
             playButton.gameObject.SetActive(true);
             indexLabel.text = $"{chosenMotionIndex}/8";
             motionNameLabel.text = Constants.motionNames[chosenMotionIndex];
+            SetAllButton(true);
+            doneButton.interactable = onceLearned;
         }
         else if (SVMmanager._currentstep == Step.Input)
         {
@@ -85,7 +84,6 @@ public class InputSceneManager : MonoBehaviour
     {
         startLearningButton.GetComponentInChildren<Text>().text = isLearned ? "再学習(B)" : "学習中……";
         SetAllButton(isLearned);
-        if (!onceLearned && isLearned) startLearningButton.interactable = false;
     }
 
     public void SetCalculatingUI()
@@ -124,8 +122,8 @@ public class InputSceneManager : MonoBehaviour
     }
     public void SetAllButton(bool isinteractable)
     {
-        doneButton.interactable = isinteractable;
+        startLearningButton.interactable = isinteractable;
         playButton.interactable = isinteractable;
-        startLearningButton.interactable = (onceLearned) ? isinteractable : false;
+        doneButton.interactable = isinteractable;
     }
 }
