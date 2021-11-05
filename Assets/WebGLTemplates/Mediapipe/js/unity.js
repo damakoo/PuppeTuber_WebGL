@@ -1,5 +1,6 @@
 const container_parent = document.getElementById('container');
 const container_child = document.getElementById('unity-container');
+const puppetvideo = document.getElementById('puppetvideo');
 
 let resize = () => {
     if (container_parent.clientWidth <= container_parent.clientHeight * 1.55) {
@@ -13,8 +14,12 @@ let resize = () => {
         container_child.style.height = '100%';
     }
 }
+let fadevideo = () => {
+puppetvideo.style.display = `none`;
+}
 let main = () => {
     window.addEventListener('load', resize, false);
     window.addEventListener('resize', resize, false);
+    puppetvideo.addEventListener(`ended`,fadevideo,false)
 }
 main(); 
