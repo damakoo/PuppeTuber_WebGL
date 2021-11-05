@@ -28,4 +28,8 @@ public class HandsRecorder : MonoBehaviour
         }
         NCMBfunction.OverWrite("HandRecord.txt",textToRecord);
     }
+    public void ClearPositionList(int animation)
+    {
+        PositionList[animation] = "";
+    }
 }

@@ -17,8 +17,8 @@ public class SVMmanager : MonoBehaviour
   [SerializeField] GameObject unitychan;
   [SerializeField] GameObject unitychan_before;
     [SerializeField] Comparator comparator;
-    [System.NonSerialized] public Step _currentstep;
-    [System.NonSerialized] bool isLearning = false;
+    [System.NonSerialized] public static Step _currentstep;
+    [System.NonSerialized] public static bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
     public void SetCalculatedUI() => sceneManager.SetCalculatedUI();
     private void Start()
@@ -108,9 +108,22 @@ public class SVMmanager : MonoBehaviour
         }
     }
 
+    public void LearningorInputagain()
+    {
+        if(_currentstep == Step.Output)
+        {
+            sceneManager.ReInput();
+            StartInput();
+        }
+        else
+        {
+            StartLearning();
+        }
+    }
     public void StartLearning()
     {
         userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
+        _handsrecorder.ClearPositionList(sceneManager.chosenMotionIndex);
         isLearning = true;
         sceneManager.SetLearnedUI(false);
         if (sceneManager.chosenMotionIndex == 0) Invoke("PauseLearning", 3);
