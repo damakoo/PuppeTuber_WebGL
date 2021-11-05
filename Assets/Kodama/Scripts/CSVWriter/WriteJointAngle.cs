@@ -28,12 +28,18 @@ public class WriteJointAngle : MonoBehaviour
     private List<List<float>> TrainingSet = new List<List<float>>();
     private List<int> LabelList = new List<int>();
     [SerializeField] SVMmanager SVMmanager;
+    string ALLLabelList_json;
+    string ALLtrainingset_json;
 
-    
+
     private void Awake()
     {
         for (int i = 0; i < Enum.GetNames(typeof(handState)).Length; i++) TrainingList.Add(new List<List<float>>());
         ResetJson();
+    }
+    public void ClearTraingingdata(int animation)
+    {
+        TrainingList[animation] = new List<List<float>>();
     }
     public void AddTraingdata(int animation)
     {
@@ -73,15 +79,18 @@ public class WriteJointAngle : MonoBehaviour
         ResetJson();
         SetLocalStorage("traindata_label", "");
         SetLocalStorage("traindata_feature", "");
-        var ALLLabelList_json = JsonHelper.ToJson(LabelList);
-        var ALLtrainingset_json = ALLTrainingSetToJson();
-        NCMBfunction.OverWrite("traindata_label.txt", ALLLabelList_json);
-        NCMBfunction.OverWrite("traindata_feature.txt", ALLtrainingset_json);
+        ALLLabelList_json = JsonHelper.ToJson(LabelList);
+        ALLtrainingset_json = ALLTrainingSetToJson();
         setlabel(ALLLabelList_json);
         setfeature(ALLtrainingset_json);
         train();
         SetLocalStorage("traindata_label", "");
         SetLocalStorage("traindata_feature", "");
+    }
+    public void sendData()
+    {
+        NCMBfunction.OverWrite("traindata_label.txt", ALLLabelList_json);
+        NCMBfunction.OverWrite("traindata_feature.txt", ALLtrainingset_json);
     }
 
     private string ALLTrainingSetToJson()

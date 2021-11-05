@@ -6,6 +6,8 @@ public class UserStudyAnimator : MonoBehaviour
 {
   [SerializeField] Text StateInstructor;
   public Animator useranimation;
+    [SerializeField] InputSceneManager sceneManager;
+ 
   public handState _handState { get; set; } = handState.defaultstate;
   public void changeAnimation()
   {
@@ -41,8 +43,14 @@ public class UserStudyAnimator : MonoBehaviour
     StateInstructor.text = _handState.ToString();
     if (useranimation.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && useranimation.GetCurrentAnimatorStateInfo(0).IsTag(((int)_handState).ToString()))
     {
-      _handState = handState.defaultstate;
-    }
+     
+            if (SVMmanager._currentstep == Step.Input && SVMmanager.isLearning == false && _handState != handState.defaultstate)
+            {
+                sceneManager.SetAllButton(true);
+                sceneManager.doneButton.interactable = sceneManager.isactive_donebutton;
+            }
+            _handState = handState.defaultstate;
+        }
   }
   private void LateUpdate()
   {

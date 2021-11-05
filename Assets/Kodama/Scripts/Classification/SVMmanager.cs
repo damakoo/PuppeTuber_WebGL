@@ -17,8 +17,8 @@ public class SVMmanager : MonoBehaviour
   [SerializeField] GameObject unitychan;
   [SerializeField] GameObject unitychan_before;
     [SerializeField] Comparator comparator;
-    [System.NonSerialized] public Step _currentstep;
-    [System.NonSerialized] bool isLearning = false;
+    [System.NonSerialized] public static Step _currentstep;
+    [System.NonSerialized] public static bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
     public void SetCalculatedUI() => sceneManager.SetCalculatedUI();
     private void Start()
@@ -61,7 +61,6 @@ public class SVMmanager : MonoBehaviour
         else if (_currentstep == Step.Calculate)
         {
             sceneManager.SetCalculatingUI();
-            _handsrecorder.SendRecordingData();
             writeJointAngle.Calculatemodel();
             sceneManager.SetCalculatedUI();
       StartWaitingforOutput();
@@ -108,8 +107,24 @@ public class SVMmanager : MonoBehaviour
         }
     }
 
+    public void LearningorInputagain()
+    {
+        if(_currentstep == Step.Output)
+        {
+            _vrIK.enabled = false;
+            sceneManager.ReInput();
+            userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
+            StartInput();
+        }
+        else
+        {
+            StartLearning();
+        }
+    }
     public void StartLearning()
     {
+        _handsrecorder.ClearPositionList(sceneManager.chosenMotionIndex);
+        writeJointAngle.ClearTraingingdata(sceneManager.chosenMotionIndex);
         userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
         isLearning = true;
         sceneManager.SetLearnedUI(false);
@@ -159,6 +174,8 @@ public class SVMmanager : MonoBehaviour
     {
         // userStudyAnimator_before.enabled = true;
         // userStudyAnimator_before.EnableUI();
+        _handsrecorder.SendRecordingData();
+        writeJointAngle.sendData();
         unitychan_before.SetActive(true);
     _stepText.text = "Wait for Reproduction";
         SwitchStep(Step.ReproductInstruction);
