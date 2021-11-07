@@ -21,7 +21,7 @@ public class InputSceneManager : MonoBehaviour
     [SerializeField] GameObject inputUISet;
     [SerializeField] GameObject compareUISet;
     public bool isactive_donebutton { get; set; } = false;
-    private bool onceLearned { get; set; } = true;//false:本番用．各アニメーション一度は必ず学習
+    private bool onceLearned { get; set; } = false;//false:本番用．各アニメーション一度は必ず学習
 
     // Start is called before the first frame update
     void Start()
@@ -118,7 +118,7 @@ public class InputSceneManager : MonoBehaviour
 
     public void SegueToFinish()
     {
-        FadeManager.FadeOut(4);
+        FadeManager.FadeOut(3);
     }
     public void SetAllButton(bool isinteractable)
     {

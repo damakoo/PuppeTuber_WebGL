@@ -809,7 +809,7 @@ MonoBehaviour:
   headTarget: {fileID: 345375974}
   pelvisTarget: {fileID: 1797679651}
   userStudyAnimator: {fileID: 204547558}
-  unitychan: {fileID: 0}
+  unitychan: {fileID: 511185284}
   _smoothTimeRight: 0.1
   _smoothTimeLeft: 0.1
   handVRManager: {fileID: 1541063374}
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   headTarget: {fileID: 1203327081}
   pelvisTarget: {fileID: 508164996}
   userStudyAnimator: {fileID: 410721813}
-  unitychan: {fileID: 0}
+  unitychan: {fileID: 2027484358}
   _smoothTimeRight: 0.1
   _smoothTimeLeft: 0.1
   handVRManager: {fileID: 1541063374}
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   _handsrecorder: {fileID: 1038796192}
   reproducthand: {fileID: 402851270}
   handVRManager: {fileID: 1541063374}
-  unitychan: {fileID: 0}
+  unitychan: {fileID: 2027484358}
   unitychan_before: {fileID: 511185284}
   comparator: {fileID: 759940780}
   sceneManager: {fileID: 860375084}
@@ -5148,8 +5148,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461303598}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.50088733, y: 0.4991111, z: 0.4991111, w: 0.50088733}
+  m_LocalPosition: {x: 0.86857706, y: -0.011826884, z: 0.0030856095}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1473543928}
@@ -5160,8 +5160,8 @@ Transform:
   - {fileID: 428980851}
   - {fileID: 1340410094}
   - {fileID: 389987256}
-  m_Father: {fileID: 2132481907}
-  m_RootOrder: 1
+  m_Father: {fileID: 1885576374}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1461303600
 MonoBehaviour:
@@ -6306,8 +6306,8 @@ MonoBehaviour:
   _UserStudyAnimator: {fileID: 410721813}
   _addJointAngle: {fileID: 1973620779}
   Interval: 300
-  animationArea: {fileID: 0}
-  handTrackingValue: {fileID: 0}
+  animationArea: {fileID: 1461303600}
+  handTrackingValue: {fileID: 669140050}
   SVMmanager: {fileID: 335258380}
 --- !u!4 &2026115262 stripped
 Transform:
@@ -7224,11 +7224,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2119201903}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &2132481907 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400066, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
-  m_PrefabInstance: {fileID: 177114469}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2143658128 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2727873539478600435, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
