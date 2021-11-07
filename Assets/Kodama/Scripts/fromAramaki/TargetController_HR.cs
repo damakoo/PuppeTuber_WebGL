@@ -7,7 +7,7 @@ public class TargetController_HR : MonoBehaviour
   [SerializeField] GameObject headTarget;
   [SerializeField] GameObject pelvisTarget;
   [SerializeField] UserStudyAnimator userStudyAnimator;
-  [SerializeField] GameObject bodyCenter;
+  [SerializeField] GameObject unitychan;
   [SerializeField] float _smoothTimeRight = 0.1f;
   [SerializeField] float _smoothTimeLeft = 0.1f;
   [SerializeField] HandVRManager handVRManager;
@@ -21,23 +21,23 @@ public class TargetController_HR : MonoBehaviour
   void Start()
   {
     pelvisTarget.transform.position = new Vector3(
-      bodyCenter.transform.position.x,
-      bodyCenter.transform.position.y + 30,
-      bodyCenter.transform.position.z
+      unitychan.transform.position.x,
+      unitychan.transform.position.y + 30,
+      unitychan.transform.position.z
     );
   }
 
   Vector3 rightHandPosition(Vector3 position)
   {
-    return new Vector3(bodyCenter.transform.position.x - position.x,
-                      bodyCenter.transform.position.y + position.y,
-                      bodyCenter.transform.position.z + position.z);
+    return new Vector3(unitychan.transform.position.x - position.x,
+                      unitychan.transform.position.y + position.y,
+                      unitychan.transform.position.z + position.z);
   }
   Vector3 leftHandPosition(Vector3 position)
   {
-    return new Vector3(bodyCenter.transform.position.x + position.x,
-                      bodyCenter.transform.position.y + position.y,
-                      bodyCenter.transform.position.z + position.z);
+    return new Vector3(unitychan.transform.position.x + position.x,
+                      unitychan.transform.position.y + position.y,
+                      unitychan.transform.position.z + position.z);
   }
 
   Vector3 SmoothDampRight(Vector3 position)
@@ -68,9 +68,9 @@ public class TargetController_HR : MonoBehaviour
   public void UpdatePosition(Vector3 position, int mode)
   {
     pelvisTarget.transform.position = new Vector3(
-      bodyCenter.transform.position.x,
-      bodyCenter.transform.position.y + 30,
-      bodyCenter.transform.position.z
+      unitychan.transform.position.x,
+      unitychan.transform.position.y + 30,
+      unitychan.transform.position.z
     );
     Vector3 clampedPosition;
     switch (mode)

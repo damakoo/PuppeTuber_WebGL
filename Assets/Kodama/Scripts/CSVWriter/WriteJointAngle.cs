@@ -23,10 +23,13 @@ public class WriteJointAngle : MonoBehaviour
     [SerializeField] UserStudyAnimator _UserStudyAnimator;
     [SerializeField] AddJointAngle _addJointAngle;
     [SerializeField] int Interval = 300;
+    [SerializeField] AnimationArea animationArea;
+    [SerializeField] HandTrackingValue handTrackingValue; 
     List<JointAngle> JointAngleList => _addJointAngle.JointAngleList;
     private List<List<List<float>>> TrainingList = new List<List<List<float>>>();
     private List<List<float>> TrainingSet = new List<List<float>>();
     private List<int> LabelList = new List<int>();
+    private List<List<Vector3>> HandBasePos = new List<List<Vector3>>();
     [SerializeField] SVMmanager SVMmanager;
     string ALLLabelList_json;
     string ALLtrainingset_json;
@@ -34,16 +37,22 @@ public class WriteJointAngle : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i < Enum.GetNames(typeof(handState)).Length; i++) TrainingList.Add(new List<List<float>>());
+        for (int i = 0; i < Enum.GetNames(typeof(handState)).Length; i++)
+        {
+            TrainingList.Add(new List<List<float>>());
+            HandBasePos.Add(new List<Vector3>());
+        }
         ResetJson();
     }
     public void ClearTraingingdata(int animation)
     {
         TrainingList[animation] = new List<List<float>>();
+        HandBasePos[animation] = new List<Vector3>();
     }
     public void AddTraingdata(int animation)
     {
         TrainingList[animation].Add(makenodes());
+        HandBasePos[animation].Add(handTrackingValue.landmarks[9]);
     }
     private List<float> makenodes()
     {
@@ -56,6 +65,31 @@ public class WriteJointAngle : MonoBehaviour
         nodes.Add(_addJointAngle.handdirection.y);
         nodes.Add(_addJointAngle.handdirection.z);
         return nodes;
+    }
+    private void CalcualtehandArea()
+    {
+        for(int animation = 0;animation < HandBasePos.Count; animation++)
+        {
+            Vector3 ave = Vector3.zero;
+            foreach(var key in HandBasePos[animation])
+            {
+                ave += key;
+            }
+            ave = ave / HandBasePos[animation].Count;
+            Vector3 SD = Vector3.zero;
+            foreach(var key in HandBasePos[animation])
+            {
+                SD.x += (key.x - ave.x) * (key.x - ave.x);
+                SD.y += (key.y - ave.y) * (key.y - ave.y);
+                SD.z += (key.z - ave.z) * (key.z - ave.z);
+            }
+            SD.x = Mathf.Sqrt(SD.x / HandBasePos[animation].Count);
+            SD.y = Mathf.Sqrt(SD.y / HandBasePos[animation].Count);
+            SD.z = Mathf.Sqrt(SD.z / HandBasePos[animation].Count);
+
+            animationArea.animationareaList[animation].handAVE = ave;
+            animationArea.animationareaList[animation].handSD = SD;
+        }
     }
     public void Calculatemodel()
     {
