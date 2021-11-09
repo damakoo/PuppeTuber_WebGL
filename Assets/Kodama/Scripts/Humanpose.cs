@@ -15,16 +15,23 @@ public class Humanpose : MonoBehaviour
     [SerializeField] float _clamp = 1.0f;
     [SerializeField] int frame = 0;
     List<float> nowHumanPose = new List<float>();
+    private List<float> MuscleVelocity = new List<float>();
+    Vector3 initpos;
+    Quaternion initRot;
+    [SerializeField] GameObject unitychan_hip;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        initpos = unitychan_hip.transform.position;
+        initRot = unitychan_hip.transform.localRotation;
         startpos = unipos.transform.position;
         humanpose = new UnityEngine.HumanPose();
         humanpose0 = new UnityEngine.HumanPose();
         humanposehandler = new HumanPoseHandler(unitychan.GetComponent<Animator>().avatar, unitychan.transform);
-        humanposehandler.GetHumanPose(ref humanpose0);
+        humanposehandler.GetHumanPose(ref humanpose);
+        for (int i = 0; i < humanpose.muscles.Length; i++) MuscleVelocity.Add(0);
         //Decode();
     }
 
@@ -33,13 +40,17 @@ public class Humanpose : MonoBehaviour
     {
         humanpose = new HumanPose();
         humanposehandler.GetHumanPose(ref humanpose);
-        humanpose = humanpose0;
+        Debug.Log("humapose : " + humanpose.muscles.Length);
+        Debug.Log("list : " + AnimationLoader.HumanPoseAnimList[6][frame].Count);
         for (int i = 0; i < humanpose.muscles.Length; i++)
         {
-            humanpose.muscles[i] = Mathf.Clamp(AnimationLoader.HumanPoseAnimList[6][frame][i], -1.0f, 1.0f);
+            float muscleVelocity = MuscleVelocity[i];
+            humanpose.muscles[i] = Mathf.Clamp(Mathf.SmoothDamp(humanpose.muscles[i], AnimationLoader.HumanPoseAnimList[6][frame][i], ref muscleVelocity, 0.1f, 0.1f), -1, 1);
+            MuscleVelocity[i] = muscleVelocity;
         }
         humanposehandler.SetHumanPose(ref humanpose);
-        unipos.transform.position = startpos;
+        unitychan_hip.transform.position = initpos;
+        unitychan_hip.transform.localRotation = initRot;
     }
     private void Decode()
     {

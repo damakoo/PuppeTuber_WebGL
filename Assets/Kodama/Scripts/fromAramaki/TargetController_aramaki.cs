@@ -20,13 +20,16 @@ public class TargetController_aramaki : MonoBehaviour
     private HumanPose inithumanpose;
     [SerializeField] float _smoothTimeRight = 0.1f;
     [SerializeField] float _smoothTimeLeft = 0.1f;
+    [SerializeField] float _smoothTimemuscle = 0.1f;
     // 最高速度
     [SerializeField] float _maxSpeedRight = float.PositiveInfinity;
     [SerializeField] float _maxSpeedLeft = float.PositiveInfinity;
     [SerializeField] VRIK VRik;
+    private bool isFirstFrame = true;
     // 現在速度(SmoothDampの計算のために必要)
-    private Vector3 _currentVelocityRight = new Vector3(0, 0, 0);
-    private Vector3 _currentVelocityLeft = new Vector3(0, 0, 0);
+    private Vector3 _currentVelocityRight = Vector3.zero;
+    private Vector3 _currentVelocityLeft = Vector3.zero;
+    private List<float> MuscleVelocity = new List<float>();
     private Vector3 firstPosition = new Vector3(6, -2, 0);
     [SerializeField] HandTrackingValue handTrackingValue;
     [SerializeField] AnimationArea animationArea;
@@ -35,18 +38,12 @@ public class TargetController_aramaki : MonoBehaviour
     {
         initpos = unitychan_hip.transform.position;
         initRot = unitychan_hip.transform.localRotation;
-        pelvisTarget.transform.position = new Vector3(
-          unitychan.transform.position.x,
-          unitychan.transform.position.y + 30,
-          unitychan.transform.position.z
-          );
-        rightHandTarget.transform.position = pelvisTarget.transform.position;
-        leftHandTarget.transform.position = pelvisTarget.transform.position;
         destinationAvatar = unitychan.GetComponent<Animator>().avatar;
         humanpose = new HumanPose();
         inithumanpose = new HumanPose();
         humanposehandler = new HumanPoseHandler(unitychan.GetComponent<Animator>().avatar, unitychan.transform);
         humanposehandler.GetHumanPose(ref inithumanpose);
+        for (int i = 0; i < inithumanpose.muscles.Length; i++) MuscleVelocity.Add(0);
     }
     Vector3 SmoothDampRight(Vector3 position, int mode)
     {
@@ -76,14 +73,24 @@ public class TargetController_aramaki : MonoBehaviour
     public void UpdatePosition(Vector3 position, int mode)
     {
         bool useAnimation = animationareaList[mode].useAnimation;
-        useranimation.enabled = !useAnimation;
-        VRik.enabled = !useAnimation;
         if (useAnimation)
         {
-            UpdateAnimation(position, mode);
+            if (isFirstFrame)
+            {
+                useranimation.enabled = !useAnimation;
+                VRik.enabled = !useAnimation;
+                isFirstFrame = false;
+            }
+            else
+            {
+                UpdateAnimation(position, mode);
+            }
         }
         else
         {
+            isFirstFrame = true;
+            useranimation.enabled = !useAnimation;
+            VRik.enabled = !useAnimation;
             rightHandTarget.transform.position = SmoothDampRight(position, mode);
             leftHandTarget.transform.position = SmoothDampLeft(position, mode);
         }
@@ -99,17 +106,17 @@ public class TargetController_aramaki : MonoBehaviour
         Vector3 result;
         if (animation.onlyRightHand)
         {
-                result.x = clamp(val.x, animation.handmaxRange.x, animation.handminRange.x, animation.maxRange.x, animation.minRange.x);          
+                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.minRange.x, animation.maxRange.x);          
         }
         else
         {
             if (RightHand)
             {
-                result.x = clamp(val.x, animation.handmaxRange.x, animation.handminRange.x, animation.maxRange.x, animation.rangeTransform.position.x);
+                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x);
             }
             else
             {
-                result.x = clamp(val.x, animation.handmaxRange.x, animation.handminRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
+                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
             }
         }
         result.y = clamp(val.y, animation.handmaxRange.y, animation.handminRange.y, animation.maxRange.y, animation.minRange.y);
@@ -124,7 +131,9 @@ public class TargetController_aramaki : MonoBehaviour
         humanposehandler.GetHumanPose(ref humanpose);
         for (int i = 0; i < humanpose.muscles.Length; i++)
         {
-            humanpose.muscles[i] = animationareaList[mode].HumanPoseAnimList[valint][i];
+            float muscleVelocity = MuscleVelocity[i];
+            humanpose.muscles[i] = Mathf.Clamp(Mathf.SmoothDamp(humanpose.muscles[i], animationareaList[mode].HumanPoseAnimList[valint][i], ref muscleVelocity, _smoothTimemuscle),-1,1);
+            MuscleVelocity[i] = muscleVelocity;
         }
         humanposehandler.SetHumanPose(ref humanpose);
         unitychan_hip.transform.position = initpos;

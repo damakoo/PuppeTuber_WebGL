@@ -31,6 +31,7 @@ public class WriteJointAngle : MonoBehaviour
     private List<int> LabelList = new List<int>();
     private List<List<Vector3>> HandBasePos = new List<List<Vector3>>();
     [SerializeField] SVMmanager SVMmanager;
+    string isValidmodel;
     string ALLLabelList_json;
     string ALLtrainingset_json;
 
@@ -120,6 +121,21 @@ public class WriteJointAngle : MonoBehaviour
         train();
         SetLocalStorage("traindata_label", "");
         SetLocalStorage("traindata_feature", "");
+        isValidmodel = GetLocalStorage("isValidmodel");
+        if (isValidmodel == "valid")
+        {
+            Debug.Log("Train Succeeded");
+            SVMmanager.StartWaitingforOutput();
+        } 
+        else if(isValidmodel == "invalid")
+        {
+            Debug.Log("Train Failed");
+            SVMmanager.InputAgain("申し訳ございません．エラーが発生しました．\n再度学習をやり直します.\n\nまずはデフォルトのポーズに対応する手の形を決めましょう。", false);
+        }
+        else
+        {
+            Debug.LogError("Train Failed with Error");
+        }
     }
     public void sendData()
     {

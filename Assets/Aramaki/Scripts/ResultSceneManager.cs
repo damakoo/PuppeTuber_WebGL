@@ -22,6 +22,6 @@ public class ResultSceneManager : MonoBehaviour
   }
 
   public void Restart() {
-    FadeManager.FadeOut(3);
+    FadeManager.FadeOut(2);
   }
 }

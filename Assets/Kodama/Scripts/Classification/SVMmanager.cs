@@ -62,8 +62,6 @@ public class SVMmanager : MonoBehaviour
         {
             sceneManager.SetCalculatingUI();
             writeJointAngle.Calculatemodel();
-            sceneManager.SetCalculatedUI();
-      StartWaitingforOutput();
     }
         else if (_currentstep == Step.OutputInstruction)
         {
@@ -111,10 +109,7 @@ public class SVMmanager : MonoBehaviour
     {
         if(_currentstep == Step.Output)
         {
-            _vrIK.enabled = false;
-            sceneManager.ReInput();
-            userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
-            StartInput();
+            InputAgain();
         }
         else
         {
@@ -158,6 +153,7 @@ public class SVMmanager : MonoBehaviour
     }
     public void StartWaitingforOutput()
     {
+        sceneManager.SetCalculatedUI();
         _targetController_Aramaki.enabled = true;
         _vrIK.enabled = true;
         _stepText.text = "Wait for Output";
@@ -192,5 +188,12 @@ public class SVMmanager : MonoBehaviour
         _stepText.text = "Finish";
         Debug.Log("Finished");
         SwitchStep(Step.Finished);
+    }
+    public void InputAgain(string popuptext = "まずはデフォルトのポーズに対応する手の形を決めましょう。", bool _onceLearned = true)
+    {
+        _vrIK.enabled = false;
+        sceneManager.ReInput(popuptext,_onceLearned);
+        userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
+        StartInput();
     }
 }

@@ -30,12 +30,12 @@ public class InputSceneManager : MonoBehaviour
         ShowPopup("まずはデフォルトのポーズに対応する手の形を決めましょう。");
     }
 
-    public void ReInput()
+    public void ReInput(string popuptext = "まずはデフォルトのポーズに対応する手の形を決めましょう。", bool _onceLearned = true)
     {
         indexLabel.gameObject.SetActive(true);
-        onceLearned = true;
+        onceLearned = _onceLearned;
         chosenMotionIndex = 0;
-        ShowPopup("まずはデフォルトのポーズに対応する手の形を決めましょう。");
+        ShowPopup(popuptext);
         startLearningButton.GetComponentInChildren<Text>().text = "学習開始(B)";
         doneButton.GetComponentInChildren<Text>().text = "次に進む(N)";
         indexLabel.text = "";
