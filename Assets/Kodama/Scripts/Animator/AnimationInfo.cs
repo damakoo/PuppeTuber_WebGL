@@ -33,7 +33,20 @@ public class AnimationInfo
             return AnimationLoader.HumanPoseAnimList[(int)handState];
         }
     }
-    public float maxTime { get; }
+    public Quaternion RightLocalRot
+    {
+        get
+        {
+            return AnimRotTables.HandRotRightLocal[handState];
+        }
+    }
+    public Quaternion LeftLocalRot
+    {
+        get
+        {
+            return AnimRotTables.HandRotLeftLocal[handState];
+        }
+    }
     
     public AnimationInfo (handState _handState,Transform _rangeTransform,bool _onlyRightHand)
     {

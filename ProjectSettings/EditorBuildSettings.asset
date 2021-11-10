@@ -26,10 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Description.unity
     guid: 562405479c5705441831beb4f3fc3446
+  - enabled: 1
+    path: Assets/Kodama/Scenes/Main/Input.unity
+    guid: 86b308c6ede6fee40ae111d12b5fc28f
   - enabled: 0
     path: Assets/Scenes/Main/VideoPlayer.unity
     guid: fda87c58eddf6c040967dda9c7824f0b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main/Input.unity
     guid: a0f88b3fdf77445e08d2c94af44e8e7f
   - enabled: 1
@@ -66,15 +69,15 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Kodama/Scenes/Main/Agreements.unity
-    guid: 805001a8a169cd3448e6c33a9a33b72c
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Kodama/Scenes/Main/Description.unity
-    guid: 1d1abe1f295758c45a6fbe52fb35a0b0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Kodama/Scenes/Main/Input.unity
-    guid: ea3a15b15c10ae2459b6654c614e04a8
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Kodama/Scenes/Main/Result.unity
-    guid: 1a25cfa82893f7e4194d0d73b390179f
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
