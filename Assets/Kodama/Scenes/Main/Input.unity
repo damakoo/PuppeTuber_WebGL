@@ -744,20 +744,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
   m_PrefabInstance: {fileID: 177114469}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &177114472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177114470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 416205730a6eda04dab2ca40ff4e5515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnitychanReference: {fileID: 834562696}
-  UnitychanHips: {fileID: 177114470}
 --- !u!114 &191140520 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7621115029039231568, guid: 64625f8b208dcd3469293847c30cfac6, type: 3}
@@ -1015,6 +1001,7 @@ MonoBehaviour:
   unitychan: {fileID: 2027484358}
   _smoothTimeRight: 0.1
   _smoothTimeLeft: 0.1
+  _smoothTimemuscle: 0.1
   _maxSpeedRight: Infinity
   _maxSpeedLeft: Infinity
   VRik: {fileID: 2027484359}
@@ -3956,11 +3943,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
   m_PrefabInstance: {fileID: 767345369}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &834562696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100066, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
-  m_PrefabInstance: {fileID: 177114469}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &834562697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400066, guid: 8f0565f23a2b58541a475bd3c1393052, type: 3}
@@ -5158,7 +5140,6 @@ GameObject:
   - component: {fileID: 1461303599}
   - component: {fileID: 1461303600}
   - component: {fileID: 1461303601}
-  - component: {fileID: 1461303602}
   m_Layer: 0
   m_Name: AnimationArea
   m_TagString: Untagged
@@ -5219,22 +5200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7441eb28a0c7dff4fb7a3f5f71cbc98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1461303602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461303598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed183f9e41237e54e9170933f0649cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationarea: {fileID: 1461303598}
-  ballpos: {fileID: 389987252}
-  referencepos: {fileID: 834562696}
-  Hippos: {fileID: 177114470}
 --- !u!1 &1473543927
 GameObject:
   m_ObjectHideFlags: 0
