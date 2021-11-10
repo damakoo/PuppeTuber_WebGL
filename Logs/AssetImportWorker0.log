@@ -420,3 +420,113 @@ System memory in use after: 44.7 MB.
 Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1981.
 Total: 2.019000 ms (FindLiveObjects: 0.136300 ms CreateObjectMapping: 0.043400 ms MarkObjects: 1.171300 ms  DeleteObjects: 0.667300 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001063 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.601 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1498 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.6 MB.
+System memory in use after: 73.9 MB.
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 1984.
+Total: 1.991600 ms (FindLiveObjects: 0.134200 ms CreateObjectMapping: 0.042800 ms MarkObjects: 1.131600 ms  DeleteObjects: 0.682200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 12990.173004 seconds.
+  path: Assets/Kodama
+  artifactKey: Guid(c37c16d1a6688cd418b7aef546604980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Kodama using Guid(c37c16d1a6688cd418b7aef546604980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9469ace1e507c5ac49d236a03cd83792') in 0.007803 seconds
+  Import took 0.010010 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001826 seconds.
+  path: Assets/Kodama
+  artifactKey: Guid(c37c16d1a6688cd418b7aef546604980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Kodama using Guid(c37c16d1a6688cd418b7aef546604980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9469ace1e507c5ac49d236a03cd83792') in 0.003082 seconds
+  Import took 0.005092 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000566 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.636 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1498 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.6 MB.
+System memory in use after: 73.9 MB.
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 1987.
+Total: 1.964900 ms (FindLiveObjects: 0.134000 ms CreateObjectMapping: 0.043500 ms MarkObjects: 1.127900 ms  DeleteObjects: 0.658600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000605 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.677 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1498 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.6 MB.
+System memory in use after: 73.9 MB.
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 1990.
+Total: 2.142500 ms (FindLiveObjects: 0.138500 ms CreateObjectMapping: 0.042300 ms MarkObjects: 1.286500 ms  DeleteObjects: 0.674500 ms)
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.74 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 26 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 45.4 MB.
+System memory in use after: 44.7 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1990.
+Total: 2.061400 ms (FindLiveObjects: 0.136500 ms CreateObjectMapping: 0.043000 ms MarkObjects: 1.181400 ms  DeleteObjects: 0.700000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2289.732902 seconds.
+  path: Assets/Kodama/Scenes/Main/Input.unity
+  artifactKey: Guid(86b308c6ede6fee40ae111d12b5fc28f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Kodama/Scenes/Main/Input.unity using Guid(86b308c6ede6fee40ae111d12b5fc28f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53ab91b43b4afe12afbd407929a01ee8') in 0.075127 seconds
+  Import took 0.077742 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.57 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 26 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 45.4 MB.
+System memory in use after: 44.7 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 1990.
+Total: 6.633300 ms (FindLiveObjects: 0.410800 ms CreateObjectMapping: 0.189000 ms MarkObjects: 4.549400 ms  DeleteObjects: 1.476700 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

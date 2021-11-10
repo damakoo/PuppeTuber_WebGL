@@ -8,6 +8,8 @@ public class UpdateUnipos : MonoBehaviour
     [SerializeField] GameObject UnityChanbefore_Reference;
     [SerializeField] GameObject UnityChan_Destination;
     [SerializeField] GameObject UnityChanbefore_Destination;
+    [SerializeField] TargetController_HR targetController;
+    [SerializeField] TargetController_HR targetController_before;
 
     public void UpdateUnityChanpos()
     {
@@ -15,5 +17,7 @@ public class UpdateUnipos : MonoBehaviour
         UnityChan_Reference.transform.rotation = UnityChan_Destination.transform.rotation;
         UnityChanbefore_Reference.transform.position = UnityChanbefore_Destination.transform.position;
         UnityChanbefore_Reference.transform.rotation = UnityChanbefore_Destination.transform.rotation;
+        targetController.UpdateInitpos();
+        targetController_before.UpdateInitpos();
     }
 }

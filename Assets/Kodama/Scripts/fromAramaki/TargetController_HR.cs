@@ -59,7 +59,11 @@ public class TargetController_HR : MonoBehaviour
                 _smoothTimeLeft,
                 _maxSpeedLeft);
     }
-
+    public void UpdateInitpos()
+    {
+        initpos = unitychan_hip.transform.position;
+        initRot = unitychan_hip.transform.localRotation;
+    }
     public void UpdateUnitychanPos()
     {
         UpdatePosition(HandReader.HandsList[handVRManager.Frame][9], (int)userStudyAnimator._handState);

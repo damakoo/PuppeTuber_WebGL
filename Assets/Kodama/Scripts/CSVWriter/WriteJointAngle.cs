@@ -89,8 +89,20 @@ public class WriteJointAngle : MonoBehaviour
             SD.z = Mathf.Sqrt(SD.z / HandBasePos[animation].Count);
 
             animationArea.animationareaList[animation].handAVE = ave;
-            animationArea.animationareaList[animation].handSD = SD;
+            //animationArea.animationareaList[animation].handSD = SD;
         }
+        Vector3 ave_all = Vector3.zero;
+        int useani = 0;
+        foreach(var key in animationArea.animationareaList)
+        {
+            if (!key.useAnimation)
+            {
+                useani += 1;
+                ave_all += key.handAVE;
+            }
+        }
+        ave_all = ave_all / useani;
+        foreach (var key in animationArea.animationareaList) key.handAVE = ave_all;
     }
     public void Calculatemodel()
     {
