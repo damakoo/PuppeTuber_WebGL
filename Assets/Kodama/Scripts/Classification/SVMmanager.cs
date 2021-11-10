@@ -5,10 +5,8 @@ using RootMotion.FinalIK;
 public class SVMmanager : MonoBehaviour
 {
     public UserStudyAnimator userStudyAnimator;
-    // [SerializeField] UserStudyAnimator userStudyAnimator_before;
     [SerializeField] HandJudge handJudge;
     [SerializeField] WriteJointAngle writeJointAngle;
-    [SerializeField] Text _stepText;
     [SerializeField] VRIK _vrIK;
     [SerializeField] TargetController_aramaki _targetController_Aramaki;
     [SerializeField] HandsRecorder _handsrecorder;
@@ -20,6 +18,7 @@ public class SVMmanager : MonoBehaviour
     [System.NonSerialized] public static Step _currentstep;
     [System.NonSerialized] public static bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
+    [SerializeField] UpdateUnipos updateUnipos;
     public void SetCalculatedUI() => sceneManager.SetCalculatedUI();
     private void Start()
     {
@@ -29,24 +28,17 @@ public class SVMmanager : MonoBehaviour
         _targetController_Aramaki.enabled = false;
         _vrIK.enabled = false;
         userStudyAnimator.EnableUI();
-        // userStudyAnimator_before.enabled = false;
         _currentstep = Step.InputInstruction;
-        _stepText.text = "Wait for Input";
     }
 
     private void Update()
     {
         if (_currentstep == Step.InputInstruction)
         {
-            // userStudyAnimator.changeAnimation();
-            // if (Input.GetKeyDown(_keyCode))
-            // {
             StartInput();
-            // }
         }
         else if (_currentstep == Step.Input)
         {
-            // userStudyAnimator.changeAnimation();
             if (isLearning)
             {
                 bool motionHasEnded = (userStudyAnimator._handState == handState.defaultstate);
@@ -65,28 +57,16 @@ public class SVMmanager : MonoBehaviour
     }
         else if (_currentstep == Step.OutputInstruction)
         {
-
-            // if (Input.GetKeyDown(_keyCode))
-            // {
             StartOutput();
-            // }
         }
         else if (_currentstep == Step.Output)
         {
             handJudge.JudgingHand();
             _targetController_Aramaki.UpdateUnitychanPos();
-            // if (Input.GetKeyDown(_keyCode))
-            // {
-            //   StartReproducInstruction();
-            // }
         }
         else if (_currentstep == Step.ReproductInstruction)
         {
 
-            // if (Input.GetKeyDown(_keyCode))
-            // {
-            //   StartReproduction();
-            // }
         }
         else if (_currentstep == Step.Reproduction)
         {
@@ -141,13 +121,11 @@ public class SVMmanager : MonoBehaviour
     private void StartInput()
     {
         writeJointAngle.enabled = true;
-        _stepText.text = "Input Now";
         Debug.Log("Input Start");
         SwitchStep(Step.Input);
     }
     public void StartCalculate()
     {
-        _stepText.text = "Calculating ...";
         Debug.Log("Calculate Start");
         SwitchStep(Step.Calculate);
     }
@@ -156,36 +134,30 @@ public class SVMmanager : MonoBehaviour
         sceneManager.SetCalculatedUI();
         _targetController_Aramaki.enabled = true;
         _vrIK.enabled = true;
-        _stepText.text = "Wait for Output";
         Debug.Log("Learning finished");
         SwitchStep(Step.OutputInstruction);
     }
     private void StartOutput()
     {
-        _stepText.text = "Output Now";
         Debug.Log("Output Start");
         SwitchStep(Step.Output);
     }
     public void StartReproducInstruction()
     {
-        // userStudyAnimator_before.enabled = true;
-        // userStudyAnimator_before.EnableUI();
         _handsrecorder.SendRecordingData();
         writeJointAngle.sendData();
         unitychan_before.SetActive(true);
-    _stepText.text = "Wait for Reproduction";
+        updateUnipos.UpdateUnityChanpos();
         SwitchStep(Step.ReproductInstruction);
     }
     public void StartReproduction()
     {
-        _stepText.text = "Reproduction";
         reproducthand.SetActive(true);
         SwitchStep(Step.Reproduction);
     }
     private void Finish()
     {
         comparator.ShowResult();
-        _stepText.text = "Finish";
         Debug.Log("Finished");
         SwitchStep(Step.Finished);
     }

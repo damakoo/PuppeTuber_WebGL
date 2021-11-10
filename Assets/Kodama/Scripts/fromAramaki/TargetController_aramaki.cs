@@ -6,18 +6,16 @@ public class TargetController_aramaki : MonoBehaviour
 {
     [SerializeField] GameObject rightHandTarget;
     [SerializeField] GameObject leftHandTarget;
-    [SerializeField] GameObject headTarget;
-    [SerializeField] GameObject pelvisTarget;
     [SerializeField] UserStudyAnimator userStudyAnimator;
     Animator useranimation => userStudyAnimator.useranimation;
     [SerializeField] GameObject unitychan_hip;
     [SerializeField] GameObject unitychan;
+    [SerializeField] GameObject Righthand;
+    [SerializeField] GameObject Lefthand;
     private Vector3 initpos;
     private Quaternion initRot;
-    private Avatar destinationAvatar;
     private HumanPoseHandler humanposehandler;
     private HumanPose humanpose;
-    private HumanPose inithumanpose;
     [SerializeField] float _smoothTimeRight = 0.1f;
     [SerializeField] float _smoothTimeLeft = 0.1f;
     [SerializeField] float _smoothTimemuscle = 0.1f;
@@ -30,7 +28,6 @@ public class TargetController_aramaki : MonoBehaviour
     private Vector3 _currentVelocityRight = Vector3.zero;
     private Vector3 _currentVelocityLeft = Vector3.zero;
     private List<float> MuscleVelocity = new List<float>();
-    private Vector3 firstPosition = new Vector3(6, -2, 0);
     [SerializeField] HandTrackingValue handTrackingValue;
     [SerializeField] AnimationArea animationArea;
     private List<AnimationInfo> animationareaList => animationArea.animationareaList;
@@ -38,12 +35,10 @@ public class TargetController_aramaki : MonoBehaviour
     {
         initpos = unitychan_hip.transform.position;
         initRot = unitychan_hip.transform.localRotation;
-        destinationAvatar = unitychan.GetComponent<Animator>().avatar;
         humanpose = new HumanPose();
-        inithumanpose = new HumanPose();
         humanposehandler = new HumanPoseHandler(unitychan.GetComponent<Animator>().avatar, unitychan.transform);
-        humanposehandler.GetHumanPose(ref inithumanpose);
-        for (int i = 0; i < inithumanpose.muscles.Length; i++) MuscleVelocity.Add(0);
+        humanposehandler.GetHumanPose(ref humanpose);
+        for (int i = 0; i < humanpose.muscles.Length; i++) MuscleVelocity.Add(0);
     }
     Vector3 SmoothDampRight(Vector3 position, int mode)
     {
@@ -72,27 +67,18 @@ public class TargetController_aramaki : MonoBehaviour
 
     public void UpdatePosition(Vector3 position, int mode)
     {
-        bool useAnimation = animationareaList[mode].useAnimation;
+        bool useAnimation = animationareaList[mode].useAnimation; 
+        useranimation.enabled = !useAnimation;
+        VRik.enabled = !useAnimation;
         if (useAnimation)
-        {
-            if (isFirstFrame)
-            {
-                useranimation.enabled = !useAnimation;
-                VRik.enabled = !useAnimation;
-                isFirstFrame = false;
-            }
-            else
-            {
-                UpdateAnimation(position, mode);
-            }
+        { 
+            UpdateAnimation(position, mode);
         }
         else
         {
             isFirstFrame = true;
-            useranimation.enabled = !useAnimation;
-            VRik.enabled = !useAnimation;
-            rightHandTarget.transform.position = SmoothDampRight(position, mode);
-            leftHandTarget.transform.position = SmoothDampLeft(position, mode);
+            UpdateVRIKPos(position, mode);
+            UpdateVRIKRot(mode);
         }
     }
 
@@ -123,8 +109,22 @@ public class TargetController_aramaki : MonoBehaviour
         result.z = clamp(val.z, animation.handmaxRange.z, animation.handminRange.z, animation.maxRange.z, animation.minRange.z);
         return result;
     }
+    void UpdateVRIKPos(Vector3 position,int mode)
+    {
+        rightHandTarget.transform.position = SmoothDampRight(position, mode);
+        leftHandTarget.transform.position = SmoothDampLeft(position, mode);
+    }
+    void UpdateVRIKRot(int mode)
+    {
+        Lefthand.transform.localRotation = animationareaList[mode].LeftLocalRot;
+        Righthand.transform.localRotation = animationareaList[mode].RightLocalRot;
+        leftHandTarget.transform.rotation = Lefthand.transform.rotation;
+        rightHandTarget.transform.rotation = Righthand.transform.rotation;
+    }
     void UpdateAnimation(Vector3 position, int mode)
     {
+        //initpos = unitychan_hip.transform.position;
+        //initRot = unitychan_hip.transform.localRotation;
         humanpose = new HumanPose();
         float val = (position.y - animationareaList[mode].handminRange.y) * animationareaList[mode].Animlength / (animationareaList[mode].handmaxRange.y - animationareaList[mode].handminRange.y);
         int valint = Mathf.Clamp(Mathf.FloorToInt(val),0, animationareaList[mode].Animlength);
@@ -138,22 +138,5 @@ public class TargetController_aramaki : MonoBehaviour
         humanposehandler.SetHumanPose(ref humanpose);
         unitychan_hip.transform.position = initpos;
         unitychan_hip.transform.localRotation = initRot;
-    }
-     private HumanPoseHandler CreateHumanPoseHandler(Animator animator)
-    {
-        if (animator == null) { return null; }
-        var position = animator.transform.position;
-        var rotation = animator.transform.rotation;
-        var scale = animator.transform.localScale;
-
-        animator.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-        animator.transform.localScale = Vector3.one;
-        var humanPoseHandler = new HumanPoseHandler(animator.avatar, animator.transform);
-
-        var hipBone = animator.GetBoneTransform(HumanBodyBones.Hips);
-        hipBone.rotation = rotation;
-        hipBone.position = position + hipBone.up * hipBone.position.y * scale.y;
-        hipBone.localScale = scale;
-        return humanPoseHandler;
     }
 }
