@@ -33,7 +33,7 @@ public class TargetController_aramaki : MonoBehaviour
     private List<AnimationInfo> animationareaList => animationArea.animationareaList;
     void Start()
     {
-        initpos = unitychan_hip.transform.position;
+        initpos = unitychan_hip.transform.localPosition;
         initRot = unitychan_hip.transform.localRotation;
         humanpose = new HumanPose();
         humanposehandler = new HumanPoseHandler(unitychan.GetComponent<Animator>().avatar, unitychan.transform);
@@ -77,6 +77,7 @@ public class TargetController_aramaki : MonoBehaviour
         else
         {
             isFirstFrame = true;
+            UpdateBasePos();
             UpdateVRIKPos(position, mode);
             UpdateVRIKRot(mode);
         }
@@ -86,26 +87,30 @@ public class TargetController_aramaki : MonoBehaviour
     {
         return (val - from1) * (to2 - to1) / (from2 - from1) + to1;
     }
+    float clamp_symmetry(float val, float from1, float from2, float to1, float to2)
+    {
+        return Mathf.Abs(val - from1) * (to2 - to1) / (from2 - from1) + to1;
+    }
     Vector3 UnityHandpos(Vector3 val, AnimationInfo animation, bool RightHand = true)
     {
         if (!RightHand && animation.onlyRightHand) return animationArea.Lefthandpos_default.position;
         Vector3 result;
         if (animation.onlyRightHand)
         {
-                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.minRange.x, animation.maxRange.x);          
+                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.maxRange.x, animation.minRange.x);          
         }
         else
         {
             if (RightHand)
             {
-                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x);
+                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x);
             }
             else
             {
-                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
+                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
             }
         }
-        result.y = clamp(val.y, animation.handmaxRange.y, animation.handminRange.y, animation.maxRange.y, animation.minRange.y);
+        result.y = clamp(val.y, animation.handmaxRange.y, animation.handminRange.y, animation.minRange.y, animation.maxRange.y);
         result.z = clamp(val.z, animation.handmaxRange.z, animation.handminRange.z, animation.maxRange.z, animation.minRange.z);
         return result;
     }
@@ -123,8 +128,6 @@ public class TargetController_aramaki : MonoBehaviour
     }
     void UpdateAnimation(Vector3 position, int mode)
     {
-        //initpos = unitychan_hip.transform.position;
-        //initRot = unitychan_hip.transform.localRotation;
         humanpose = new HumanPose();
         float val = (position.y - animationareaList[mode].handminRange.y) * animationareaList[mode].Animlength / (animationareaList[mode].handmaxRange.y - animationareaList[mode].handminRange.y);
         int valint = Mathf.Clamp(Mathf.FloorToInt(val),0, animationareaList[mode].Animlength);
@@ -136,7 +139,16 @@ public class TargetController_aramaki : MonoBehaviour
             MuscleVelocity[i] = muscleVelocity;
         }
         humanposehandler.SetHumanPose(ref humanpose);
-        unitychan_hip.transform.position = initpos;
+        UpdateBasePos();
+    }
+    private void UpdateBasePos()
+    {
+        unitychan_hip.transform.localPosition = initpos;
         unitychan_hip.transform.localRotation = initRot;
+    }
+    public void UpdateInitpos()
+    {
+        initpos = unitychan_hip.transform.localPosition;
+        initRot = unitychan_hip.transform.localRotation;
     }
 }

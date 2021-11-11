@@ -10,10 +10,13 @@ public class TargetController_HR : MonoBehaviour
     Animator useranimation => userStudyAnimator.useranimation;
     [SerializeField] GameObject unitychan;
     [SerializeField] GameObject unitychan_hip;
+    [SerializeField] GameObject unitychan_ref;
     [SerializeField] GameObject Righthand;
     [SerializeField] GameObject Lefthand;
     private Vector3 initpos;
     private Quaternion initRot;
+    private Vector3 initposref;
+    private Quaternion initRotref;
     private HumanPoseHandler humanposehandler;
     private HumanPose humanpose;
     [SerializeField] float _smoothTimeRight = 0.1f;
@@ -23,7 +26,6 @@ public class TargetController_HR : MonoBehaviour
     [SerializeField] float _maxSpeedRight = float.PositiveInfinity;
     [SerializeField] float _maxSpeedLeft = float.PositiveInfinity;
     [SerializeField] VRIK VRik;
-    private bool isFirstFrame = true;
     // 現在速度(SmoothDampの計算のために必要)
     private Vector3 _currentVelocityRight = Vector3.zero;
     private Vector3 _currentVelocityLeft = Vector3.zero;
@@ -33,8 +35,10 @@ public class TargetController_HR : MonoBehaviour
     private List<AnimationInfo> animationareaList => animationArea.animationareaList;
     void Start()
   {
-        initpos = unitychan_hip.transform.position;
-        initRot = unitychan_hip.transform.localRotation;
+        initpos = unitychan_hip.transform.localPosition;
+        initRot = unitychan_hip.transform.localRotation; 
+        initposref = unitychan_ref.transform.localPosition;
+        initRotref = unitychan_ref.transform.localRotation;
         humanpose = new HumanPose();
         humanposehandler = new HumanPoseHandler(unitychan.GetComponent<Animator>().avatar, unitychan.transform);
         humanposehandler.GetHumanPose(ref humanpose);
@@ -59,11 +63,7 @@ public class TargetController_HR : MonoBehaviour
                 _smoothTimeLeft,
                 _maxSpeedLeft);
     }
-    public void UpdateInitpos()
-    {
-        initpos = unitychan_hip.transform.position;
-        initRot = unitychan_hip.transform.localRotation;
-    }
+
     public void UpdateUnitychanPos()
     {
         UpdatePosition(HandReader.HandsList[handVRManager.Frame][9], (int)userStudyAnimator._handState);
@@ -80,7 +80,7 @@ public class TargetController_HR : MonoBehaviour
         }
         else
         {
-            isFirstFrame = true;
+            UpdateBasePos();
             UpdateVRIKPos(position, mode);
             UpdateVRIKRot(mode);
         }
@@ -90,26 +90,30 @@ public class TargetController_HR : MonoBehaviour
     {
         return (val - from1) * (to2 - to1) / (from2 - from1) + to1;
     }
+    float clamp_symmetry(float val, float from1, float from2, float to1, float to2)
+    {
+        return Mathf.Abs(val - from1) * (to2 - to1) / (from2 - from1) + to1;
+    }
     Vector3 UnityHandpos(Vector3 val, AnimationInfo animation, bool RightHand = true)
     {
         if (!RightHand && animation.onlyRightHand) return animationArea.Lefthandpos_default.position;
         Vector3 result;
         if (animation.onlyRightHand)
         {
-            result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.minRange.x, animation.maxRange.x);
+            result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.maxRange.x, animation.minRange.x);
         }
         else
         {
             if (RightHand)
             {
-                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x);
+                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x);
             }
             else
             {
-                result.x = clamp(val.x, animation.handminRange.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
+                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
             }
         }
-        result.y = clamp(val.y, animation.handmaxRange.y, animation.handminRange.y, animation.maxRange.y, animation.minRange.y);
+        result.y = clamp(val.y, animation.handmaxRange.y, animation.handminRange.y, animation.minRange.y, animation.maxRange.y);
         result.z = clamp(val.z, animation.handmaxRange.z, animation.handminRange.z, animation.maxRange.z, animation.minRange.z);
         return result;
     }
@@ -127,8 +131,6 @@ public class TargetController_HR : MonoBehaviour
     }
     void UpdateAnimation(Vector3 position, int mode)
     {
-        //initpos = unitychan_hip.transform.position;
-        //initRot = unitychan_hip.transform.localRotation;
         humanpose = new HumanPose();
         float val = (position.y - animationareaList[mode].handminRange.y) * animationareaList[mode].Animlength / (animationareaList[mode].handmaxRange.y - animationareaList[mode].handminRange.y);
         int valint = Mathf.Clamp(Mathf.FloorToInt(val), 0, animationareaList[mode].Animlength);
@@ -140,7 +142,20 @@ public class TargetController_HR : MonoBehaviour
             MuscleVelocity[i] = muscleVelocity;
         }
         humanposehandler.SetHumanPose(ref humanpose);
-        unitychan_hip.transform.position = initpos;
+        UpdateBasePos();
+    }
+    private void UpdateBasePos()
+    {
+        unitychan_hip.transform.localPosition = initpos;
         unitychan_hip.transform.localRotation = initRot;
+        unitychan_ref.transform.localPosition = initposref;
+        unitychan_ref.transform.localRotation = initRotref;
+    }
+    public void UpdateInitpos()
+    {
+        initpos = unitychan_hip.transform.localPosition;
+        initRot = unitychan_hip.transform.localRotation;
+        initposref = unitychan_ref.transform.localPosition;
+        initRotref = unitychan_ref.transform.localRotation;
     }
 }

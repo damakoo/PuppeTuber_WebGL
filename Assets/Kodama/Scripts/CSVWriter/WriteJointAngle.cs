@@ -119,7 +119,8 @@ public class WriteJointAngle : MonoBehaviour
                 }
             }
         }
-        calculate();       
+        calculate();
+        CalcualtehandArea();
     }
     private void calculate()
     {

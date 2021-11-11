@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.InteropServices;
+using UnityEngine.UI;
 
 class HandJudge : MonoBehaviour
 {
@@ -23,10 +24,12 @@ class HandJudge : MonoBehaviour
     private static extern string GetLocalStorage(string key);
 
     List<List<float>> input = new List<List<float>>();
-    [SerializeField] private float interval = 0.5f;
+    [SerializeField] private float interval = 1.0f;
     private float _time = 0;
     [SerializeField]AddJointAngle _addJointAngle;
+    [SerializeField] Text motionNameLabel;
     List<JointAngle> JointAngleList => _addJointAngle.JointAngleList;
+    private handState _handstate_before = handState.defaultstate;
 
 
     public void JudgingHand()
@@ -52,7 +55,12 @@ class HandJudge : MonoBehaviour
             judge = int.Parse(judge_json);
             _time = 0;
             input = new List<List<float>>();
-            _UserStudyAnimator._handState = (handState)Enum.ToObject(typeof(handState), judge);
+            if(_handstate_before != (handState)Enum.ToObject(typeof(handState), judge))
+            {
+                _UserStudyAnimator._handState = (handState)Enum.ToObject(typeof(handState), judge);
+                motionNameLabel.text = "åüèoíÜÉÇÅ[ÉVÉáÉì:" + Constants.motionNames[(handState)Enum.ToObject(typeof(handState), judge)];
+                _handstate_before = _UserStudyAnimator._handState;
+            }
         }
     }
 

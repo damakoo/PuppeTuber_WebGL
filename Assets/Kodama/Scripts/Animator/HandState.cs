@@ -1,4 +1,6 @@
-
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 public enum handState
 {
     defaultstate = 0,
@@ -17,19 +19,19 @@ public enum handState
 }
 public class Constants
 {
-    public static string[] motionNames = {
-        "デフォルト",
-        "バイバイ",
-        "拍手",
-        "ろくろ回し",
-        "うなずく",
-        "ピース",
-        "お辞儀",
-        "ハッとする",
-        "ガッツポーズ",
-        "泣く",
-        "挙手",
-        "頭を抱える",
-        "デモ"
+    public static Dictionary<handState,string> motionNames = new Dictionary<handState, string>{
+        {handState.defaultstate, "デフォルト" },
+        {handState.byebye, "バイバイ" },
+        {handState.crap, "拍手" },
+        {handState.Rokuromawashi, "ろくろ回し" },
+        {handState.nod, "うなずく" },
+        {handState.peace, "ピース" },
+        {handState.bow, "お辞儀" },
+        {handState.covermouse, "ハッとする" },
+        {handState.gutspose, "ガッツポーズ" },
+        {handState.cry, "泣く" },
+        {handState.hai, "挙手" },
+        {handState.holdhead, "頭を抱える" },
+        {handState.demo, "デモ" }
     };
 }
