@@ -13,16 +13,13 @@ public class SVMmanager : MonoBehaviour
     [SerializeField] GameObject reproducthand;
     [SerializeField] HandVRManager handVRManager;
   [SerializeField] GameObject unitychan;
-  [SerializeField] GameObject unitychan_before;
     [SerializeField] Comparator comparator;
     [System.NonSerialized] public static Step _currentstep;
     [System.NonSerialized] public static bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
     [SerializeField] UpdateUnipos updateUnipos;
-    public void SetCalculatedUI() => sceneManager.SetCalculatedUI();
     private void Start()
     {
-        unitychan_before.SetActive(false);
         reproducthand.SetActive(false);
         writeJointAngle.enabled = false;
         _targetController_Aramaki.enabled = false;
@@ -146,8 +143,8 @@ public class SVMmanager : MonoBehaviour
     {
         _handsrecorder.SendRecordingData();
         writeJointAngle.sendData();
-        unitychan_before.SetActive(true);
-        updateUnipos.UpdateUnityChanpos();
+        unitychan.SetActive(false);
+        updateUnipos.AppearUnitychan_Reproduction();
         SwitchStep(Step.ReproductInstruction);
     }
     public void StartReproduction()

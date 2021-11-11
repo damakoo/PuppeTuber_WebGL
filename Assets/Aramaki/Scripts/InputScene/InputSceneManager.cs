@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Runtime.InteropServices;
@@ -58,11 +59,10 @@ public class InputSceneManager : MonoBehaviour
             Debug.Log("Proceeded to next");
             startLearningButton.interactable = true;
             startLearningButton.GetComponentInChildren<Text>().text = "学習開始(B)";
-            // doneButton.interactable = false;
             doneButton.GetComponentInChildren<Text>().text = "次に進む(N)";
             playButton.gameObject.SetActive(true);
             indexLabel.text = $"{chosenMotionIndex}/8";
-            motionNameLabel.text = Constants.motionNames[chosenMotionIndex];
+            motionNameLabel.text = Constants.motionNames[(handState)Enum.ToObject(typeof(handState), chosenMotionIndex)];
             SetAllButton(true);
             doneButton.interactable = onceLearned;
         }
