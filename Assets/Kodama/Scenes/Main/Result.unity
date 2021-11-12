@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 293120795}
   - component: {fileID: 293120794}
   m_Layer: 5
-  m_Name: name
+  m_Name: shogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -541,7 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 829913615}
   m_Layer: 0
-  m_Name: UnityRunBase (1)
+  m_Name: UnityWaitBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 1164679790}
   - component: {fileID: 1164679789}
   m_Layer: 5
-  m_Name: Instinct_value
+  m_Name: Instinct_kyori
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -818,8 +818,11 @@ MonoBehaviour:
   Synchronization_title: {fileID: 2099791259}
   Synchronization_value: {fileID: 1113738411}
   Instinct_title: {fileID: 764343206}
-  Instinct_value: {fileID: 1113738411}
-  _name: {fileID: 293120794}
+  Instinct_kyori: {fileID: 1164679789}
+  _shogo: {fileID: 293120794}
+  Unitychan_running: {fileID: 1288949073}
+  UnityWaitBase: {fileID: 829913614}
+  UnityRunBase: {fileID: 2042491755}
 --- !u!4 &1199070628
 Transform:
   m_ObjectHideFlags: 0
@@ -834,6 +837,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1288949073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+  m_PrefabInstance: {fileID: 857126060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1663661035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1413,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30B7\u30F3\u30AF\u30ED\u7387\u306F\uFF0E\uFF0E\uFF0E\n"
+  m_Text: "\u30B7\u30F3\u30AF\u30ED\u7387\u306F\uFF0E\uFF0E\uFF0E"
 --- !u!222 &2099791260
 CanvasRenderer:
   m_ObjectHideFlags: 0
