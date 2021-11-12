@@ -76,7 +76,7 @@ public class InputSceneManager : MonoBehaviour
             inputUISet.SetActive(false);
             compareUISet.SetActive(true);
             svmManager.StartReproducInstruction();
-            ShowPopup("比較画面の説明を入れる");
+            ShowPopup("これからあなたとある人の心のキョリを推定します．\n\n左にあなたに合わせたモデルが，右にある人に合わせたモデルがいます．\nある人の手の動きに対して二人のモデルがどれくらい同じ動きをするか見てみましょう");
         }
     }
 
