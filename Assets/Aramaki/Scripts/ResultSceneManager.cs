@@ -42,7 +42,7 @@ public class ResultSceneManager : MonoBehaviour
         Instinct_kyori.color = new Color(1, 0, 0, 0);
         _shogo.color = new Color(0,0,0,0);
         unitychandx = Unitychan_running.transform.position.x - destination.x;
-        destination = UnityWaitBase.transform.position - (UnityRunBase.transform.position - UnityWaitBase.transform.position) * (float)result;
+        destination = UnityWaitBase.transform.position + (UnityRunBase.transform.position - UnityWaitBase.transform.position) * (1-(float)result);
         color_dx = Color.black - Synchronization_title.color;
 
     }
@@ -74,7 +74,7 @@ public class ResultSceneManager : MonoBehaviour
         }
         else if (resultStep == ResultStep.Shogo)
         {
-            fadein(2.0f,Color.black, new Color(0, 0, 0, 1), _shogo, ResultStep.Finish);
+            fadein(1.0f,Color.black, new Color(0, 0, 0, 1), _shogo, ResultStep.Finish);
         }
     }
     // Update is called once per frame
@@ -89,7 +89,7 @@ public class ResultSceneManager : MonoBehaviour
     }
     private void StartInsTitle()
     {
-        color_dx = Color.red - Instinct_title.color;
+        color_dx = Color.black - Instinct_title.color;
         SwitchStep(ResultStep.Instinct_title);
     }
     private void PlusValue(int _intResult)
@@ -101,6 +101,7 @@ public class ResultSceneManager : MonoBehaviour
         }
         else
         {
+            Synchronization_value.text = Number_Display.ToString() + "%";
             StartInsTitle();
         }
     }
