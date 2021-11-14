@@ -257,6 +257,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
+    - target: {fileID: 13700000, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
+    - target: {fileID: 13700004, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
     m_RemovedComponents:
     - {fileID: 11400002, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
     - {fileID: 11400000, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
@@ -620,6 +632,22 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a094fe28d1e7d704abcf9d8a38df448a, type: 2}
+    - target: {fileID: 13700000, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
+    - target: {fileID: 13700000, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
+    - target: {fileID: 13700002, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
+    - target: {fileID: 13700004, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cbe8c6e6ebf74e856c2ccb3eb1923, type: 2}
     m_RemovedComponents:
     - {fileID: 11400002, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
     - {fileID: 11400000, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
