@@ -48,18 +48,20 @@ public class AnimationInfo
         }
     }
     
-    public AnimationInfo (handState _handState,Transform _rangeTransform,bool _onlyRightHand)
+    public AnimationInfo (handState _handState,Transform _rangeTransform,bool _onlyRightHand,float _handdistance = 0)
     {
         this.handState = _handState;
         this.useAnimation = false;
         this.rangeTransform = _rangeTransform;
         this.onlyRightHand = _onlyRightHand;
+        this.HandDistance = _handdistance;
     }
     public AnimationInfo(handState _handState)
     {
         this.handState = _handState;
         this.useAnimation = true;
     }
+    public float HandDistance { get; }
     public Vector3 handAVE { get; set; } = new Vector3(0.5f,0.5f,3);
     public Vector3 handSD { get; set; } = new Vector3(0.25f,0.25f,1.5f);
     public bool onlyRightHand { get; set; }

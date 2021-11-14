@@ -17,18 +17,18 @@ public class AnimationArea : MonoBehaviour
     {
         AddAnimation(handState.defaultstate);
         AddAnimation(handState.byebye, ByeBye, true);
-        AddAnimation(handState.crap, Crap, false);
-        AddAnimation(handState.Rokuromawashi, rokuromawashi, false);
+        AddAnimation(handState.crap, Crap, false,0.1f);
+        AddAnimation(handState.Rokuromawashi, rokuromawashi, false,0.3f);
         AddAnimation(handState.nod);
         AddAnimation(handState.peace, peace, true);
         AddAnimation(handState.bow);
-        AddAnimation(handState.covermouse, covermouse, false);
+        AddAnimation(handState.covermouse, covermouse, false,0.3f);
         AddAnimation(handState.gutspose, gutspose, true);
     }
 
-    void AddAnimation(handState handState, Transform transform,bool _onlyRightHand)
+    void AddAnimation(handState handState, Transform transform,bool _onlyRightHand,float _handdistance = 0)
     {
-        AnimationInfo _animation = new AnimationInfo(handState,transform,_onlyRightHand);
+        AnimationInfo _animation = new AnimationInfo(handState,transform,_onlyRightHand,_handdistance);
         animationareaList.Add(_animation);
     }
     void AddAnimation(handState handState)

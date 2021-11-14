@@ -85,14 +85,16 @@ public class TargetController_HR : MonoBehaviour
             UpdateVRIKRot(mode);
         }
     }
-
     float clamp(float val, float from1, float from2, float to1, float to2)
     {
-        return (val - from1) * (to2 - to1) / (from2 - from1) + to1;
+        float result = (val - from1) * (to2 - to1) / (from2 - from1) + to1;
+        return (to1 > to2) ? Mathf.Clamp(result, to2, to1) : Mathf.Clamp(result, to1, to2);
     }
-    float clamp_symmetry(float val, float from1, float from2, float to1, float to2)
+    float clamp_symmetry(float val, float from1, float from2, float to1, float to2, float handdistance = 0)
     {
-        return Mathf.Abs(val - from1) * (to2 - to1) / (from2 - from1) + to1;
+        float to1_1 = to1 + (to2 - to1) * handdistance;
+        float result = Mathf.Abs(val - from1) * (to2 - to1_1) / (from2 - from1) + to1_1;
+        return (to1 > to2) ? Mathf.Clamp(result, to2, to1_1) : Mathf.Clamp(result, to1_1, to2);
     }
     Vector3 UnityHandpos(Vector3 val, AnimationInfo animation, bool RightHand = true)
     {
@@ -106,11 +108,11 @@ public class TargetController_HR : MonoBehaviour
         {
             if (RightHand)
             {
-                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x);
+                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.minRange.x,animation.HandDistance);
             }
             else
             {
-                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x);
+                result.x = clamp_symmetry(val.x, animation.handAVE.x, animation.handmaxRange.x, animation.rangeTransform.position.x, animation.maxRange.x,animation.HandDistance);
             }
         }
         result.y = clamp(val.y, animation.handmaxRange.y, animation.handminRange.y, animation.minRange.y, animation.maxRange.y);

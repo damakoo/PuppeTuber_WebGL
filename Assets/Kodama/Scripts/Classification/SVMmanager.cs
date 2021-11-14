@@ -7,7 +7,6 @@ public class SVMmanager : MonoBehaviour
     public UserStudyAnimator userStudyAnimator;
     [SerializeField] HandJudge handJudge;
     [SerializeField] WriteJointAngle writeJointAngle;
-    [SerializeField] VRIK _vrIK;
     [SerializeField] TargetController_aramaki _targetController_Aramaki;
     [SerializeField] HandsRecorder _handsrecorder;
     [SerializeField] GameObject reproducthand;
@@ -18,8 +17,12 @@ public class SVMmanager : MonoBehaviour
     [System.NonSerialized] public static bool isLearning = false;
     [SerializeField] InputSceneManager sceneManager;
     [SerializeField] UpdateUnipos updateUnipos;
+    private VRIK _vrIK;
+    private Animator unitychanAnimator;
     private void Start()
     {
+        _vrIK = unitychan.GetComponent<VRIK>();
+        unitychanAnimator = unitychan.GetComponent<Animator>();
         reproducthand.SetActive(false);
         writeJointAngle.enabled = false;
         _targetController_Aramaki.enabled = false;
@@ -160,6 +163,7 @@ public class SVMmanager : MonoBehaviour
     }
     public void InputAgain(string popuptext = "まずはデフォルトのポーズに対応する手の形を決めましょう。", bool _onceLearned = true)
     {
+        unitychanAnimator.enabled = true;
         _vrIK.enabled = false;
         sceneManager.ReInput(popuptext,_onceLearned);
         userStudyAnimator.changeAnimationToIndex(sceneManager.chosenMotionIndex);
