@@ -85,11 +85,11 @@ public class TargetController_aramaki : MonoBehaviour
 
     float clamp(float val, float from1, float from2, float to1, float to2)
     {
-        return Mathf.Clamp((val - from1) * (to2 - to1) / (from2 - from1) + to1, to1, to2);
+        return (val - from1) * (to2 - to1) / (from2 - from1) + to1;
     }
     float clamp_symmetry(float val, float from1, float from2, float to1, float to2)
     {
-        return Mathf.Clamp(Mathf.Abs(val - from1) * (to2 - to1) / (from2 - from1) + to1, to1, to2);
+        return Mathf.Abs(val - from1) * (to2 - to1) / (from2 - from1) + to1;
     }
     Vector3 UnityHandpos(Vector3 val, AnimationInfo animation, bool RightHand = true)
     {
