@@ -44,7 +44,6 @@ public class ResultSceneManager : MonoBehaviour
         unitychandx = Unitychan_running.transform.position.x - destination.x;
         destination = UnityWaitBase.transform.position + (UnityRunBase.transform.position - UnityWaitBase.transform.position) * (1-(float)result);
         color_dx = Color.black - Synchronization_title.color;
-
     }
     private void FixedUpdate()
     {
