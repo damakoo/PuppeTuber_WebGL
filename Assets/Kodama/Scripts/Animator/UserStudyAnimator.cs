@@ -49,7 +49,10 @@ public class UserStudyAnimator : MonoBehaviour
                 sceneManager.SetAllButton(true);
                 sceneManager.doneButton.interactable = sceneManager.isactive_donebutton;
             }
-            _handState = handState.defaultstate;
+            if(SVMmanager._currentstep == Step.Input)
+            {
+                _handState = handState.defaultstate;
+            }
         }
   }
   private void LateUpdate()
