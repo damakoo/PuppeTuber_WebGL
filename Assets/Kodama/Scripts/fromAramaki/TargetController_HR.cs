@@ -22,6 +22,7 @@ public class TargetController_HR : MonoBehaviour
     [SerializeField] float _smoothTimeRight = 0.1f;
     [SerializeField] float _smoothTimeLeft = 0.1f;
     [SerializeField] float _smoothTimemuscle = 0.1f;
+    private bool isFirstFrame = true;
     // 最高速度
     [SerializeField] float _maxSpeedRight = float.PositiveInfinity;
     [SerializeField] float _maxSpeedLeft = float.PositiveInfinity;
@@ -72,14 +73,26 @@ public class TargetController_HR : MonoBehaviour
     public void UpdatePosition(Vector3 position, int mode)
     {
         bool useAnimation = animationareaList[mode].useAnimation;
-        useranimation.enabled = !useAnimation;
-        VRik.enabled = !useAnimation;
         if (useAnimation)
         {
-            UpdateAnimation(position, mode);
+            if (!isFirstFrame)
+            {
+                useranimation.enabled = !useAnimation;
+                VRik.enabled = !useAnimation;
+                UpdateAnimation(position, mode);
+            }
+            else
+            {
+                useranimation.SetBool("useAnimation", useAnimation);
+                isFirstFrame = false;
+            }
         }
         else
         {
+            useranimation.SetBool("useAnimation", useAnimation);
+            useranimation.enabled = !useAnimation;
+            VRik.enabled = !useAnimation;
+            isFirstFrame = true;
             UpdateBasePos();
             UpdateVRIKPos(position, mode);
             UpdateVRIKRot(mode);
