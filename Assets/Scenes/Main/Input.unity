@@ -414,7 +414,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95668077}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -526,7 +526,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u30C7\u30D5\u30A9\u30EB\u30C8\n"
+  m_Text: "\u3042\u306A\u305F\u306E\u30E2\u30FC\u30B7\u30E7\u30F3\uFF1A\u30C7\u30D5\u30A9\u30EB\u30C8"
 --- !u!222 &101194780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1524,7 +1524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u30C7\u30D5\u30A9\u30EB\u30C8\n"
+  m_Text: "\u524D\u30E6\u30FC\u30B6\u306E\u30E2\u30FC\u30B7\u30E7\u30F3\uFF1A\u30C7\u30D5\u30A9\u30EB\u30C8"
 --- !u!222 &325955221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4635,7 +4635,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210259808}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5529,7 +5529,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340410093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

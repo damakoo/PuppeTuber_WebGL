@@ -31,7 +31,7 @@ public class ResultSceneManager : MonoBehaviour
         runanimator = Unitychan_running.GetComponent<Animator>();
         Synchronization_title.text = "シンクロ率は．．．";
         Synchronization_value.text = "";
-        Instinct_title.text = "あなたと○○の直感キョリは．．．";
+        Instinct_title.text = "あなたと前ユーザの直感キョリは．．．";
         Synchronization_title.color = new Color(0, 0, 0, 0);
         Instinct_title.color = new Color(0,0,0,0);
         FadeManager.FadeIn();

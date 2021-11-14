@@ -73,7 +73,7 @@ class HandJudge_Comparate : MonoBehaviour
             if (_handstate_before2 != (handState)Enum.ToObject(typeof(handState), judge2))
             {
                 _UserStudyAnimator2._handState = (handState)Enum.ToObject(typeof(handState), judge2);
-                motionNameLabel2.text = "ある人のモーション:" + Constants.motionNames[(handState)Enum.ToObject(typeof(handState), judge2)];
+                motionNameLabel2.text = "前ユーザのモーション:" + Constants.motionNames[(handState)Enum.ToObject(typeof(handState), judge2)];
                 animator_before.SetInteger("handstate", judge2);
                 _handstate_before2 = _UserStudyAnimator2._handState;
             }
