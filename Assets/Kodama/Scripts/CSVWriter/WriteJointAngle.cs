@@ -67,29 +67,32 @@ public class WriteJointAngle : MonoBehaviour
         nodes.Add(_addJointAngle.handdirection.z);
         return nodes;
     }
-    private void CalcualtehandArea()
+    private void CalculatehandArea()
     {
         for(int animation = 0;animation < HandBasePos.Count; animation++)
         {
             Vector3 ave = Vector3.zero;
-            foreach(var key in HandBasePos[animation])
+            Vector3 SD = Vector3.one;
+            if (HandBasePos[animation].Count > 0)
             {
-                ave += key;
-            }
-            ave = ave / HandBasePos[animation].Count;
-            Vector3 SD = Vector3.zero;
-            foreach(var key in HandBasePos[animation])
-            {
-                SD.x += (key.x - ave.x) * (key.x - ave.x);
-                SD.y += (key.y - ave.y) * (key.y - ave.y);
-                SD.z += (key.z - ave.z) * (key.z - ave.z);
-            }
-            SD.x = Mathf.Sqrt(SD.x / HandBasePos[animation].Count);
-            SD.y = Mathf.Sqrt(SD.y / HandBasePos[animation].Count);
-            SD.z = Mathf.Sqrt(SD.z / HandBasePos[animation].Count);
+                foreach (var key in HandBasePos[animation])
+                {
+                    ave += key;
+                }
+                ave = ave / HandBasePos[animation].Count;
+                foreach (var key in HandBasePos[animation])
+                {
+                    SD.x += (key.x - ave.x) * (key.x - ave.x);
+                    SD.y += (key.y - ave.y) * (key.y - ave.y);
+                    SD.z += (key.z - ave.z) * (key.z - ave.z);
+                }
+                SD.x = Mathf.Sqrt(SD.x / HandBasePos[animation].Count);
+                SD.y = Mathf.Sqrt(SD.y / HandBasePos[animation].Count);
+                SD.z = Mathf.Sqrt(SD.z / HandBasePos[animation].Count);
 
-            animationArea.animationareaList[animation].handAVE = ave;
-            //animationArea.animationareaList[animation].handSD = SD;
+                animationArea.animationareaList[animation].handAVE = ave;
+                //animationArea.animationareaList[animation].handSD = SD;
+            }
         }
         Vector3 ave_all = Vector3.zero;
         int useani = 0;
@@ -103,6 +106,7 @@ public class WriteJointAngle : MonoBehaviour
         }
         ave_all = ave_all / useani;
         foreach (var key in animationArea.animationareaList) key.handAVE = ave_all;
+        Debug.Log("Handarea Calculation Finished");
     }
     public void Calculatemodel()
     {
@@ -120,7 +124,7 @@ public class WriteJointAngle : MonoBehaviour
             }
         }
         calculate();
-        CalcualtehandArea();
+        CalculatehandArea();
     }
     private void calculate()
     {
