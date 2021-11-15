@@ -32,10 +32,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main/VideoPlayer.unity
     guid: fda87c58eddf6c040967dda9c7824f0b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Kodama/Scenes/Main/Input.unity
     guid: 895be1e10c5b79c43914c75f0d91dda8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Main/Input.unity
     guid: a0f88b3fdf77445e08d2c94af44e8e7f
   - enabled: 1
