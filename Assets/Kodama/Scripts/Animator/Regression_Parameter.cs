@@ -1,63 +1,63 @@
 public class Regression_Parameter
 {
-    static Regression_Parent ByeBye_Right = new Regression_Parent(
-     new Regression(0.004656f, 0.029632f, 0.058459f, -1.09841f),
-     new Regression(0.007239f, 0.023479f, 0.034087f, -0.93002f),
-     new Regression(-0.03486f, -0.0317f, 0.07812f, 1.117839f),
-     new Regression(-0.06092f, 0.015601f, 0.033245f, -0.25202f)
- );
-    static Regression_Parent LeftBase = new Regression_Parent(
- new Regression(-0.00164f, -0.0441f, 0.047119f, 1.764666f),
- new Regression(0.012162f, 0.032893f, 0.030164f, -0.36895f),
- new Regression(-0.02537f, -0.01149f, 0.039408f, 0.14988f),
- new Regression(0.02543f, 0.005207f, 0.035134f, -0.80695f)
-); 
-    static Regression_Parent Crap_Right = new Regression_Parent(
-new Regression(-0.00348f, 0.079102f, 0.055733f, -2.37839f),
-new Regression(-0.02377f, 0.039493f, 0.069881f, -1.7602f),
-new Regression(-0.01551f, -0.07436f, 0.010323f, 2.345578f),
-new Regression(-0.06063f, 0.0015913f, 0.0000916f, -0.23268f)
+    public static Regression_Parent ByeBye_Right = new Regression_Parent(
+ new Regression(-36.9815f, 28.36071f, 59.09159f, -0.97723f),
+ new Regression(-60.2387f, -15.1416f, 18.91624f, 0.437316f),
+ new Regression(-7.30889f, 26.16098f, -62.8277f, -0.96816f),
+ new Regression(-7.48087f, 19.54086f, -33.2951f, -0.86865f)
 );
-    static Regression_Parent Crap_Left = new Regression_Parent(
-new Regression(0.001993f, -0.07012f, -0.00922f, 2.16255f),
-new Regression(0.059487f, -0.01252f, -0.01021f, 0.639089f),
-new Regression(0.002212f, 0.99175f, 0.027965f, -2.99584f),
-new Regression(0.041009f, 0.036614f, 0.047715f, -1.86028f)
-); 
-    static Regression_Parent Peace_Right = new Regression_Parent(
-new Regression(0.037533f, -0.00188f, -0.05665f, -0.51559f),
-new Regression(0.007859f, 0.040193f, 0.040193f, 0.182174f),
-new Regression(-0.05452f, -0.93829f, 0.0689118f, 1.079423f),
-new Regression(-0.11029f, 0.002094f, -0.0047f, -0.33972f)
+    public static Regression_Parent LeftBase = new Regression_Parent(
+ new Regression(-26.2377f, -0.88429f, 24.67329f, 0.193465f),
+ new Regression(22.11679f, -2.82122f, 30.71758f, 0.750717f),
+ new Regression(2.337998f, -45.2889f, -43.44f, 1.940829f),
+ new Regression(-7.96302f, 41.42624f, -15.7986f, -0.73412f)
 );
-    static Regression_Parent Rokuro_Right = new Regression_Parent(
-new Regression(0.135463f, 0.029876f, -0.13839f, -1.0303f),
-new Regression(-0.04149f, -0.01553f, 0.024244f, -0.34697f),
-new Regression(0.061563f, -0.08466f, -0.05094f, 2.877877f),
-new Regression(-0.04908f, -0.03676f, -0.03061f, 1.209845f)
+    public static Regression_Parent Crap_Right = new Regression_Parent(
+new Regression(-11.3985f, 65.24684f, 25.66743f, -2.41817f),
+new Regression(-52.1789f, -13.4951f, 5.201346f, 0.154617f),
+new Regression(4.905889f, 68.87909f, -32.8589f, -2.41528f),
+new Regression(20.1598f, 35.97955f, -78.9732f, -1.64543f)
 );
-    static Regression_Parent Rokuro_Left = new Regression_Parent(
-new Regression(0.005869f, -0.07839f, -0.03059f, 2.627356f),
-new Regression(0.013176f, -0.03666f, -0.02211f, 1.464822f),
-new Regression(0.051295f, 0.015192f, -0.09486f, -1.08657f),
-new Regression(0.01726f, -0.01804f, 0.02895f, -0.07829f)
+    public static Regression_Parent Crap_Left = new Regression_Parent(
+new Regression(0.961375f, 72.3923f, 6.774653f, 2.492346f),
+new Regression(30.73931f, -29.5179f, 62.74789f, 1.542645f),
+new Regression(3.729647f, -603224f, -19.7513f, 2.305854f),
+new Regression(-52.3411f, -16.9412f, 15.35532f, 0.815407f)
 );
-    static Regression_Parent CoverMouse_Right = new Regression_Parent(
-new Regression(-0.0981f, 0.074717f, -0.00564f, -3.02754f),
-new Regression(0.045582f, 0.000234f, 0.058688f, -0.32715f),
-new Regression(-0.02672f, -0.07234f, 0.004707f, 2.227775f),
-new Regression(0.114238f, -0.01835f, -0.01563f, 1.30058f)
+    public static Regression_Parent Peace_Right = new Regression_Parent(
+new Regression(-58.2678f, 27.298f, 85.01478f, -0.83424f),
+new Regression(-120.026f, -9.9988f, 54.60948f, 0.435264f),
+new Regression(-29.2743f, -4.38231f, 38.89055f, -0.31652f),
+new Regression(-15.1521f, 42.7134f, -79.3487f, -1.44358f)
 );
-    static Regression_Parent CoverMouse_Left = new Regression_Parent(
-new Regression(-0.01359f, -0.03975f, 0.016332f, 1.547639f),
-new Regression(0.05156f, -0.04774f, -0.05532f, 1.37082f),
-new Regression(0.041738f, 0.072608f, -0.02594f, -2.76175f),
-new Regression(0.052403f, -0.00517f, 0.0301f, -0.6812f)
+    public static Regression_Parent Rokuro_Right = new Regression_Parent(
+new Regression(40.52574f, 78.11775f, -40.1988f, -2.91701f),
+new Regression(-40.6979f, 32.42283f, -29.1088f, -1.19437f),
+new Regression(-87.8711f, 21.97935f, 120.8969f, -0.98616f),
+new Regression(35.01593f, -13.4554f, -23.7304f, -0.3423f)
 );
-    static Regression_Parent GutsPose_Right = new Regression_Parent(
-new Regression(-0.01529f, 0.069008f, -0.04346f, -2.82924f),
-new Regression(-0.02107f, 0.016026f, 0.00513f, -1.4687f),
-new Regression(0.011239f, -0.03343f, -0.03139f, 0.650036f),
-new Regression(-0.06768f, -0.04111f, -0.04957f, -0.04957f)
+    public static Regression_Parent Rokuro_Left = new Regression_Parent(
+new Regression(30.37348f, -13.6721f, -89.222f, 1.030216f),
+new Regression(15.34873f, 15.97774f, 27.21345f, 0.077876f),
+new Regression(-0.32419f, -71.0251f, 28.58167f, 2.665376f),
+new Regression(-7.40466f, -31.0087f, 16.12421f, 1.439518f)
+);
+    public static Regression_Parent CoverMouse_Right = new Regression_Parent(
+new Regression(42.90422f, 56.55716f, 39.565f, -2.43569f),
+new Regression(46.04269f, 25.16775f, -28.6784f, -1.23704f),
+new Regression(93.22061f, 68.7477f, 5.347429f, -3.08826f),
+new Regression(-24.1334f, -0.81725f, -53.5543f, -0.36647f)
+);
+    public static Regression_Parent CoverMouse_Left = new Regression_Parent(
+new Regression(28.07613f, -62.5872f, -26.5654f, 2.644818f),
+new Regression(42.11575f, 5.997281f, 33.03549f, 0.579697f),
+new Regression(13.23553f, -36.448f, -19.9671f, 1.613176f),
+new Regression(-43.4745f, -43.7145f, 53.46876f, 1.400132f)
+);
+    public static Regression_Parent GutsPose_Right = new Regression_Parent(
+new Regression(66.01213f, 33.59163f, -94.6612f, -0.61225f),
+new Regression(-43.4188f, 35.9332f, -60.3788f, -1.04408f),
+new Regression(23.00903f, 57.39288f, 29.71141f, -2.62642f),
+new Regression(53.84667f, 9.059687f, -42.1198f, -1.15283f)
 );
 }
