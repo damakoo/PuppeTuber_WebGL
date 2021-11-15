@@ -17,12 +17,12 @@ public class AnimationArea : MonoBehaviour
     {
         AddAnimation(handState.defaultstate);
         AddAnimation(handState.byebye, ByeBye, true,Regression_Parameter.ByeBye_Right,Regression_Parameter.LeftBase);
-        AddAnimation(handState.crap, Crap, false,Regression_Parameter.Crap_Right,Regression_Parameter.Crap_Left,0.1f);
-        AddAnimation(handState.Rokuromawashi, rokuromawashi, false,Regression_Parameter.Rokuro_Right,Regression_Parameter.Rokuro_Left,0.3f);
+        AddAnimation(handState.crap, Crap, false,Regression_Parameter.Crap_Right,Regression_Parameter.Crap_Left,0.25f);
+        AddAnimation(handState.Rokuromawashi, rokuromawashi, false,Regression_Parameter.Rokuro_Right,Regression_Parameter.Rokuro_Left,0.4f);
         AddAnimation(handState.nod);
         AddAnimation(handState.peace, peace, true,Regression_Parameter.Peace_Right,Regression_Parameter.LeftBase);
         AddAnimation(handState.bow);
-        AddAnimation(handState.covermouse, covermouse, false,Regression_Parameter.CoverMouse_Right,Regression_Parameter.CoverMouse_Left,0.3f);
+        AddAnimation(handState.covermouse, covermouse, false,Regression_Parameter.CoverMouse_Right,Regression_Parameter.CoverMouse_Left,0.45f);
         AddAnimation(handState.gutspose, gutspose, true,Regression_Parameter.GutsPose_Right,Regression_Parameter.LeftBase);
     }
 

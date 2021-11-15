@@ -10,8 +10,6 @@ public class TargetController_aramaki : MonoBehaviour
     Animator useranimation => userStudyAnimator.useranimation;
     [SerializeField] GameObject unitychan_hip;
     [SerializeField] GameObject unitychan;
-    [SerializeField] GameObject Righthand;
-    [SerializeField] GameObject Lefthand;
     private Vector3 initpos;
     private Quaternion initRot;
     private HumanPoseHandler humanposehandler;

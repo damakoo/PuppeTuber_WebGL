@@ -19,10 +19,10 @@ new Regression(4.905889f, 68.87909f, -32.8589f, -2.41528f),
 new Regression(20.1598f, 35.97955f, -78.9732f, -1.64543f)
 );
     public static Regression_Parent Crap_Left = new Regression_Parent(
-new Regression(0.961375f, 72.3923f, 6.774653f, 2.492346f),
-new Regression(30.73931f, -29.5179f, 62.74789f, 1.542645f),
-new Regression(3.729647f, -603224f, -19.7513f, 2.305854f),
-new Regression(-52.3411f, -16.9412f, 15.35532f, 0.815407f)
+new Regression(1.006314f, -74.7895f, 1.766126f, 2.628933f),
+new Regression(28.74708f, -35.6277f, 75.25456f, 1.669861f),
+new Regression(5.797674f, -55.8679f, -33.3232f, 2.253914f),
+new Regression(-51.8734f, -15.0708f, 17.47697f, 0.726072f)
 );
     public static Regression_Parent Peace_Right = new Regression_Parent(
 new Regression(-58.2678f, 27.298f, 85.01478f, -0.83424f),

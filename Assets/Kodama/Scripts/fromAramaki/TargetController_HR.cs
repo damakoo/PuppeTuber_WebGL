@@ -11,8 +11,6 @@ public class TargetController_HR : MonoBehaviour
     [SerializeField] GameObject unitychan;
     [SerializeField] GameObject unitychan_hip;
     [SerializeField] GameObject unitychan_ref;
-    [SerializeField] GameObject Righthand;
-    [SerializeField] GameObject Lefthand;
     private Vector3 initpos;
     private Quaternion initRot;
     private Vector3 initposref;
