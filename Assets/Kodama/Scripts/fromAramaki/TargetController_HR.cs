@@ -11,8 +11,6 @@ public class TargetController_HR : MonoBehaviour
     [SerializeField] GameObject unitychan;
     [SerializeField] GameObject unitychan_hip;
     [SerializeField] GameObject unitychan_ref;
-    [SerializeField] GameObject Righthand;
-    [SerializeField] GameObject Lefthand;
     private Vector3 initpos;
     private Quaternion initRot;
     private Vector3 initposref;
@@ -36,6 +34,7 @@ public class TargetController_HR : MonoBehaviour
     private List<AnimationInfo> animationareaList => animationArea.animationareaList;
     void Start()
   {
+        userStudyAnimator.setOutput(true);
         initpos = unitychan_hip.transform.localPosition;
         initRot = unitychan_hip.transform.localRotation; 
         initposref = unitychan_ref.transform.localPosition;
@@ -95,7 +94,7 @@ public class TargetController_HR : MonoBehaviour
             isFirstFrame = true;
             UpdateBasePos();
             UpdateVRIKPos(position, mode);
-            UpdateVRIKRot(mode);
+            UpdateVRIKRot(animationareaList[mode]);
         }
     }
     float clamp(float val, float from1, float from2, float to1, float to2)
@@ -137,12 +136,12 @@ public class TargetController_HR : MonoBehaviour
         rightHandTarget.transform.position = SmoothDampRight(position, mode);
         leftHandTarget.transform.position = SmoothDampLeft(position, mode);
     }
-    void UpdateVRIKRot(int mode)
+    void UpdateVRIKRot(AnimationInfo animation)
     {
-        Lefthand.transform.localRotation = animationareaList[mode].LeftLocalRot;
-        Righthand.transform.localRotation = animationareaList[mode].RightLocalRot;
-        leftHandTarget.transform.rotation = Lefthand.transform.rotation;
-        rightHandTarget.transform.rotation = Righthand.transform.rotation;
+        Vector3 pos_right = new Vector3(rightHandTarget.transform.localPosition.x / rightHandTarget.transform.lossyScale.x, rightHandTarget.transform.localPosition.y / rightHandTarget.transform.lossyScale.y, rightHandTarget.transform.localPosition.z / rightHandTarget.transform.lossyScale.z);
+        Vector3 pos_left = new Vector3(leftHandTarget.transform.localPosition.x / leftHandTarget.transform.lossyScale.x, leftHandTarget.transform.localPosition.y / leftHandTarget.transform.lossyScale.y, leftHandTarget.transform.localPosition.z / leftHandTarget.transform.lossyScale.z);
+        leftHandTarget.transform.localRotation = animation.LeftHandRot.Regression_Analysis(pos_left);
+        rightHandTarget.transform.localRotation = animation.RightHandRot.Regression_Analysis(pos_right);
     }
     void UpdateAnimation(Vector3 position, int mode)
     {

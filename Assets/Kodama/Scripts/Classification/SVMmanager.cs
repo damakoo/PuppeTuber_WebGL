@@ -120,6 +120,7 @@ public class SVMmanager : MonoBehaviour
     }
     private void StartInput()
     {
+        userStudyAnimator.setOutput(false);
         writeJointAngle.enabled = true;
         Debug.Log("Input Start");
         SwitchStep(Step.Input);
@@ -139,6 +140,7 @@ public class SVMmanager : MonoBehaviour
     }
     private void StartOutput()
     {
+        userStudyAnimator.setOutput(true);
         Debug.Log("Output Start");
         SwitchStep(Step.Output);
     }
@@ -163,6 +165,7 @@ public class SVMmanager : MonoBehaviour
     }
     public void InputAgain(string popuptext = "まずはデフォルトのポーズに対応する手の形を決めましょう。", bool _onceLearned = true)
     {
+        userStudyAnimator.setOutput(false);
         unitychanAnimator.enabled = true;
         _vrIK.enabled = false;
         sceneManager.ReInput(popuptext,_onceLearned);

@@ -48,12 +48,14 @@ public class AnimationInfo
         }
     }
     
-    public AnimationInfo (handState _handState,Transform _rangeTransform,bool _onlyRightHand,float _handdistance = 0)
+    public AnimationInfo (handState _handState,Transform _rangeTransform,bool _onlyRightHand,Regression_Parent _RightHandRot,Regression_Parent _LeftHandRot,float _handdistance = 0)
     {
         this.handState = _handState;
         this.useAnimation = false;
         this.rangeTransform = _rangeTransform;
         this.onlyRightHand = _onlyRightHand;
+        this.RightHandRot = _RightHandRot;
+        this.LeftHandRot = _LeftHandRot;
         this.HandDistance = _handdistance;
     }
     public AnimationInfo(handState _handState)
@@ -79,4 +81,6 @@ public class AnimationInfo
             return handAVE + 2 * handSD;
         }
     }
+    public Regression_Parent RightHandRot { get; }
+    public Regression_Parent LeftHandRot { get; }
 }

@@ -16,19 +16,19 @@ public class AnimationArea : MonoBehaviour
     void Start()
     {
         AddAnimation(handState.defaultstate);
-        AddAnimation(handState.byebye, ByeBye, true);
-        AddAnimation(handState.crap, Crap, false,0.1f);
-        AddAnimation(handState.Rokuromawashi, rokuromawashi, false,0.3f);
+        AddAnimation(handState.byebye, ByeBye, true,Regression_Parameter.ByeBye_Right,Regression_Parameter.LeftBase);
+        AddAnimation(handState.crap, Crap, false,Regression_Parameter.Crap_Right,Regression_Parameter.Crap_Left,0.25f);
+        AddAnimation(handState.Rokuromawashi, rokuromawashi, false,Regression_Parameter.Rokuro_Right,Regression_Parameter.Rokuro_Left,0.5f);
         AddAnimation(handState.nod);
-        AddAnimation(handState.peace, peace, true);
+        AddAnimation(handState.peace, peace, true,Regression_Parameter.Peace_Right,Regression_Parameter.LeftBase);
         AddAnimation(handState.bow);
-        AddAnimation(handState.covermouse, covermouse, false,0.3f);
-        AddAnimation(handState.gutspose, gutspose, true);
+        AddAnimation(handState.covermouse, covermouse, false,Regression_Parameter.CoverMouse_Right,Regression_Parameter.CoverMouse_Left,0.45f);
+        AddAnimation(handState.gutspose, gutspose, true,Regression_Parameter.GutsPose_Right,Regression_Parameter.LeftBase);
     }
 
-    void AddAnimation(handState handState, Transform transform,bool _onlyRightHand,float _handdistance = 0)
+    void AddAnimation(handState handState, Transform transform,bool _onlyRightHand,Regression_Parent _RightHandRot, Regression_Parent _LeftHandRot, float _handdistance = 0)
     {
-        AnimationInfo _animation = new AnimationInfo(handState,transform,_onlyRightHand,_handdistance);
+        AnimationInfo _animation = new AnimationInfo(handState,transform,_onlyRightHand,_RightHandRot,_LeftHandRot,_handdistance);
         animationareaList.Add(_animation);
     }
     void AddAnimation(handState handState)
