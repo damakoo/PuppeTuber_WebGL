@@ -69,4 +69,8 @@ public class UserStudyAnimator : MonoBehaviour
   public void changeAnimationToIndex(int index) {
     _handState = (handState)Enum.ToObject(typeof(handState), index);
   }
+    public void setOutput(bool isoutput)
+    {
+        useranimation.SetBool("Output",isoutput);
+    }
 }

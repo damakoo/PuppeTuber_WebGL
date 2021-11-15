@@ -34,6 +34,7 @@ public class TargetController_HR : MonoBehaviour
     private List<AnimationInfo> animationareaList => animationArea.animationareaList;
     void Start()
   {
+        userStudyAnimator.setOutput(true);
         initpos = unitychan_hip.transform.localPosition;
         initRot = unitychan_hip.transform.localRotation; 
         initposref = unitychan_ref.transform.localPosition;
