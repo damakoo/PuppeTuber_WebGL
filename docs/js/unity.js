@@ -11,26 +11,25 @@ let resize = () => {
     if (container_parent.clientWidth <= container_parent.clientHeight * 1.55) {
         container_child.style.width = container_parent.clientWidth.toString() + 'px';
         container_child.style.height = (container_parent.clientWidth / 1.55).toString() + 'px';
-        lisence.style.fontSize = '1.4vw';
-        howtoplaybutton.style.fontSize = '3vw';
-        startbutton.style.fontSize ='3vw';
-        backbutton.style.fontSize ='3vw';
+        lisence.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
+        howtoplaybutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
+        startbutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
+        backbutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
     } else  if (container_parent.clientWidth >= container_parent.clientHeight * 1.65) {
         container_child.style.width = (container_parent.clientHeight * 1.65).toString() + 'px';
         container_child.style.height = container_parent.clientHeight.toString() + 'px';
-        lisence.style.fontSize = '2.3vh';
-        howtoplaybutton.style.fontSize = '5vh';
-        startbutton.style.fontSize = '5vh';
-        backbutton.style.fontSize = '5vh';
+        lisence.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
+        howtoplaybutton.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
+        startbutton.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
+        backbutton.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
     } else {
         container_child.style.width = '100%';
-        container_child.style.height = '100%';        
-        lisence.style.fontSize = '2vh';
-        howtoplaybutton.style.fontSize = '3vw';
-        startbutton.style.fontSize ='3vw';
-        backbutton.style.fontSize ='3vw';
+        container_child.style.height = '100%';
+        lisence.style.transform = "scale(" + container_parent.clientWidth/1200 + ")"; 
+        howtoplaybutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")"; 
+        startbutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")"; 
+        backbutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";        
     }
-    console.log(lisence.style.fontSize);
 }
 let fadevideo = () => {
     startbutton.style.display = `block`;

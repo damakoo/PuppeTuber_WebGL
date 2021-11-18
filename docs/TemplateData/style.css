@@ -149,6 +149,8 @@ button.btn {
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: all 0.3s;
+  transform: scale(0.9);
+  transform-origin:0% 0;
   transition: all 0.3s;
   text-align: center;
   vertical-align: middle;
@@ -157,7 +159,7 @@ button.btn {
   border-radius: 0.5rem;
   background-color: #ffffff00;
   color          : #ffffff;            /* 文字の色 */
-  font-size      : 0rem;               /* 文字のサイズ */
+  font-size      : 2.4rem;               /* 文字のサイズ */
   letter-spacing : 0.4rem;                /* 文字間 */
   text-shadow    : 
        0.2rem  0.2rem 0.2rem #000000,
@@ -184,8 +186,8 @@ a.btn--radius {
 #howtoplay{
     line-height: 1.3;
     position: absolute;
-    width: 24%;
-    height: 8%;
+    width: 270px;
+    height: 60px;
     left: 60%;
     top: 75%;
     z-index: 2;
@@ -193,25 +195,29 @@ a.btn--radius {
 #start{
     line-height: 1.5;
     position: absolute;
-    width: 16%;
-    height: 8%;
-    left: 65%;
+    width: 180px;
+    height: 60px;
+    left: 68%;
     top: 57%;
     z-index: 2;
 }
 #back{
+    line-height: 1.5;
     position: absolute;
-    width: 10%;
-    height: 10%;
-    right: 0%;
-    top: 0%;
+    width: 130px;
+    height: 50px;
+    left: 75%;
+    top: 5%;
     z-index: 2;
 }
   #lisence{
     font-family: 'Makinas';
     position: absolute;
+    width: 250px;
+    height: 60px;
     left: 10%;
     top: 94.8%;
     z-index: 2;
-    font: size 4vmin;
+    transform: scale(1.0);
+    transform-origin:0% 0;
 }
