@@ -56,6 +56,7 @@ howtoplaybutton.disabled = true;
 backbutton.style.display = `none`;
 backbutton.disabled = true;
 lisence.style.display = 'none';
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 };
 
 function BackButtonClick(){
