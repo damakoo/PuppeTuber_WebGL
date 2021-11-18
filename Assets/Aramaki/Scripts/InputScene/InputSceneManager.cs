@@ -11,6 +11,8 @@ public class InputSceneManager : MonoBehaviour
     private static extern void appearcanvas();
     [DllImport("__Internal")]
     private static extern void fadecanvas();
+    [DllImport("__Internal")]
+    private static extern string GetLocalStorage(string key);
     [SerializeField] GameObject popup;
     [SerializeField] Text indexLabel;
     [SerializeField] Text motionNameLabel;
@@ -22,13 +24,15 @@ public class InputSceneManager : MonoBehaviour
     [SerializeField] GameObject inputUISet;
     [SerializeField] GameObject compareUISet;
     public bool isactive_donebutton { get; set; } = false;
-    private bool onceLearned { get; set; } = false;//false:本番用．各アニメーション一度は必ず学習
+    private bool onceLearned = false;//false:本番用．各アニメーション一度は必ず学習
+    private bool HandDetected = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        SetAllButton(false);
         FadeManager.FadeIn();
-        ShowPopup("まずはデフォルトのポーズに対応する手の形を決めましょう。");
+        ShowPopup("まずはデフォルトのポーズに対応する手の形を決めましょう。\n\n「閉じる(B)」を押してカメラに手を映してください．\nうまく手が認識されると「学習開始(B)」を押せるようになります．");
     }
 
     public void ReInput(string popuptext = "まずはデフォルトのポーズに対応する手の形を決めましょう。", bool _onceLearned = true)
@@ -76,7 +80,7 @@ public class InputSceneManager : MonoBehaviour
             inputUISet.SetActive(false);
             compareUISet.SetActive(true);
             svmManager.StartReproducInstruction();
-            ShowPopup("これからあなたとある人の心のキョリを推定します．\n\n左にあなたに合わせたモデルが，右にある人に合わせたモデルがいます．\nある人の手の動きに対して二人のモデルがどれくらい同じ動きをするか見てみましょう");
+            ShowPopup("これからあなたとある人の心のキョリを推定します．\n\n左にあなたに合わせたモデルが，右に前ユーザに合わせたモデルがいます．\nある人の手の動きに対して二人のモデルがどれくらい同じ動きをするか見てみましょう");
         }
     }
 
@@ -113,7 +117,24 @@ public class InputSceneManager : MonoBehaviour
         else
         {
             appearcanvas();
+            if (!HandDetected)
+            {
+                IEnumerator _checkCamera = CheckCamera();
+                StartCoroutine(_checkCamera);
+                HandDetected = true;
+            }
         }
+    }
+    private IEnumerator CheckCamera()
+    {
+        var jsonstr = GetLocalStorage("handpos");
+        while (jsonstr == null)
+        {
+            jsonstr = GetLocalStorage("handpos");
+            yield return null;
+        }
+        SetAllButton(true);
+        doneButton.interactable = onceLearned;
     }
 
     public void SegueToFinish()

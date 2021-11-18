@@ -16,7 +16,7 @@ public class TargetController_aramaki : MonoBehaviour
     private HumanPose humanpose;
     [SerializeField] float _smoothTimeRight = 0.1f;
     [SerializeField] float _smoothTimeLeft = 0.1f;
-    [SerializeField] float _smoothTimemuscle = 0.1f;
+    [SerializeField] float _smoothTimemuscle = 1f;
     // 最高速度
     [SerializeField] float _maxSpeedRight = float.PositiveInfinity;
     [SerializeField] float _maxSpeedLeft = float.PositiveInfinity;
