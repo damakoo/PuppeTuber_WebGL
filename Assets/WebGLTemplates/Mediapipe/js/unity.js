@@ -5,6 +5,7 @@ const startbutton = document.getElementById('start');
 const howtoplaybutton = document.getElementById('howtoplay');
 const backbutton = document.getElementById('back');
 const puppeimg = document.getElementById('puppeimg');
+const lisence = document.getElementById('lisence');
 
 let resize = () => {
     if (container_parent.clientWidth <= container_parent.clientHeight * 1.55) {
@@ -42,6 +43,7 @@ howtoplaybutton.style.display = `none`;
 howtoplaybutton.disabled = true;
 backbutton.style.display = `none`;
 backbutton.disabled = true;
+lisence.style.display = 'none';
 };
 
 function BackButtonClick(){
@@ -55,9 +57,12 @@ function BackButtonClick(){
     puppeimg.style.display = 'block';
 backbutton.style.display = `none`;
 backbutton.disabled = true;
+lisence.style.display = 'block';
 };
 
 function HowToPlayButtonClick(){
+    puppetvideo.style.display = 'block';
+    puppetvideo.play();
     backbutton.style.display = `block`;
     backbutton.disabled = false;
     puppeimg.style.display = 'none';
@@ -65,8 +70,7 @@ startbutton.style.display = `none`;
 startbutton.disabled = true;
 howtoplaybutton.style.display = `none`;
 howtoplaybutton.disabled = true;
-puppetvideo.style.display = 'block';
-puppetvideo.play();
+lisence.style.display = 'none';
 };
 startbutton.onclick = StartButtonClick;
 backbutton.onclick = BackButtonClick;

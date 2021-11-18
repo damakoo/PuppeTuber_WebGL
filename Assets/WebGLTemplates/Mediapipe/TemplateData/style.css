@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Makinas';
+    src: url(./Makinas-Scrap-5.otf);
+}
+
 body {
     padding: 0;
     margin: 0
@@ -124,32 +129,93 @@ body {
     -webkit-transform: rotateY(180deg);
 }
 #howtoplay{
+    line-height: 4;
     position: absolute;
-    width: 20%;
-    height: 15%;
-    left: 75%;
-    top: 75%;
+    width: 17%;
+    height: 10%;
+    left: 65%;
+    top: 70%;
     z-index: 2;
-    font-size: 200%;
+    font-size: 170%;
 }
 #start{
+    line-height: 4;
     position: absolute;
-    width: 20%;
-    height: 15%;
-    left: 10%;
-    top: 75%;
+    width: 10%;
+    height: 10%;
+    left: 70%;
+    top: 50%;
     z-index: 2;
-    font-size: 200%;
+    font-size: 160%;
 }
 #back{
     position: absolute;
     width: 10%;
-    height: 5%;
+    height: 10%;
     right: 0%;
     top: 0%;
     z-index: 2;
 }
 #puppeimg{
     position: absolute;
+    z-index: 2;
+}
+.btn,
+a.btn,
+button.btn {
+    font-family: 'Makinas';
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+a.btn--red.btn--cubic {
+    border-bottom: 5px solid #9f000c;
+  }
+  
+  a.btn--red.btn--cubic:hover {
+    margin-top: 3px;
+    border-bottom: 2px solid #9f000c;
+  }
+  
+  a.btn--radius {
+    border-radius: 100vh;
+  }
+  
+  .fa-position-right {
+    position: absolute;
+    top: calc(50% - .5em);
+    right: 1rem;
+  }
+  #lisence{
+    font-family: 'Makinas';
+    position: absolute;
+    left: 10%;
+    top: 94.8%;
     z-index: 2;
 }
