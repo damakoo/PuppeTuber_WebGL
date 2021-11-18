@@ -123,3 +123,33 @@ body {
 .output_canvas{
     -webkit-transform: rotateY(180deg);
 }
+#howtoplay{
+    position: absolute;
+    width: 20%;
+    height: 15%;
+    left: 75%;
+    top: 75%;
+    z-index: 2;
+    font-size: 200%;
+}
+#start{
+    position: absolute;
+    width: 20%;
+    height: 15%;
+    left: 10%;
+    top: 75%;
+    z-index: 2;
+    font-size: 200%;
+}
+#back{
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    right: 0%;
+    top: 0%;
+    z-index: 2;
+}
+#puppeimg{
+    position: absolute;
+    z-index: 2;
+}
