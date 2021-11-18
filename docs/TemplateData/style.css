@@ -137,9 +137,13 @@ body {
 }
 #videoSource{
     position: absolute;
+    width: 360px;
+    height: 30px;
     left: 67%;
-    top:66%;
+    top:65%;
     z-index: 2;
+    transform: scale(1.0);
+    transform-origin:0% 0;
 }
 .btn,
 a.btn,
