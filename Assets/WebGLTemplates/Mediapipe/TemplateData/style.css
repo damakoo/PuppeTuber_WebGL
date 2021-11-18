@@ -215,9 +215,10 @@ a.btn--radius {
     position: absolute;
     width: 250px;
     height: 20px;
-    left: 10%;
-    top: 94.8%;
+    left: 9.5%;
+    top: 94.45%;
     z-index: 2;
     transform: scale(1.0);
     transform-origin:0% 0;
+    font-size: 104%;
 }
