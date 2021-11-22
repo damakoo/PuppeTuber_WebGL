@@ -11,6 +11,7 @@ let resize = () => {
     if (container_parent.clientWidth <= container_parent.clientHeight * 1.55) {
         container_child.style.width = container_parent.clientWidth.toString() + 'px';
         container_child.style.height = (container_parent.clientWidth / 1.55).toString() + 'px';
+        videosource.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
         lisence.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
         howtoplaybutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
         startbutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
@@ -18,6 +19,7 @@ let resize = () => {
     } else  if (container_parent.clientWidth >= container_parent.clientHeight * 1.65) {
         container_child.style.width = (container_parent.clientHeight * 1.65).toString() + 'px';
         container_child.style.height = container_parent.clientHeight.toString() + 'px';
+        videosource.style.transform = "scale(" + container_parent.clientHeight/750 + ")";
         lisence.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
         howtoplaybutton.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
         startbutton.style.transform = "scale(" + container_parent.clientHeight/700 + ")";
@@ -25,6 +27,7 @@ let resize = () => {
     } else {
         container_child.style.width = '100%';
         container_child.style.height = '100%';
+        videosource.style.transform = "scale(" + container_parent.clientWidth/1200 + ")";
         lisence.style.transform = "scale(" + container_parent.clientWidth/1200 + ")"; 
         howtoplaybutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")"; 
         startbutton.style.transform = "scale(" + container_parent.clientWidth/1200 + ")"; 
@@ -56,6 +59,7 @@ howtoplaybutton.disabled = true;
 backbutton.style.display = `none`;
 backbutton.disabled = true;
 lisence.style.display = 'none';
+navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
 };
 
 function BackButtonClick(){
