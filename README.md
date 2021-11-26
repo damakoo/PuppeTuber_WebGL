@@ -32,8 +32,8 @@ git clone https://github.com/damakoo/PuppeTuber_WebGL.git
 
 # Author
 Daiki Kodama
-
 東京大学大学院情報理工学系研究科知能機械情報学専攻修士1年
-
 email:d_kodama at cyber.t.u-tokyo.ac.jp
 
+MinaMi Aramaki
+東京大学工学部電気電子工学科4年
