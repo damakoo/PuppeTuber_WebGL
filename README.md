@@ -22,7 +22,7 @@ Google Mediapipe を使用．JavaScript側でハンドトラッキングを行�
 # Requirement
 
 Unity
-（動作確認はブラウザのみ，Google Chrome 推奨)
+（動作確認はブラウザのみで可，Google Chrome 推奨)
 
 # Installation & Usage
 
